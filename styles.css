@@ -32,7 +32,6 @@ html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
 @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } * { transition: none !important; animation: none !important; } }
 body { margin: 0; font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif; background: var(--bg); color: var(--ink); line-height: 1.6; font-size: 1.0625rem; }
 .wrap { width: min(1080px, 100% - 2.5rem); margin-inline: auto; }
-.narrow { width: min(760px, 100% - 2.5rem); }
 a { color: var(--accent); text-underline-offset: 3px; }
 :focus-visible { outline: 3px solid var(--focus); outline-offset: 3px; border-radius: 6px; }
 .skip { position: absolute; left: -999px; top: 0; background: var(--ink); color: var(--bg); padding: .75rem 1rem; z-index: 10; }
@@ -83,7 +82,7 @@ h3 { font-size: 1.1rem; }
 /* Sections */
 .section { padding: 3rem 0; }
 .section.alt { background: var(--bg-alt); }
-.lede { color: var(--ink-soft); max-width: 62ch; margin: 0 0 1.25rem; }
+.lede { color: var(--ink-soft); max-width: 75ch; margin: 0 0 1.25rem; }
 .label { display: block; font-weight: 650; margin-bottom: .4rem; }
 textarea, input[type="search"] { width: 100%; font: inherit; color: var(--ink); background: var(--surface); border: 2px solid var(--line); border-radius: 12px; padding: .8rem 1rem; min-height: 48px; }
 textarea { resize: vertical; min-height: 120px; }
@@ -132,7 +131,7 @@ details.breakdown ul { margin: .4rem 0 0; padding-left: 1.2rem; }
 .org { margin: 0; font-weight: 650; }
 .dates { margin: 0 0 .25rem; color: var(--ink-soft); font-size: .95rem; }
 .badge { display: inline-block; margin: .1rem 0 .3rem; padding: .15rem .7rem; border-radius: 999px; background: var(--yes-bg); color: var(--yes-ink); border: 1px solid var(--yes-line); font-size: .85rem; font-weight: 650; }
-.job ul { margin: .5rem 0 0; padding-left: 1.2rem; }
+.job ul { margin: .5rem 0 0; padding-left: 1.2rem; max-width: 75ch; }
 .job li { margin-bottom: .4rem; }
 .edu-h { margin-top: 1rem; }
 .edu { list-style: none; padding: 0; display: grid; gap: .5rem; }

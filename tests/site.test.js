@@ -188,3 +188,12 @@ test('Airbus leadership bullet: past tense everywhere (deliberate, Ben-approved 
   assert.ok(!/Project manage a leadership/.test(html + blob), 'no stale present-tense copy');
   assert.equal((JSON.parse(fs.readFileSync(path.join(root, 'data', 'skills.json'), 'utf8')).skills.flatMap((s) => s.evidence).filter((e) => e.text === bullet)).length, 3);
 });
+
+test('layout: every section shares the same outer container; only long text has a reading width', () => {
+  const css = fs.readFileSync(path.join(root, 'styles.css'), 'utf8');
+  assert.ok(!/narrow/.test(html) && !/\.narrow/.test(css), 'no narrower per-section container');
+  const wraps = [...html.matchAll(/<div class="([^"]*\bwrap\b[^"]*)"/g)].map((m) => m[1]);
+  assert.ok(wraps.length >= 5 && wraps.every((c) => c.split(' ').filter((x) => x !== 'hero-grid').join(' ') === 'wrap'), wraps.join('|'));
+  assert.match(css, /\.lede \{[^}]*max-width: 75ch/);
+  assert.match(css, /\.job ul \{[^}]*max-width: 75ch/);
+});
