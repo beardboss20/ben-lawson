@@ -180,3 +180,11 @@ test('timeline: circles and line share one x variable; line starts and ends at c
   assert.match(css, /\.job:last-child::after \{ display: none; \}/);
   assert.ok(!/\.timeline \{[^}]*border-left/.test(css), 'no container border line sticking out above the first circle');
 });
+
+test('Airbus leadership bullet: past tense everywhere (deliberate, Ben-approved difference from the resume PDF)', () => {
+  const bullet = 'Project managed a leadership development program, coordinating cross-functional teams and external facilitators to upskill 28 leaders.';
+  assert.ok(html.includes(bullet));
+  const blob = ['skills', 'profile'].map((n) => fs.readFileSync(path.join(root, 'data', n + '.json'), 'utf8')).join('\n');
+  assert.ok(!/Project manage a leadership/.test(html + blob), 'no stale present-tense copy');
+  assert.equal((JSON.parse(fs.readFileSync(path.join(root, 'data', 'skills.json'), 'utf8')).skills.flatMap((s) => s.evidence).filter((e) => e.text === bullet)).length, 3);
+});
