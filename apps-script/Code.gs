@@ -5,7 +5,8 @@
  * Called only by the site's Vercel function /api/request-resume.
  *
  * What it does on each POST:
- *   1. Checks the shared secret token (stored in Script Properties, never in this file).
+ *   1. Checks the shared secret token. The secret is read from the Script Property SHARED_SECRET,
+ *      falling back to the hidden "Config" tab (cell B1). It is never written in this file.
  *   2. Validates the fields again.
  *   3. Appends a row: Timestamp (America/Chicago), Name, Email, Company, Job title, Status = New, Notes.
  *   4. Emails Ben a notification. It never emails the recruiter, so there is no auto-reply.
@@ -15,6 +16,7 @@
 
 var NOTIFY_TO = 'benhlawson@gmail.com';
 var SHEET_NAME = 'Requests';
+var CONFIG_SHEET_NAME = 'Config';
 var TIMEZONE = 'America/Chicago';
 var LIMITS = { name: 100, email: 160, company: 120, jobTitle: 140 };
 var EMAIL_RE = /^[^\s@<>()\[\]\\,;:"]+@[^\s@<>()\[\]\\,;:"]+\.[A-Za-z]{2,}$/;
@@ -23,7 +25,8 @@ function doPost(e) {
   try {
     var data = JSON.parse((e && e.postData && e.postData.contents) || '{}');
 
-    var secret = PropertiesService.getScriptProperties().getProperty('SHARED_SECRET');
+    var secret = getSecret_();
+    hideConfig_();
     if (!secret || !constantTimeEquals_(String(data.token || ''), secret)) {
       return json_({ ok: false, error: 'unauthorized' });
     }
@@ -78,6 +81,31 @@ function doPost(e) {
   }
 }
 
+/** Runs when the sheet is opened: keeps the Config tab hidden. */
+function onOpen() {
+  hideConfig_();
+}
+
+function hideConfig_() {
+  try {
+    var cfg = SpreadsheetApp.getActiveSpreadsheet().getSheetByName(CONFIG_SHEET_NAME);
+    if (cfg && !cfg.isSheetHidden()) cfg.hideSheet();
+  } catch (err) {
+    console.error(err);
+  }
+}
+
+/** Script Property SHARED_SECRET wins; otherwise Config!B1 (when A1 says SHARED_SECRET). */
+function getSecret_() {
+  var prop = PropertiesService.getScriptProperties().getProperty('SHARED_SECRET');
+  if (prop) return String(prop).trim();
+  var cfg = SpreadsheetApp.getActiveSpreadsheet().getSheetByName(CONFIG_SHEET_NAME);
+  if (!cfg) return '';
+  var key = String(cfg.getRange('A1').getValue()).trim();
+  var val = String(cfg.getRange('B1').getValue()).trim();
+  return key === 'SHARED_SECRET' ? val : '';
+}
+
 // A GET (for example someone opening the URL in a browser) reveals nothing.
 function doGet() {
   return json_({ ok: false, error: 'method_not_allowed' });
@@ -103,7 +131,7 @@ function constantTimeEquals_(a, b) {
  * It writes a clearly marked TEST row and sends you one email. Delete the row afterwards.
  */
 function selfTest() {
-  var secret = PropertiesService.getScriptProperties().getProperty('SHARED_SECRET');
+  var secret = getSecret_();
   var res = doPost({ postData: { contents: JSON.stringify({ token: secret, name: 'TEST Recruiter', email: 'test@example.com', company: 'Test Co', jobTitle: 'Test opening' }) } });
   console.log(res.getContent());
 }

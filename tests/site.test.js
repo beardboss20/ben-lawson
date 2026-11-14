@@ -128,6 +128,9 @@ test('apps script: notifies Ben only, with noReply, and checks the token from Sc
   assert.match(gs, /NOTIFY_TO = 'benhlawson@gmail.com'/);
   assert.match(gs, /noReply: true/);
   assert.match(gs, /getProperty\('SHARED_SECRET'\)/);
+  assert.match(gs, /getRange\('B1'\)/, 'falls back to Config!B1');
+  assert.match(gs, /hideSheet\(\)/, 'keeps the Config tab hidden');
+  assert.ok(!/[0-9a-f]{64}/.test(gs), 'no secret-looking value in the script');
   assert.match(gs, /'Resume request from ' \+ clean\.name \+ ' at ' \+ clean\.company \+ ', ' \+ clean\.jobTitle/);
   assert.ok(!/to: *clean\.email/.test(gs));
 });
