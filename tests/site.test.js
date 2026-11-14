@@ -157,3 +157,16 @@ test('hero stat boxes: the four credentials, no 7+ years box, honest framing, to
   assert.ok(!/Agile|Leadership Development Program/.test(hero));
   assert.match(tips[3], /Geo chair of the Omaha Aspire ERG, leading a team of 4 serving 200\+ members/);
 });
+
+test('resume v5: the Airbus programs bullet no longer claims a count of 7', () => {
+  const all = html + JSON.stringify(read5());
+  assert.ok(!/facilitated 7 programs/.test(all));
+  assert.match(html, /Designed and facilitated programs and workshops on AI enablement and upskilling, mentorship, and presentation skills, for groups of 3 to 60\./);
+});
+function read5() { return ['skills', 'titles', 'gaps', 'profile'].map((n) => JSON.parse(fs.readFileSync(path.join(root, 'data', n + '.json'), 'utf8'))); }
+
+test('example chips: label on its own line, all chips grouped underneath', () => {
+  assert.match(html, /<p class="examples-label" id="examples-label">Try an example:<\/p>\s*<div class="example-chips" role="group" aria-labelledby="examples-label">/);
+  assert.equal((html.match(/class="chip example"/g) || []).length, 4);
+  assert.match(fs.readFileSync(path.join(root, 'styles.css'), 'utf8'), /\.example-chips \{[^}]*flex-direction: column/);
+});

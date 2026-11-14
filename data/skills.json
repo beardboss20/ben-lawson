@@ -23,7 +23,7 @@
           "source": "resume"
         },
         {
-          "text": "Product Owner, Learning & Development / Release Specialist, Bank of the West (acquired by BMO), January 2018 – August 2024",
+          "text": "Product Owner, Learning & Development / Release Specialist | Bank of the West (acquired by BMO) | January 2018 – August 2024",
           "source": "resume"
         }
       ]
@@ -148,7 +148,7 @@
           "source": "resume"
         },
         {
-          "text": "Product Owner, Learning & Development / Release Specialist, Bank of the West (acquired by BMO)",
+          "text": "Product Owner, Learning & Development / Release Specialist | Bank of the West (acquired by BMO)",
           "source": "resume"
         }
       ]
@@ -232,7 +232,7 @@
         },
         {"text": "Core competencies: Leadership Development & Capability Building", "source": "resume"},
         {
-          "text": "Designed and facilitated 7 programs and workshops on AI enablement and upskilling, mentorship, and presentation skills, for groups of 3 to 60.",
+          "text": "Designed and facilitated programs and workshops on AI enablement and upskilling, mentorship, and presentation skills, for groups of 3 to 60.",
           "source": "resume"
         }
       ]
@@ -274,7 +274,7 @@
       "evidence": [
         {"text": "Core competencies: Virtual and In-Person Facilitation", "source": "resume"},
         {
-          "text": "Designed and facilitated 7 programs and workshops on AI enablement and upskilling, mentorship, and presentation skills, for groups of 3 to 60.",
+          "text": "Designed and facilitated programs and workshops on AI enablement and upskilling, mentorship, and presentation skills, for groups of 3 to 60.",
           "source": "resume"
         }
       ]
@@ -302,7 +302,7 @@
       "evidence": [
         {"text": "Core competencies: Mentorship Programs", "source": "resume"},
         {
-          "text": "Designed and facilitated 7 programs and workshops on AI enablement and upskilling, mentorship, and presentation skills, for groups of 3 to 60.",
+          "text": "Designed and facilitated programs and workshops on AI enablement and upskilling, mentorship, and presentation skills, for groups of 3 to 60.",
           "source": "resume"
         }
       ]
@@ -397,7 +397,7 @@
       "synonyms": ["communications", "communication", "presentation", "presentations", "internal communications", "communication skills", "business communication"],
       "evidence": [
         {
-          "text": "Designed and facilitated 7 programs and workshops on AI enablement and upskilling, mentorship, and presentation skills, for groups of 3 to 60.",
+          "text": "Designed and facilitated programs and workshops on AI enablement and upskilling, mentorship, and presentation skills, for groups of 3 to 60.",
           "source": "resume"
         },
         {
@@ -415,7 +415,7 @@
       "synonyms": ["ai enablement", "ai adoption", "ai upskilling", "ai training", "ai literacy", "ai workshops", "ai workshop", "ai in hr", "ai for hr", "hr ai", "ai change management", "ai transformation", "ai education", "ai fluency", "ai champion", "ai ambassador", "hr ai ambassador", "gemini ambassador", "ai program", "ai programs"],
       "evidence": [
         {
-          "text": "Designed and facilitated 7 programs and workshops on AI enablement and upskilling, mentorship, and presentation skills, for groups of 3 to 60.",
+          "text": "Designed and facilitated programs and workshops on AI enablement and upskilling, mentorship, and presentation skills, for groups of 3 to 60.",
           "source": "resume"
         },
         {"text": "Gemini Ambassador and HR AI Ambassador", "source": "resume"},
@@ -659,7 +659,10 @@
       "years": null,
       "synonyms": ["banking", "bank", "banks", "financial services", "fintech", "retail banking", "bank teller", "teller", "payments", "financial institution", "financial institutions"],
       "evidence": [
-        {"text": "Bank of the West (acquired by BMO), January 2018 – August 2024", "source": "resume"},
+        {
+          "text": "Product Owner, Learning & Development / Release Specialist | Bank of the West (acquired by BMO) | January 2018 – August 2024",
+          "source": "resume"
+        },
         {"text": "Earlier roles: bank teller, and Fraud and Risk analyst at PayPal.", "source": "confirmed"}
       ]
     },

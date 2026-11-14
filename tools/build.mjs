@@ -15,7 +15,7 @@ const timeline = p.experience.map((e) => {
     li(12, '<ul>') + '\n' + bullets + '\n' + li(12, '</ul>') + '\n' + li(10, '</li>');
 }).join('\n');
 const education = p.education.map((e) => li(10, `<li><strong>${esc(e.name)}</strong><span>${esc(e.org)}</span></li>`)).join('\n');
-const examples = p.examples.map((x) => li(10, `<button type="button" class="chip example" data-text="${esc(x)}">${esc(x.split(',').slice(0, 3).join(',').trim())}&hellip;</button>`)).join('\n');
+const examples = p.examples.map((x) => li(12, `<button type="button" class="chip example" data-text="${esc(x)}">${esc(x.split(',').slice(0, 3).join(',').trim())}&hellip;</button>`)).join('\n');
 // Data is inlined into the page so the matcher needs no runtime fetch.
 // '<' is escaped so the JSON can never close its script tag.
 const inline = (name) => JSON.stringify(JSON.parse(readFileSync(join(root, 'data', name + '.json'), 'utf8'))).replace(/</g, '\\u003c');

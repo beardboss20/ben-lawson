@@ -69,8 +69,10 @@
           </div>
         </form>
         <div class="examples" aria-label="Example searches">
-          <span class="examples-label">Try an example:</span>
+          <p class="examples-label" id="examples-label">Try an example:</p>
+          <div class="example-chips" role="group" aria-labelledby="examples-label">
 {{EXAMPLES}}
+          </div>
         </div>
         <div id="results" class="results" aria-live="polite" aria-atomic="false"></div>
         <p class="fineprint">This runs entirely in your browser. Nothing you type is sent anywhere. It matches keywords and phrases against Ben&rsquo;s resume, so it can miss a differently worded requirement. If something shows NOT YET and you think it should match, ask him.</p>

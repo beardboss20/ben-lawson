@@ -90,8 +90,9 @@ textarea { resize: vertical; min-height: 120px; }
 textarea:focus-visible, input[type="search"]:focus-visible { outline: 3px solid var(--focus); outline-offset: 1px; border-color: var(--focus); }
 .form-row { display: flex; flex-wrap: wrap; gap: .75rem; align-items: center; margin-top: .75rem; }
 .hint { color: var(--ink-soft); font-size: .9rem; }
-.examples { display: flex; flex-wrap: wrap; gap: .5rem; align-items: center; margin-top: 1rem; }
-.examples-label { color: var(--ink-soft); font-size: .95rem; }
+.examples { margin-top: 1rem; }
+.examples-label { color: var(--ink-soft); font-size: .95rem; margin: 0 0 .5rem; }
+.example-chips { display: flex; flex-direction: column; align-items: flex-start; gap: .5rem; }
 .chip { font: inherit; font-size: .95rem; min-height: 44px; padding: .35rem .9rem; border-radius: 999px; border: 2px solid var(--line); background: var(--surface); color: var(--ink); cursor: pointer; }
 .chip:hover { border-color: var(--accent); }
 .chip[aria-pressed="true"] { background: var(--accent); border-color: var(--accent); color: var(--accent-ink); font-weight: 650; }
@@ -178,3 +179,4 @@ details.breakdown ul { margin: .4rem 0 0; padding-left: 1.2rem; }
 .form-status.ok { color: var(--yes-ink); background: var(--yes-bg); border: 1px solid var(--yes-line); border-radius: 10px; padding: .6rem .8rem; }
 .form-status.bad { color: var(--no-ink); background: var(--no-bg); border: 1px solid var(--no-line); border-radius: 10px; padding: .6rem .8rem; }
 .btn[disabled] { opacity: .6; cursor: not-allowed; }
+.example-chips .chip { text-align: left; }
