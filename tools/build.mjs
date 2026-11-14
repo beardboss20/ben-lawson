@@ -7,7 +7,7 @@ const root = join(dirname(fileURLToPath(import.meta.url)), '..');
 const p = JSON.parse(readFileSync(join(root, 'data/profile.json'), 'utf8'));
 const esc = (s) => String(s).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
 const li = (n, s) => ' '.repeat(n) + s;
-const highlights = p.highlights.map((h) => li(8, `<li><strong>${esc(h.stat)}</strong><span>${esc(h.label)}</span></li>`)).join('\n');
+const highlights = p.highlights.map((h, i) => li(8, `<li class="stat-item"><button type="button" class="stat" aria-describedby="tip-${i + 1}"><strong>${esc(h.stat)}</strong><span class="stat-label">${esc(h.label)}</span><span class="stat-i" aria-hidden="true">i</span></button><span class="tip" id="tip-${i + 1}" role="tooltip">${esc(h.details)}</span></li>`)).join('\n');
 const timeline = p.experience.map((e) => {
   const bullets = e.bullets.map((b) => li(14, `<li>${esc(b)}</li>`)).join('\n');
   return li(10, '<li class="job">') + '\n' +

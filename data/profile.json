@@ -9,10 +9,26 @@
     "linkedin": "https://www.linkedin.com/in/benhlawson"
   },
   "highlights": [
-    { "stat": "7+", "label": "years in HR and L&D" },
-    { "stat": "28", "label": "leaders in a leadership development program" },
-    { "stat": "25%", "label": "branch turnover reduction contributed to" },
-    { "stat": "5,000", "label": "employees in the exit survey program" }
+    {
+      "stat": "xAI",
+      "label": "Trained and evaluated Grok",
+      "details": "Trained and evaluated Grok, reviewed other trainers' work, and set guidelines on special projects."
+    },
+    {
+      "stat": "25%",
+      "label": "Turnover drop from exit data",
+      "details": "Ran the exit survey program for about 5,000 employees. The findings shaped new manager training, which helped drive a 25% drop in branch turnover."
+    },
+    {
+      "stat": "28 leaders",
+      "label": "Leadership program designed",
+      "details": "Designed and ran a leadership development program for 28 leaders at Airbus."
+    },
+    {
+      "stat": "200+",
+      "label": "ERG members served",
+      "details": "Geo chair of the Omaha Aspire ERG, leading a team of 4 serving 200+ members."
+    }
   ],
   "experience": [
     {
@@ -60,10 +76,22 @@
     }
   ],
   "education": [
-    { "name": "Master of Business Administration", "org": "Bellevue University" },
-    { "name": "Bachelor of General Studies, Spanish", "org": "University of Nebraska at Omaha" },
-    { "name": "Project Management for Learning Professionals", "org": "ATD Certified" },
-    { "name": "Evaluating Learning Impact for HR Professionals", "org": "ATD Certified" }
+    {
+      "name": "Master of Business Administration",
+      "org": "Bellevue University"
+    },
+    {
+      "name": "Bachelor of General Studies, Spanish",
+      "org": "University of Nebraska at Omaha"
+    },
+    {
+      "name": "Project Management for Learning Professionals",
+      "org": "ATD Certified"
+    },
+    {
+      "name": "Evaluating Learning Impact for HR Professionals",
+      "org": "ATD Certified"
+    }
   ],
   "examples": [
     "L&D Manager, HRIS, change management, 8+ years HR, Power BI, LMS admin",

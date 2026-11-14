@@ -141,6 +141,18 @@
     });
   }
 
+  // Hero stat boxes: tap or Enter toggles the details tooltip (hover and focus work in CSS).
+  (function stats() {
+    var items = document.querySelectorAll('.stat-item');
+    function closeAll(except) { Array.prototype.forEach.call(items, function (i) { if (i !== except) i.classList.remove('open'); }); }
+    Array.prototype.forEach.call(items, function (item) {
+      var btn = item.querySelector('.stat');
+      btn.addEventListener('click', function (e) { e.stopPropagation(); closeAll(item); item.classList.toggle('open'); });
+    });
+    document.addEventListener('click', function () { closeAll(null); });
+    document.addEventListener('keydown', function (e) { if (e.key === 'Escape') closeAll(null); });
+  })();
+
   try {
     init({ skills: readData('data-skills'), titles: readData('data-titles'), gaps: readData('data-gaps') });
   } catch (err) {

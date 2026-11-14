@@ -134,3 +134,26 @@ test('apps script: notifies Ben only, with noReply, and checks the token from Sc
   assert.match(gs, /'Resume request from ' \+ clean\.name \+ ' at ' \+ clean\.company \+ ', ' \+ clean\.jobTitle/);
   assert.ok(!/to: *clean\.email/.test(gs));
 });
+
+test('hero stat boxes: the four credentials, no 7+ years box, honest framing, tooltips wired', () => {
+  const hero = html.split('<main>')[0];
+  const stats = [...hero.matchAll(/<button type="button" class="stat" aria-describedby="(tip-\d)"><strong>([^<]+)<\/strong><span class="stat-label">([^<]+)<\/span>/g)].map((m) => ({ tip: m[1], value: m[2], label: m[3] }));
+  assert.deepEqual(stats.map((s) => [s.value, s.label]), [
+    ['xAI', 'Trained and evaluated Grok'],
+    ['25%', 'Turnover drop from exit data'],
+    ['28 leaders', 'Leadership program designed'],
+    ['200+', 'ERG members served'],
+  ]);
+  for (const s of stats) assert.ok(s.label.split(' ').length <= 5, s.label + ' stays short');
+  assert.ok(!/>7\+</.test(hero) && !/years in HR and L&amp;D/.test(hero));
+  for (const s of stats) assert.match(hero, new RegExp('<span class="tip" id="' + s.tip + '" role="tooltip">'));
+  const tips = [...hero.matchAll(/role="tooltip">([^<]+)</g)].map((m) => m[1]);
+  assert.equal(tips.length, 4);
+  assert.match(tips[0], /Trained and evaluated Grok, reviewed other trainers&#39;? ?work|reviewed other trainers/);
+  assert.match(tips[1], /about 5,000 employees/);
+  assert.match(tips[1], /helped drive a 25% drop in branch turnover/);
+  assert.ok(!/cut turnover|cut branch turnover|reduced turnover by 25/i.test(hero));
+  assert.match(tips[2], /a leadership development program for 28 leaders at Airbus/);
+  assert.ok(!/Agile|Leadership Development Program/.test(hero));
+  assert.match(tips[3], /Geo chair of the Omaha Aspire ERG, leading a team of 4 serving 200\+ members/);
+});
