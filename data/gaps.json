@@ -2,16 +2,10 @@
   "_readme": "Things Ben has NOT done, so the matcher can say NOT YET honestly instead of guessing.",
   "gaps": [
     {
-      "id": "lms-admin",
-      "name": "LMS administration",
-      "synonyms": ["lms admin", "lms administrator", "lms administration", "lms management", "lms manager", "lms owner", "lms configuration", "learning system administrator", "learning system administration", "learning management system administration", "learning management system administrator", "cornerstone admin", "cornerstone administrator", "workday learning admin", "workday learning administrator"],
-      "note": "Ben has used Workday Learning and Cornerstone and was Product Owner on learning platform rollouts, but he doesn't claim LMS administrator experience."
-    },
-    {
       "id": "hris-admin",
       "name": "HRIS administration",
       "synonyms": ["hris admin", "hris administrator", "hris administration", "hris analyst", "hris manager", "workday hcm", "workday admin", "workday administrator", "workday administration", "workday configuration", "successfactors", "adp", "ukg", "paycom", "paylocity", "bamboohr", "dayforce", "oracle hcm", "peoplesoft", "hr systems administration", "hris implementation"],
-      "note": "Ben's Workday experience is Workday Learning, as a Product Owner. He hasn't claimed HRIS administration or configuration."
+      "note": "Ben administers Workday Learning and Cornerstone (the LMS side), but he hasn't claimed core HRIS or HCM administration or configuration."
     },
     {
       "id": "recruiting",

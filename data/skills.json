@@ -112,7 +112,7 @@
       "name": "HR and learning systems (Workday Learning, Cornerstone)",
       "category": "hr",
       "years": null,
-      "caveat": "Ben's Workday and Cornerstone experience is on the learning side (Product Owner on rollouts). He doesn't claim HRIS administration.",
+      "caveat": "Ben's Workday experience is on the learning side (Workday Learning and Cornerstone administration and rollouts). Core HRIS or HCM administration isn't claimed.",
       "synonyms": ["hris", "hr systems", "hr system", "hr technology", "hr tech", "hrtech", "people systems", "people technology", "workday", "workday learning", "cornerstone", "cornerstone ondemand", "hr platform", "hr platforms", "hcm"],
       "evidence": [
         {"text": "Tools & technologies: Workday Learning & Cornerstone", "source": "resume"},
@@ -312,9 +312,26 @@
       "name": "Learning platforms and LMS (Workday Learning, Cornerstone)",
       "category": "ld",
       "years": null,
-      "caveat": "Ben has used these platforms and been Product Owner on rollouts. He doesn't claim LMS administrator experience.",
       "synonyms": ["lms", "learning management system", "learning management systems", "learning platform", "learning platforms", "workday learning", "cornerstone", "cornerstone ondemand", "lxp", "learning experience platform", "learning technology", "learning tech", "learning systems", "learning system"],
       "evidence": [
+        {"text": "Tools & technologies: Workday Learning & Cornerstone", "source": "resume"},
+        {
+          "text": "Served as Product Owner for enterprise learning platform rollouts, including Workday Learning, driving change management and user adoption through the BMO acquisition integration.",
+          "source": "resume"
+        }
+      ]
+    },
+    {
+      "id": "lms-admin",
+      "name": "LMS administration",
+      "category": "ld",
+      "years": null,
+      "synonyms": ["lms admin", "lms administrator", "lms administration", "lms management", "lms manager", "lms owner", "lms configuration", "learning platform admin", "learning platform administrator", "learning platform administration", "learning system administrator", "learning system administration", "learning management system administration", "learning management system administrator", "learning management system admin", "cornerstone admin", "cornerstone administrator", "workday learning admin", "workday learning administrator", "workday learning administration", "course upload", "course uploads", "uploading courses", "enrollment", "enrollments", "course enrollment", "course enrollments", "lms reporting", "learning reporting", "learning reports", "lms reports"],
+      "evidence": [
+        {
+          "text": "Hands-on LMS administration, including course uploads, enrollments, and reporting.",
+          "source": "confirmed"
+        },
         {"text": "Tools & technologies: Workday Learning & Cornerstone", "source": "resume"},
         {
           "text": "Served as Product Owner for enterprise learning platform rollouts, including Workday Learning, driving change management and user adoption through the BMO acquisition integration.",
@@ -436,6 +453,21 @@
         },
         {"text": "Core competencies: AI Enablement & Workflow Automation", "source": "resume"},
         {"text": "Tools & technologies: Power Automate & AI Tools (Gemini, ChatGPT, Grok)", "source": "resume"}
+      ]
+    },
+    {
+      "id": "prompt-engineering",
+      "name": "Prompt engineering",
+      "category": "ai",
+      "years": null,
+      "synonyms": ["prompt engineering", "prompt engineer", "prompting", "prompt design", "prompt writing", "prompt crafting", "llm prompts", "llm prompt", "generative ai prompts", "generative ai prompting", "gen ai prompts", "ai prompts", "ai prompt", "prompt techniques"],
+      "evidence": [
+        {"text": "Hands-on prompt engineering with generative AI tools.", "source": "confirmed"},
+        {"text": "Tools & technologies: Power Automate & AI Tools (Gemini, ChatGPT, Grok)", "source": "resume"},
+        {
+          "text": "Trained and evaluated Grok, xAI's large language model, across 21,000+ multimodal tasks for executive-visible projects, achieving 98% alignment and converting findings into process improvements.",
+          "source": "resume"
+        }
       ]
     },
     {

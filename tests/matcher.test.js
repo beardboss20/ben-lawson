@@ -67,8 +67,18 @@ yes('AI enablement');             // title -> skill set
 yes('Instructional Designer');
 no('8+ years HR', /8\+ years.*7\+ years/);   // tricky: years above 7+
 no('10 years of L&D', /10\+ years/);
-no('LMS admin', /LMS administrator/);        // tricky: has LMS, not admin
-no('LMS administration experience', /administrator/);
+yes('LMS admin');                 // confirmed by Ben
+yes('LMS administrator');
+yes('Cornerstone');
+yes('course uploads and enrollments');
+yes('learning platform admin');
+yes('prompt engineering');        // confirmed by Ben
+yes('prompting');
+yes('LLM prompts');
+yes('generative AI prompts');
+yes('3 years of LMS administration experience'.replace('3 years of ', ''));
+no('HRIS admin', /HRIS/);          // tricky: HRIS yes, HRIS admin still NOT YET
+no('Workday HCM', /HRIS|HCM/);
 no('SQL', /SQL/);
 no('SHRM-CP', /SHRM|ATD/);
 no('HR Business Partner', /Not yet/);        // generalist role: gaps listed
@@ -78,9 +88,26 @@ no('Salesforce admin');
 no('3 years Power BI', /doesn.t say how many years/);
 no('5 years of generative AI', /about 2 years/);
 
-test('HRIS result is honest about scope', () => {
+test('HRIS result is honest about scope and does not contradict LMS admin', () => {
   const r = one('HRIS');
-  assert.ok(r.evidence.some((e) => e.caveat && /doesn.t claim HRIS administration/.test(e.caveat)));
+  const caveat = r.evidence.map((e) => e.caveat).filter(Boolean).join(' ');
+  assert.match(caveat, /Core HRIS or HCM administration isn.t claimed/);
+  assert.ok(!/doesn.t claim (LMS|HRIS administration)/i.test(caveat));
+});
+test('LMS admin and prompt engineering are YES with a Confirmed by Ben line plus related resume proof', () => {
+  const lms = one('LMS admin');
+  assert.ok(lms.evidence.some((e) => e.source === 'confirmed'));
+  assert.ok(lms.evidence.some((e) => e.source === 'resume' && /Workday Learning & Cornerstone/.test(e.text)));
+  const pe = one('prompt engineering');
+  assert.ok(pe.evidence.some((e) => e.source === 'confirmed'));
+  assert.ok(pe.evidence.some((e) => e.source === 'resume' && /Grok/.test(e.text)));
+});
+test('LMS admin and prompt engineering are no longer listed as gaps', () => {
+  const blob = JSON.stringify(data.gaps).toLowerCase();
+  assert.ok(!/lms admin/.test(blob) && !/prompt engineering/.test(blob));
+});
+test('LMS admin with years but no stated years is NOT YET, with the honest note', () => {
+  assert.match(one('5 years LMS admin').note, /doesn.t say how many years/);
 });
 test('HRIS administration is a NOT YET even though HRIS matches', () => {
   assert.equal(one('HRIS administration').verdict, 'no');
@@ -88,8 +115,8 @@ test('HRIS administration is a NOT YET even though HRIS matches', () => {
 test('summary line counts matches', () => {
   const r = m.check('HRIS, L&D, SQL, 8+ years HR, change management, LMS admin, Power BI, AI enablement');
   assert.equal(r.total, 8);
-  assert.equal(r.yes, 5);
-  assert.equal(r.summary, '5 of 8 matched');
+  assert.equal(r.yes, 6);
+  assert.equal(r.summary, '6 of 8 matched');
 });
 test('empty input gives no results; long input is capped', () => {
   assert.equal(m.check('   ').total, 0);

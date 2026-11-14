@@ -5,7 +5,7 @@
       "id": "ld-manager",
       "name": "L&D Manager",
       "aliases": ["ld manager", "l and d manager", "learning and development manager", "learning manager", "training manager", "learning and development lead", "l and d lead", "manager of learning", "manager learning and development", "learning development manager", "head of learning"],
-      "core": ["ld", "instructional-design", "facilitation", "leadership-development", "program-management", "learning-ops", "lms-platforms", "needs-assessment", "learning-evaluation", "change-management"],
+      "core": ["ld", "instructional-design", "facilitation", "leadership-development", "program-management", "learning-ops", "lms-platforms", "lms-admin", "needs-assessment", "learning-evaluation", "change-management"],
       "gaps": ["people-management"],
       "note": "Ben's skills line up with this role. His titles so far have been specialist and product owner roles, not manager roles."
     },
@@ -43,7 +43,7 @@
       "id": "ai-enablement",
       "name": "AI Enablement Lead",
       "aliases": ["ai enablement lead", "ai enablement specialist", "ai enablement manager", "ai enablement", "ai adoption lead", "ai adoption specialist", "ai program manager", "ai champion", "ai learning specialist", "ai transformation specialist", "ai training specialist", "ai upskilling lead", "hr ai specialist", "ai trainer enablement", "ai literacy lead", "ai strategist", "generative ai specialist", "ai workflow specialist", "ai automation specialist", "ai operations", "ai program lead", "head of ai enablement"],
-      "core": ["ai-enablement", "gen-ai", "ai-workflows", "facilitation", "change-management", "ld", "program-management"],
+      "core": ["ai-enablement", "gen-ai", "prompt-engineering", "ai-workflows", "facilitation", "change-management", "ld", "program-management"],
       "gaps": ["ai-governance"]
     },
     {
@@ -65,14 +65,14 @@
       "id": "learning-tech-po",
       "name": "Learning Technology or Product Owner",
       "aliases": ["learning technology specialist", "learning technologist", "learning systems specialist", "learning product owner", "product owner learning", "lms product owner", "learning technology manager", "learning platform owner", "hr technology specialist", "hr product owner", "hr systems analyst", "learning systems analyst", "learning operations specialist", "learning operations manager", "learning ops specialist", "product owner"],
-      "core": ["product-owner", "lms-platforms", "change-management", "learning-ops", "hr-systems", "program-management", "cross-functional"],
-      "gaps": ["lms-admin"]
+      "core": ["product-owner", "lms-platforms", "lms-admin", "change-management", "learning-ops", "hr-systems", "program-management", "cross-functional"],
+      "gaps": []
     },
     {
       "id": "ai-trainer",
       "name": "AI Trainer or Evaluator",
       "aliases": ["ai tutor", "ai trainer", "ai evaluator", "ai quality specialist", "llm trainer", "llm evaluator", "ai data specialist", "model evaluator", "ai quality evaluation specialist", "ai content reviewer", "ai quality reviewer", "prompt evaluator", "ai specialist"],
-      "core": ["ai-evaluation", "gen-ai", "quality-review", "guidelines-documentation"],
+      "core": ["ai-evaluation", "gen-ai", "prompt-engineering", "quality-review", "guidelines-documentation"],
       "gaps": []
     },
     {
