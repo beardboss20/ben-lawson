@@ -122,9 +122,12 @@ details.breakdown summary { cursor: pointer; font-weight: 650; min-height: 32px;
 details.breakdown ul { margin: .4rem 0 0; padding-left: 1.2rem; }
 
 /* Timeline */
-.timeline { list-style: none; padding: 0; margin: 1.5rem 0 0; border-left: 3px solid var(--accent); }
-.job { position: relative; padding: 0 0 1.75rem 1.4rem; }
-.job::before { content: ""; position: absolute; left: -10px; top: .35rem; width: 17px; height: 17px; border-radius: 50%; background: var(--bg-alt); border: 4px solid var(--accent); }
+.timeline { --tl-x: 10px; --tl-line: 4px; --tl-dot: 20px; --tl-dot-top: .35rem; --tl-center: calc(var(--tl-dot-top) + var(--tl-dot) / 2); list-style: none; padding: 0; margin: 1.5rem 0 0; }
+.job { position: relative; padding: 0 0 1.75rem calc(var(--tl-x) + 1.5rem); }
+/* The circle is centered on --tl-x; the line segment runs from this circle's center to the next circle's center, so the line starts and ends at circle centers. */
+.job::before { content: ""; position: absolute; z-index: 1; box-sizing: border-box; left: var(--tl-x); top: var(--tl-dot-top); width: var(--tl-dot); height: var(--tl-dot); transform: translateX(-50%); border-radius: 50%; background: var(--bg-alt); border: 4px solid var(--accent); }
+.job::after { content: ""; position: absolute; left: var(--tl-x); width: var(--tl-line); transform: translateX(-50%); top: var(--tl-center); bottom: calc(-1 * var(--tl-center)); background: var(--accent); }
+.job:last-child::after { display: none; }
 .job-head h3 { margin: 0; }
 .org { margin: 0; font-weight: 650; }
 .dates { margin: 0 0 .25rem; color: var(--ink-soft); font-size: .95rem; }

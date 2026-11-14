@@ -171,3 +171,12 @@ test('example chips: label on its own line, all chips grouped underneath', () =>
   assert.equal((html.match(/class="chip example"/g) || []).length, 4);
   assert.match(fs.readFileSync(path.join(root, 'styles.css'), 'utf8'), /\.example-chips \{[^}]*flex-direction: column/);
 });
+
+test('timeline: circles and line share one x variable; line starts and ends at circle centers', () => {
+  const css = fs.readFileSync(path.join(root, 'styles.css'), 'utf8');
+  assert.match(css, /\.timeline \{[^}]*--tl-x: \d+px/);
+  assert.match(css, /\.job::before \{[^}]*left: var\(--tl-x\)[^}]*transform: translateX\(-50%\)/);
+  assert.match(css, /\.job::after \{[^}]*left: var\(--tl-x\)[^}]*transform: translateX\(-50%\)[^}]*top: var\(--tl-center\)/);
+  assert.match(css, /\.job:last-child::after \{ display: none; \}/);
+  assert.ok(!/\.timeline \{[^}]*border-left/.test(css), 'no container border line sticking out above the first circle');
+});
