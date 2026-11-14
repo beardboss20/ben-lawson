@@ -1,0 +1,677 @@
+{
+  "_readme": "Structured skills for the matcher. Each skill has a canonical name, synonyms and related terms, and evidence quoted from Ben's resume (source: resume) or confirmed by Ben (source: confirmed). years is the number of years Ben can honestly claim, or null when his resume doesn't say. Add synonyms freely; keep evidence honest.",
+  "categories": [
+    {"id": "hr", "name": "HR programs"},
+    {"id": "ld", "name": "L&D and instructional design"},
+    {"id": "ai", "name": "AI and generative AI"},
+    {"id": "analytics", "name": "People analytics"},
+    {"id": "culture", "name": "ERG and culture"},
+    {"id": "risk", "name": "Risk and compliance"},
+    {"id": "edu", "name": "Education and certifications"}
+  ],
+  "skills": [
+    {
+      "id": "hr-experience",
+      "name": "Human resources experience",
+      "category": "hr",
+      "years": 7,
+      "yearsLabel": "7+ years",
+      "synonyms": ["hr", "human resources", "hr experience", "people team", "people and culture", "hr professional"],
+      "evidence": [
+        {
+          "text": "People capability and L&D professional with seven plus years designing learning systems, running people analytics, and putting AI into HR workflows.",
+          "source": "resume"
+        },
+        {
+          "text": "Product Owner, Learning & Development / Release Specialist, Bank of the West (acquired by BMO), January 2018 – August 2024",
+          "source": "resume"
+        }
+      ]
+    },
+    {
+      "id": "exit-survey",
+      "name": "Exit survey program ownership",
+      "category": "hr",
+      "years": null,
+      "synonyms": ["exit survey", "exit surveys", "offboarding survey", "attrition survey", "separation survey", "retention survey", "employee survey", "employee surveys"],
+      "evidence": [
+        {
+          "text": "Owned the exit survey program for about 5,000 employees, from survey design and vendor platform to retention reporting for HR leadership; partnered with L&D leaders to turn findings into new manager training, which contributed to a 25% reduction in branch turnover.",
+          "source": "resume"
+        },
+        {
+          "text": "Covered survey authoring, the vendor and platform, survey logic, working with a developer, Power BI retention dashboards, and reporting to HR leadership.",
+          "source": "confirmed"
+        }
+      ]
+    },
+    {
+      "id": "survey-design",
+      "name": "Survey design and logic",
+      "category": "hr",
+      "years": null,
+      "synonyms": ["survey", "survey design", "survey authoring", "survey logic", "survey development", "questionnaire", "survey platform", "survey vendor"],
+      "evidence": [
+        {
+          "text": "Owned the exit survey program for about 5,000 employees, from survey design and vendor platform to retention reporting for HR leadership",
+          "source": "resume"
+        },
+        {
+          "text": "Hands-on with survey authoring and survey logic, and worked with a developer on the build.",
+          "source": "confirmed"
+        }
+      ]
+    },
+    {
+      "id": "retention-turnover",
+      "name": "Retention and turnover reduction",
+      "category": "hr",
+      "years": null,
+      "synonyms": ["retention", "turnover", "attrition", "employee retention", "turnover reduction", "reduce turnover", "retention insights", "retention strategy"],
+      "evidence": [
+        {
+          "text": "...new manager training, which contributed to a 25% reduction in branch turnover.",
+          "source": "resume"
+        },
+        {"text": "Core competencies: People Analytics & Retention Insights", "source": "resume"}
+      ]
+    },
+    {
+      "id": "manager-training",
+      "name": "New manager training",
+      "category": "hr",
+      "years": null,
+      "synonyms": ["manager training", "new manager training", "manager development", "people manager training", "first time manager", "first-time manager", "frontline leader training", "manager enablement", "manager onboarding"],
+      "evidence": [
+        {
+          "text": "partnered with L&D leaders to turn findings into new manager training, which contributed to a 25% reduction in branch turnover.",
+          "source": "resume"
+        },
+        {
+          "text": "Partnered with Employee Relations and with Employee Experience and L&D leaders on new manager training.",
+          "source": "confirmed"
+        }
+      ]
+    },
+    {
+      "id": "employee-relations",
+      "name": "Partnering with Employee Relations",
+      "category": "hr",
+      "years": null,
+      "caveat": "This is partnership on programs, not employee relations case work or investigations.",
+      "synonyms": ["employee relations", "partner with employee relations", "er partner", "er partnership"],
+      "evidence": [
+        {
+          "text": "Partnered with Employee Relations, and with Employee Experience and L&D leaders, on new manager training that contributed to a 25% reduction in branch turnover.",
+          "source": "confirmed"
+        }
+      ]
+    },
+    {
+      "id": "hr-systems",
+      "name": "HR and learning systems (Workday Learning, Cornerstone)",
+      "category": "hr",
+      "years": null,
+      "caveat": "Ben's Workday and Cornerstone experience is on the learning side (Product Owner on rollouts). He doesn't claim HRIS administration.",
+      "synonyms": ["hris", "hr systems", "hr system", "hr technology", "hr tech", "hrtech", "people systems", "people technology", "workday", "workday learning", "cornerstone", "cornerstone ondemand", "hr platform", "hr platforms", "hcm"],
+      "evidence": [
+        {"text": "Tools & technologies: Workday Learning & Cornerstone", "source": "resume"},
+        {
+          "text": "Served as Product Owner for enterprise learning platform rollouts, including Workday Learning, driving change management and user adoption through the BMO acquisition integration.",
+          "source": "resume"
+        }
+      ]
+    },
+    {
+      "id": "change-management",
+      "name": "Change management and adoption",
+      "category": "hr",
+      "years": null,
+      "synonyms": ["change management", "change", "change enablement", "change leadership", "organizational change", "org change", "user adoption", "adoption", "change adoption", "stakeholder adoption"],
+      "evidence": [
+        {
+          "text": "Served as Product Owner for enterprise learning platform rollouts, including Workday Learning, driving change management and user adoption through the BMO acquisition integration.",
+          "source": "resume"
+        },
+        {"text": "Core competencies: Change Management", "source": "resume"}
+      ]
+    },
+    {
+      "id": "product-owner",
+      "name": "Product ownership and platform rollouts",
+      "category": "hr",
+      "years": null,
+      "synonyms": ["product owner", "product ownership", "platform rollout", "platform rollouts", "platform implementation", "system implementation", "implementation", "rollout", "release management", "release specialist", "technology rollout"],
+      "evidence": [
+        {
+          "text": "Served as Product Owner for enterprise learning platform rollouts, including Workday Learning, driving change management and user adoption through the BMO acquisition integration.",
+          "source": "resume"
+        },
+        {
+          "text": "Product Owner, Learning & Development / Release Specialist, Bank of the West (acquired by BMO)",
+          "source": "resume"
+        }
+      ]
+    },
+    {
+      "id": "program-management",
+      "name": "Program and project management",
+      "category": "hr",
+      "years": null,
+      "caveat": "Ben holds the ATD certificate in project management for learning professionals, not a PMP.",
+      "synonyms": ["program management", "project management", "program manager", "project manager", "project coordination", "program delivery", "program coordination", "pmp", "project planning", "coordinating cross-functional teams"],
+      "evidence": [
+        {
+          "text": "Project manage a leadership development program, coordinating cross-functional teams and external facilitators to upskill 28 leaders.",
+          "source": "resume"
+        },
+        {"text": "Project Management for Learning Professionals, ATD Certified", "source": "resume"}
+      ]
+    },
+    {
+      "id": "agile-jira",
+      "name": "Jira and Agile ways of working",
+      "category": "hr",
+      "years": null,
+      "synonyms": ["jira", "agile", "agile methodology", "ticketing", "kanban"],
+      "evidence": [
+        {"text": "Tools & technologies: Jira & Agile", "source": "resume"}
+      ]
+    },
+    {
+      "id": "mergers",
+      "name": "Acquisition and integration support",
+      "category": "hr",
+      "years": null,
+      "synonyms": ["acquisition", "merger", "mergers", "m and a", "mergers and acquisitions", "integration", "acquisition integration", "bmo", "post-merger", "post merger"],
+      "evidence": [
+        {
+          "text": "...driving change management and user adoption through the BMO acquisition integration.",
+          "source": "resume"
+        }
+      ]
+    },
+    {
+      "id": "learning-ops",
+      "name": "Enterprise learning operations and governance",
+      "category": "hr",
+      "years": null,
+      "synonyms": ["learning operations", "learning ops", "learning governance", "learning intake", "assignment governance", "annual assignment calendar", "learning framework", "learning standards", "learning operations framework", "scorm", "scorm content", "learning administration process", "enterprise learning"],
+      "evidence": [
+        {
+          "text": "Selected as one of three founding members to define Airbus's enterprise learning operations framework, setting org-wide standards for learning intake, needs assessment, assignment governance (request and approval rights), annual assignment calendars, and SCORM content structure.",
+          "source": "resume"
+        }
+      ]
+    },
+    {
+      "id": "cross-functional",
+      "name": "Cross-functional collaboration",
+      "category": "hr",
+      "years": null,
+      "synonyms": ["cross functional", "cross-functional", "cross-functional collaboration", "stakeholder management", "stakeholders", "matrixed", "matrixed organization", "matrixed organizations", "partner with leaders", "collaboration", "external facilitators", "vendor management", "vendors", "vendor"],
+      "evidence": [
+        {"text": "Core competencies: Cross-Functional Collaboration in Matrixed Organizations", "source": "resume"},
+        {
+          "text": "Project manage a leadership development program, coordinating cross-functional teams and external facilitators to upskill 28 leaders.",
+          "source": "resume"
+        }
+      ]
+    },
+    {
+      "id": "ld",
+      "name": "Learning and development",
+      "category": "ld",
+      "years": 7,
+      "yearsLabel": "7+ years",
+      "synonyms": ["l and d", "ld", "learning and development", "learning & development", "training", "learning programs", "learning program", "corporate training", "employee training", "employee development", "learning design", "learning solutions", "talent development", "training programs", "training program", "training and development", "capability building", "people capability", "capability", "learning and talent development", "upskilling", "learning strategy"],
+      "evidence": [
+        {
+          "text": "Designed, produced, and facilitated 20+ virtual and in-person learning programs on leadership, compliance, mentorship, communications, and environmental impact. Built content in Articulate and delivered it over Zoom, Webex, and Teams, with consistently high participant feedback.",
+          "source": "resume"
+        },
+        {"text": "Core competencies: Leadership Development & Capability Building", "source": "resume"},
+        {
+          "text": "Designed and facilitated 7 programs and workshops on AI enablement and upskilling, mentorship, and presentation skills, for groups of 3 to 60.",
+          "source": "resume"
+        }
+      ]
+    },
+    {
+      "id": "instructional-design",
+      "name": "Instructional design",
+      "category": "ld",
+      "years": 7,
+      "yearsLabel": "7+ years",
+      "synonyms": ["instructional design", "instructional designer", "instructional systems design", "curriculum design", "curriculum development", "learning experience design", "lxd", "course design", "course development", "content development", "learning content", "elearning", "e-learning", "e learning", "elearning development", "training design", "training development", "blended learning", "learning materials"],
+      "evidence": [
+        {"text": "Core competencies: Instructional Design", "source": "resume"},
+        {
+          "text": "Designed, produced, and facilitated 20+ virtual and in-person learning programs... Built content in Articulate and delivered it over Zoom, Webex, and Teams",
+          "source": "resume"
+        }
+      ]
+    },
+    {
+      "id": "articulate",
+      "name": "Articulate 360 and Rise",
+      "category": "ld",
+      "years": null,
+      "caveat": "Ben's resume names Articulate 360 and Rise. For other authoring tools, ask him directly.",
+      "synonyms": ["articulate", "articulate 360", "articulate rise", "rise 360", "authoring tool", "authoring tools", "elearning authoring", "e-learning authoring", "course authoring"],
+      "evidence": [
+        {"text": "Tools & technologies: Articulate 360 & Rise", "source": "resume"},
+        {"text": "Hands-on Articulate 360 and Rise experience.", "source": "confirmed"}
+      ]
+    },
+    {
+      "id": "facilitation",
+      "name": "Facilitation and training delivery",
+      "category": "ld",
+      "years": 7,
+      "yearsLabel": "7+ years",
+      "synonyms": ["facilitation", "facilitator", "facilitate", "facilitating", "training delivery", "virtual facilitation", "in-person facilitation", "instructor led training", "instructor-led training", "ilt", "vilt", "virtual instructor led training", "workshop facilitation", "workshop", "workshops", "presentation skills", "presenting", "delivering training", "train the trainer", "classroom training", "virtual training", "trainer", "training facilitator"],
+      "evidence": [
+        {"text": "Core competencies: Virtual and In-Person Facilitation", "source": "resume"},
+        {
+          "text": "Designed and facilitated 7 programs and workshops on AI enablement and upskilling, mentorship, and presentation skills, for groups of 3 to 60.",
+          "source": "resume"
+        }
+      ]
+    },
+    {
+      "id": "leadership-development",
+      "name": "Leadership development",
+      "category": "ld",
+      "years": null,
+      "synonyms": ["leadership development", "leadership training", "leadership program", "leadership programs", "leader development", "leadership curriculum", "leadership development program", "leadership development programs", "leadership learning", "leadership skills training", "leadership capability", "leadership development and capability building"],
+      "evidence": [
+        {
+          "text": "Project manage a leadership development program, coordinating cross-functional teams and external facilitators to upskill 28 leaders.",
+          "source": "resume"
+        },
+        {"text": "Core competencies: Leadership Development & Capability Building", "source": "resume"}
+      ]
+    },
+    {
+      "id": "mentorship",
+      "name": "Mentorship programs",
+      "category": "ld",
+      "years": null,
+      "synonyms": ["mentorship", "mentoring", "mentor", "mentorship program", "mentorship programs", "mentor program", "mentoring program", "mentoring programs", "coaching programs"],
+      "evidence": [
+        {"text": "Core competencies: Mentorship Programs", "source": "resume"},
+        {
+          "text": "Designed and facilitated 7 programs and workshops on AI enablement and upskilling, mentorship, and presentation skills, for groups of 3 to 60.",
+          "source": "resume"
+        }
+      ]
+    },
+    {
+      "id": "lms-platforms",
+      "name": "Learning platforms and LMS (Workday Learning, Cornerstone)",
+      "category": "ld",
+      "years": null,
+      "caveat": "Ben has used these platforms and been Product Owner on rollouts. He doesn't claim LMS administrator experience.",
+      "synonyms": ["lms", "learning management system", "learning management systems", "learning platform", "learning platforms", "workday learning", "cornerstone", "cornerstone ondemand", "lxp", "learning experience platform", "learning technology", "learning tech", "learning systems", "learning system"],
+      "evidence": [
+        {"text": "Tools & technologies: Workday Learning & Cornerstone", "source": "resume"},
+        {
+          "text": "Served as Product Owner for enterprise learning platform rollouts, including Workday Learning, driving change management and user adoption through the BMO acquisition integration.",
+          "source": "resume"
+        }
+      ]
+    },
+    {
+      "id": "virtual-delivery",
+      "name": "Virtual delivery platforms",
+      "category": "ld",
+      "years": null,
+      "synonyms": ["zoom", "webex", "microsoft teams", "ms teams", "google meet", "virtual delivery", "virtual platforms", "virtual classroom", "remote training", "remote facilitation", "video conferencing", "virtual learning"],
+      "evidence": [
+        {"text": "Tools & technologies: Zoom, Webex, Microsoft Teams, Google Meet", "source": "resume"},
+        {
+          "text": "Built content in Articulate and delivered it over Zoom, Webex, and Teams, with consistently high participant feedback.",
+          "source": "resume"
+        }
+      ]
+    },
+    {
+      "id": "compliance-training",
+      "name": "Compliance and required training",
+      "category": "ld",
+      "years": null,
+      "synonyms": ["compliance training", "compliance learning", "required training", "mandatory training", "regulatory training", "compliance programs", "compliance program"],
+      "evidence": [
+        {
+          "text": "Designed, produced, and facilitated 20+ virtual and in-person learning programs on leadership, compliance, mentorship, communications, and environmental impact.",
+          "source": "resume"
+        }
+      ]
+    },
+    {
+      "id": "needs-assessment",
+      "name": "Needs assessment",
+      "category": "ld",
+      "years": null,
+      "synonyms": ["needs assessment", "needs analysis", "training needs analysis", "training needs assessment", "tna", "learning needs", "learning needs analysis", "gap analysis", "learning intake"],
+      "evidence": [
+        {
+          "text": "...setting org-wide standards for learning intake, needs assessment, assignment governance...",
+          "source": "resume"
+        }
+      ]
+    },
+    {
+      "id": "learning-evaluation",
+      "name": "Evaluating learning impact",
+      "category": "ld",
+      "years": null,
+      "synonyms": ["evaluating learning impact", "learning impact", "training effectiveness", "training evaluation", "learning evaluation", "learning measurement", "training impact", "program evaluation", "measuring training"],
+      "evidence": [
+        {"text": "Evaluating Learning Impact for HR Professionals, ATD Certified", "source": "resume"}
+      ]
+    },
+    {
+      "id": "communications",
+      "name": "Communications and presentation skills",
+      "category": "ld",
+      "years": null,
+      "synonyms": ["communications", "communication", "presentation", "presentations", "internal communications", "communication skills", "business communication"],
+      "evidence": [
+        {
+          "text": "Designed and facilitated 7 programs and workshops on AI enablement and upskilling, mentorship, and presentation skills, for groups of 3 to 60.",
+          "source": "resume"
+        },
+        {
+          "text": "...learning programs on leadership, compliance, mentorship, communications, and environmental impact.",
+          "source": "resume"
+        }
+      ]
+    },
+    {
+      "id": "ai-enablement",
+      "name": "AI enablement and upskilling",
+      "category": "ai",
+      "years": 2,
+      "yearsLabel": "about 2 years hands-on (since August 2024)",
+      "synonyms": ["ai enablement", "ai adoption", "ai upskilling", "ai training", "ai literacy", "ai workshops", "ai workshop", "ai in hr", "ai for hr", "hr ai", "ai change management", "ai transformation", "ai education", "ai fluency", "ai champion", "ai ambassador", "hr ai ambassador", "gemini ambassador", "ai program", "ai programs"],
+      "evidence": [
+        {
+          "text": "Designed and facilitated 7 programs and workshops on AI enablement and upskilling, mentorship, and presentation skills, for groups of 3 to 60.",
+          "source": "resume"
+        },
+        {"text": "Gemini Ambassador and HR AI Ambassador", "source": "resume"},
+        {
+          "text": "Developing a hands-on workshop to help HR leaders build their own AI workflows.",
+          "source": "resume"
+        }
+      ]
+    },
+    {
+      "id": "gen-ai",
+      "name": "Generative AI and LLM tools (Gemini, ChatGPT, Grok)",
+      "category": "ai",
+      "years": 2,
+      "yearsLabel": "about 2 years hands-on (since August 2024)",
+      "synonyms": ["generative ai", "gen ai", "genai", "llm", "llms", "large language model", "large language models", "gemini", "chatgpt", "grok", "ai tools", "ai assistants", "ai assistant", "gpt", "openai", "google gemini", "ai"],
+      "evidence": [
+        {"text": "Tools & technologies: Power Automate & AI Tools (Gemini, ChatGPT, Grok)", "source": "resume"},
+        {
+          "text": "Trained and evaluated Grok, xAI's large language model, across 21,000+ multimodal tasks for executive-visible projects, achieving 98% alignment and converting findings into process improvements.",
+          "source": "resume"
+        }
+      ]
+    },
+    {
+      "id": "ai-workflows",
+      "name": "AI workflows and automation",
+      "category": "ai",
+      "years": null,
+      "synonyms": ["workflow automation", "process automation", "ai workflows", "ai workflow", "ai automation", "apps script", "google apps script", "power automate", "automation", "hr automation", "automate", "automating", "automated workflows", "no code automation", "low code", "process improvement", "hr process automation", "ai enablement and workflow automation"],
+      "evidence": [
+        {
+          "text": "Built multiple AI workflows (Gemini, Apps Script) as HR AI Ambassador automating HR processes, including one that cut manual effort by about 95%.",
+          "source": "resume"
+        },
+        {"text": "Core competencies: AI Enablement & Workflow Automation", "source": "resume"},
+        {"text": "Tools & technologies: Power Automate & AI Tools (Gemini, ChatGPT, Grok)", "source": "resume"}
+      ]
+    },
+    {
+      "id": "ai-evaluation",
+      "name": "AI model training and evaluation",
+      "category": "ai",
+      "years": 1,
+      "yearsLabel": "about 1 year (August 2024 – November 2025)",
+      "synonyms": ["ai training data", "model training", "model evaluation", "llm evaluation", "ai evaluation", "ai tutor", "ai trainer", "quality evaluation", "evals", "multimodal", "multimodal tasks", "ai quality", "grok training", "ai model evaluation", "human feedback"],
+      "evidence": [
+        {
+          "text": "Trained and evaluated Grok, xAI's large language model, across 21,000+ multimodal tasks for executive-visible projects, achieving 98% alignment and converting findings into process improvements.",
+          "source": "resume"
+        },
+        {"text": "Trained and evaluated Grok at xAI, August 2024 – November 2025.", "source": "confirmed"}
+      ]
+    },
+    {
+      "id": "quality-review",
+      "name": "Quality review and senior review",
+      "category": "ai",
+      "years": null,
+      "caveat": "Ben served as an informal senior reviewer at xAI. It was not a formal title.",
+      "synonyms": ["quality review", "quality assurance", "qa", "peer review", "work review", "senior reviewer", "reviewer", "reviewing work", "quality control", "quality evaluation specialist", "reviewing others work", "quality"],
+      "evidence": [
+        {
+          "text": "Reviewed and assessed other trainers' work as an informal senior reviewer, and was selected for special projects, establishing project guidelines and documentation.",
+          "source": "resume"
+        }
+      ]
+    },
+    {
+      "id": "guidelines-documentation",
+      "name": "Guidelines and documentation",
+      "category": "ai",
+      "years": null,
+      "synonyms": ["guidelines", "documentation", "project guidelines", "process documentation", "standards", "standard operating procedures", "sop", "sops", "writing guidelines", "technical writing", "documenting", "playbooks", "job aids"],
+      "evidence": [
+        {
+          "text": "Reviewed and assessed other trainers' work as an informal senior reviewer, and was selected for special projects, establishing project guidelines and documentation.",
+          "source": "resume"
+        },
+        {
+          "text": "...setting org-wide standards for learning intake, needs assessment, assignment governance...",
+          "source": "resume"
+        }
+      ]
+    },
+    {
+      "id": "people-analytics",
+      "name": "People analytics",
+      "category": "analytics",
+      "years": null,
+      "synonyms": ["people analytics", "hr analytics", "workforce analytics", "talent analytics", "people data", "hr data", "hr reporting", "people reporting", "retention analytics", "workforce data", "hr metrics", "people metrics", "data driven hr", "data-driven hr"],
+      "evidence": [
+        {"text": "Core competencies: People Analytics & Retention Insights", "source": "resume"},
+        {
+          "text": "People capability and L&D professional with seven plus years designing learning systems, running people analytics, and putting AI into HR workflows.",
+          "source": "resume"
+        }
+      ]
+    },
+    {
+      "id": "power-bi",
+      "name": "Microsoft Power BI",
+      "category": "analytics",
+      "years": null,
+      "synonyms": ["power bi", "powerbi", "microsoft power bi", "dashboards", "dashboard", "data visualization", "data visualisation", "bi tool", "bi reporting", "business intelligence", "retention dashboards", "reporting dashboards", "visualization"],
+      "evidence": [
+        {"text": "Tools & technologies: Microsoft Power BI", "source": "resume"},
+        {"text": "Built Power BI retention dashboards for the exit survey program.", "source": "confirmed"}
+      ]
+    },
+    {
+      "id": "excel-sheets",
+      "name": "Advanced Excel and Google Sheets",
+      "category": "analytics",
+      "years": null,
+      "synonyms": ["excel", "advanced excel", "google sheets", "spreadsheets", "spreadsheet", "microsoft excel", "pivot tables", "sheets", "data analysis", "microsoft office", "office suite", "microsoft office suite", "ms office"],
+      "evidence": [
+        {"text": "Tools & technologies: Advanced Excel / Google Sheets", "source": "resume"},
+        {"text": "Tools & technologies: Microsoft Office Suite", "source": "resume"}
+      ]
+    },
+    {
+      "id": "leadership-reporting",
+      "name": "Reporting to HR leadership",
+      "category": "analytics",
+      "years": null,
+      "synonyms": ["executive reporting", "reporting to leadership", "leadership reporting", "stakeholder reporting", "retention reporting", "reporting to hr leadership", "executive presentations", "executive communication", "executive-visible", "executive visible", "report to executives", "reporting"],
+      "evidence": [
+        {
+          "text": "...from survey design and vendor platform to retention reporting for HR leadership",
+          "source": "resume"
+        },
+        {"text": "...across 21,000+ multimodal tasks for executive-visible projects", "source": "resume"}
+      ]
+    },
+    {
+      "id": "erg",
+      "name": "ERG leadership",
+      "category": "culture",
+      "years": null,
+      "synonyms": ["erg", "ergs", "employee resource group", "employee resource groups", "business resource group", "affinity group", "aspire", "geo chair", "chapter chair", "chapter lead", "community leadership", "employee network", "employee networks"],
+      "evidence": [
+        {"text": "Geo chair, Omaha Aspire ERG: led a team of 4 serving 200+ active members.", "source": "resume"},
+        {
+          "text": "Geo chair of the Omaha Aspire ERG, leading a team of 4 and serving 200+ members.",
+          "source": "confirmed"
+        }
+      ]
+    },
+    {
+      "id": "employee-experience",
+      "name": "Employee experience",
+      "category": "culture",
+      "years": null,
+      "synonyms": ["employee experience", "employee experience programs", "culture", "company culture", "workplace culture", "people experience", "employee listening", "employee programs"],
+      "evidence": [
+        {
+          "text": "Partnered with Employee Experience and L&D leaders on new manager training and the exit survey findings.",
+          "source": "confirmed"
+        },
+        {
+          "text": "Owned the exit survey program for about 5,000 employees, from survey design and vendor platform to retention reporting for HR leadership; partnered with L&D leaders to turn findings into new manager training, which contributed to a 25% reduction in branch turnover.",
+          "source": "resume"
+        }
+      ]
+    },
+    {
+      "id": "team-leadership",
+      "name": "Volunteer team leadership",
+      "category": "culture",
+      "years": null,
+      "caveat": "This is volunteer leadership (ERG team of 4). It is not formal direct-report management.",
+      "synonyms": ["team leadership", "lead a team", "leading a team", "led a team", "team lead", "volunteer leadership", "leadership", "community building", "community"],
+      "evidence": [
+        {"text": "Geo chair, Omaha Aspire ERG: led a team of 4 serving 200+ active members.", "source": "resume"}
+      ]
+    },
+    {
+      "id": "bsa-aml",
+      "name": "BSA/AML",
+      "category": "risk",
+      "years": null,
+      "caveat": "This was earlier in his career, before he moved into HR and L&D.",
+      "synonyms": ["bsa", "aml", "bsa aml", "bsa/aml", "anti money laundering", "anti-money laundering", "bank secrecy act", "aml compliance", "financial crimes", "financial crime", "kyc", "know your customer", "aml analyst", "transaction monitoring"],
+      "evidence": [
+        {"text": "Started at Bank of the West in BSA/AML in 2018, then moved into HR.", "source": "confirmed"}
+      ]
+    },
+    {
+      "id": "ofac",
+      "name": "OFAC and sanctions",
+      "category": "risk",
+      "years": null,
+      "caveat": "This was earlier in his career.",
+      "synonyms": ["ofac", "sanctions", "sanction", "sanctions screening", "economic sanctions", "sanctions compliance"],
+      "evidence": [
+        {"text": "Handled OFAC sanctions work as a Fraud and Risk analyst at PayPal.", "source": "confirmed"}
+      ]
+    },
+    {
+      "id": "fraud-risk",
+      "name": "Fraud and risk analysis",
+      "category": "risk",
+      "years": null,
+      "caveat": "This was earlier in his career.",
+      "synonyms": ["fraud", "fraud analyst", "risk analyst", "risk analysis", "fraud and risk", "fraud prevention", "risk operations", "fraud detection", "trust and safety", "fraud investigation", "fraud investigations"],
+      "evidence": [
+        {"text": "Fraud and Risk analyst at PayPal.", "source": "confirmed"}
+      ]
+    },
+    {
+      "id": "compliance",
+      "name": "Compliance background",
+      "category": "risk",
+      "years": null,
+      "synonyms": ["compliance", "regulatory", "regulatory compliance", "regulated industry", "regulated industries", "financial regulation", "banking compliance", "compliance experience"],
+      "evidence": [
+        {"text": "Background in BSA/AML and OFAC sanctions work.", "source": "confirmed"},
+        {"text": "...learning programs on leadership, compliance, mentorship...", "source": "resume"}
+      ]
+    },
+    {
+      "id": "banking",
+      "name": "Banking and financial services",
+      "category": "risk",
+      "years": null,
+      "synonyms": ["banking", "bank", "banks", "financial services", "fintech", "retail banking", "bank teller", "teller", "payments", "financial institution", "financial institutions"],
+      "evidence": [
+        {"text": "Bank of the West (acquired by BMO), January 2018 – August 2024", "source": "resume"},
+        {"text": "Earlier roles: bank teller, and Fraud and Risk analyst at PayPal.", "source": "confirmed"}
+      ]
+    },
+    {
+      "id": "mba",
+      "name": "MBA",
+      "category": "edu",
+      "years": null,
+      "synonyms": ["mba", "master of business administration", "masters degree", "master's degree", "graduate degree", "advanced degree", "masters", "bellevue university", "master degree"],
+      "evidence": [
+        {"text": "Master of Business Administration, Bellevue University", "source": "resume"}
+      ]
+    },
+    {
+      "id": "bachelors",
+      "name": "Bachelor's degree",
+      "category": "edu",
+      "years": null,
+      "synonyms": ["bachelors degree", "bachelor's degree", "bachelor degree", "bachelors", "bachelor of general studies", "undergraduate degree", "college degree", "four year degree", "4 year degree", "university of nebraska at omaha", "unomaha"],
+      "evidence": [
+        {"text": "Bachelor of General Studies, Spanish, University of Nebraska at Omaha", "source": "resume"}
+      ]
+    },
+    {
+      "id": "spanish",
+      "name": "Spanish (degree)",
+      "category": "edu",
+      "years": null,
+      "caveat": "Ben's degree is in Spanish. His resume doesn't state a fluency level, so ask him directly.",
+      "synonyms": ["spanish", "bilingual spanish", "spanish language"],
+      "evidence": [
+        {"text": "Bachelor of General Studies, Spanish, University of Nebraska at Omaha", "source": "resume"}
+      ]
+    },
+    {
+      "id": "atd-certs",
+      "name": "ATD certifications",
+      "category": "edu",
+      "years": null,
+      "synonyms": ["atd", "atd certified", "atd certification", "atd certifications", "certification", "certifications", "certified"],
+      "evidence": [
+        {"text": "Project Management for Learning Professionals, ATD Certified", "source": "resume"},
+        {"text": "Evaluating Learning Impact for HR Professionals, ATD Certified", "source": "resume"}
+      ]
+    }
+  ]
+}

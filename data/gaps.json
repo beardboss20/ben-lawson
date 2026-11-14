@@ -1,0 +1,113 @@
+{
+  "_readme": "Things Ben has NOT done, so the matcher can say NOT YET honestly instead of guessing.",
+  "gaps": [
+    {
+      "id": "lms-admin",
+      "name": "LMS administration",
+      "synonyms": ["lms admin", "lms administrator", "lms administration", "lms management", "lms manager", "lms owner", "lms configuration", "learning system administrator", "learning system administration", "learning management system administration", "learning management system administrator", "cornerstone admin", "cornerstone administrator", "workday learning admin", "workday learning administrator"],
+      "note": "Ben has used Workday Learning and Cornerstone and was Product Owner on learning platform rollouts, but he doesn't claim LMS administrator experience."
+    },
+    {
+      "id": "hris-admin",
+      "name": "HRIS administration",
+      "synonyms": ["hris admin", "hris administrator", "hris administration", "hris analyst", "hris manager", "workday hcm", "workday admin", "workday administrator", "workday administration", "workday configuration", "successfactors", "adp", "ukg", "paycom", "paylocity", "bamboohr", "dayforce", "oracle hcm", "peoplesoft", "hr systems administration", "hris implementation"],
+      "note": "Ben's Workday experience is Workday Learning, as a Product Owner. He hasn't claimed HRIS administration or configuration."
+    },
+    {
+      "id": "recruiting",
+      "name": "Recruiting and talent acquisition",
+      "synonyms": ["recruiting", "recruiter", "recruitment", "talent acquisition", "sourcing", "sourcer", "talent sourcing", "full cycle recruiting", "technical recruiting", "applicant tracking system", "ats", "hiring manager partnership", "interviewing candidates", "candidate experience"],
+      "note": "Recruiting and talent acquisition aren't part of Ben's background."
+    },
+    {
+      "id": "payroll-benefits",
+      "name": "Payroll, benefits, and compensation",
+      "synonyms": ["payroll", "benefits", "benefits administration", "compensation", "comp and ben", "total rewards", "compensation and benefits", "benefits enrollment", "compensation analysis", "job leveling", "salary benchmarking", "equity administration", "leave administration", "leave of absence", "fmla", "workers compensation"],
+      "note": "Payroll, benefits, and compensation aren't part of Ben's background."
+    },
+    {
+      "id": "er-investigations",
+      "name": "Employee relations investigations",
+      "synonyms": ["employee relations investigations", "investigations", "workplace investigations", "hr investigations", "er investigations", "er casework", "employee relations casework", "labor relations", "union", "unions", "collective bargaining", "disciplinary", "progressive discipline", "grievances", "terminations", "employment law"],
+      "note": "Ben partnered with Employee Relations on programs, but he hasn't listed investigations or case work."
+    },
+    {
+      "id": "performance-mgmt",
+      "name": "Performance management and succession",
+      "synonyms": ["performance management", "performance reviews", "performance review", "performance improvement plans", "pip", "talent review", "talent reviews", "succession planning", "succession", "calibration", "9 box", "nine box", "goal setting program", "okrs"],
+      "note": "Performance management and succession planning aren't on Ben's resume."
+    },
+    {
+      "id": "people-management",
+      "name": "Managing direct reports",
+      "synonyms": ["people management", "direct reports", "direct report", "manage a team", "managing a team", "team management", "people manager", "people leader", "managing managers", "supervise", "supervising", "supervisory experience", "management experience", "manager experience", "lead a team of", "hiring and managing", "managing people", "staff management", "line management"],
+      "note": "Ben led a team of 4 as an ERG geo chair and project manages cross-functional teams, but he hasn't listed formal direct reports."
+    },
+    {
+      "id": "hr-certs",
+      "name": "SHRM or HRCI certification",
+      "synonyms": ["shrm", "shrm cp", "shrm-cp", "shrm scp", "shrm-scp", "phr", "sphr", "hrci", "cphr", "gphr", "hr certification", "shrm certified"],
+      "note": "Ben's certifications are two ATD certificates (Project Management for Learning Professionals, and Evaluating Learning Impact) plus an MBA. No SHRM or HRCI certification is listed."
+    },
+    {
+      "id": "cptd",
+      "name": "CPTD or APTD",
+      "synonyms": ["cptd", "aptd", "certified professional in talent development", "associate professional in talent development"],
+      "note": "Ben holds ATD certificates but not the CPTD or APTD."
+    },
+    {
+      "id": "data-languages",
+      "name": "SQL, Python, or Tableau",
+      "synonyms": ["sql", "python", "tableau", "looker", "snowflake", "r programming", "sas", "spss", "data science", "machine learning", "etl", "data warehouse", "data engineering", "coding", "programming", "javascript"],
+      "note": "Ben builds AI workflows (Gemini, Apps Script, Power Automate) and works in Power BI and Excel, but SQL, Python, and Tableau aren't on his resume."
+    },
+    {
+      "id": "statistics",
+      "name": "Statistical analysis",
+      "synonyms": ["statistics", "statistical analysis", "regression", "predictive modeling", "predictive modelling", "hypothesis testing", "statistical modeling", "survival analysis", "a b testing"],
+      "note": "Formal statistical modeling isn't on Ben's resume."
+    },
+    {
+      "id": "dei",
+      "name": "DEI program ownership",
+      "synonyms": ["dei", "deib", "diversity", "equity", "inclusion", "diversity and inclusion", "diversity equity and inclusion", "dei program", "dei strategy", "inclusion and belonging", "belonging"],
+      "note": "Ben led an employee resource group, but his resume doesn't claim DEI program or strategy ownership."
+    },
+    {
+      "id": "ai-governance",
+      "name": "AI governance and policy",
+      "synonyms": ["ai governance", "responsible ai", "ai policy", "ai ethics", "ai risk", "ai compliance", "ai security", "ai strategy", "ai roadmap", "ai policy development", "ai standards"],
+      "note": "Ben enables people and builds with AI. Formal AI governance or policy ownership isn't on his resume."
+    },
+    {
+      "id": "change-certs",
+      "name": "Prosci or ADKAR certification",
+      "synonyms": ["prosci", "adkar", "prosci certified", "change management certification", "kotter"],
+      "note": "Ben has change management experience (adoption work through the BMO acquisition integration), but no Prosci or other change certification is listed."
+    },
+    {
+      "id": "authoring-other",
+      "name": "Other authoring tools",
+      "synonyms": ["storyline", "articulate storyline", "adobe captivate", "captivate", "camtasia", "lectora", "dominknow", "vyond", "adobe premiere", "video production", "video editing", "graphic design", "adobe creative suite", "canva"],
+      "note": "Ben's resume names Articulate 360 and Rise as his authoring tools. Ask him about anything beyond those."
+    },
+    {
+      "id": "clearance",
+      "name": "Security clearance",
+      "synonyms": ["security clearance", "clearance", "secret clearance", "top secret", "ts sci", "public trust"],
+      "note": "No security clearance is listed on Ben's resume."
+    },
+    {
+      "id": "degree-other",
+      "name": "Doctorate or other advanced degree",
+      "synonyms": ["phd", "doctorate", "doctoral", "edd", "jd", "law degree", "juris doctor"],
+      "note": "Ben's highest degree is an MBA."
+    },
+    {
+      "id": "sales-support",
+      "name": "Sales or customer support",
+      "synonyms": ["sales", "account executive", "customer success", "customer support", "account management", "business development", "quota", "revenue"],
+      "note": "Sales and customer-facing revenue roles aren't part of Ben's background."
+    }
+  ]
+}

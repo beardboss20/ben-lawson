@@ -1,0 +1,120 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Ben Lawson | People Capability, L&amp;D, and AI Enablement</title>
+  <meta name="description" content="Ben Lawson is a people capability and L&amp;D professional with seven plus years designing learning systems, running people analytics, and putting AI into HR workflows. Paste your job requirements and see what matches.">
+  <link rel="canonical" href="https://ben-lawson.vercel.app/">
+  <meta name="theme-color" content="#0f2a3d">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Ben Lawson | People Capability, L&amp;D, and AI Enablement">
+  <meta property="og:description" content="Paste your job requirements and get an honest YES or NOT YET, with proof from Ben's resume.">
+  <meta property="og:url" content="https://ben-lawson.vercel.app/">
+  <meta property="og:image" content="https://ben-lawson.vercel.app/assets/og.jpg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="Ben Lawson, People Capability, L&amp;D, and AI Enablement">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Ben Lawson | People Capability, L&amp;D, and AI Enablement">
+  <meta name="twitter:description" content="Paste your job requirements and get an honest YES or NOT YET, with proof from Ben's resume.">
+  <meta name="twitter:image" content="https://ben-lawson.vercel.app/assets/og.jpg">
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+  <link rel="icon" href="/assets/favicon-32.png" sizes="32x32" type="image/png">
+  <link rel="apple-touch-icon" href="/assets/apple-touch-icon.png">
+  <link rel="stylesheet" href="/styles.css">
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"Person","name":"Ben Lawson","jobTitle":"People Capability, L&D, and AI Enablement","url":"https://ben-lawson.vercel.app/","sameAs":["{{LINKEDIN}}"]}</script>
+</head>
+<body>
+  <a class="skip" href="#matcher">Skip to the matcher</a>
+
+  <header class="hero" id="top">
+    <div class="wrap hero-grid">
+      <div class="portrait" id="portrait">
+        <span class="monogram" aria-hidden="true">BL</span>
+        <img id="portrait-img" src="/assets/ben-600.webp" alt="Ben Lawson" width="300" height="372" decoding="async" fetchpriority="high">
+      </div>
+      <div class="hero-text">
+        <p class="eyebrow">{{TAGLINE}}</p>
+        <h1>Ben Lawson</h1>
+        <p class="meta">{{FULLNAME}} &middot; {{LOCATION}}</p>
+        <p class="summary">{{SUMMARY}}</p>
+        <p class="cta-row">
+          <a class="btn btn-primary" href="mailto:{{EMAIL}}">Email Ben</a>
+          <a class="btn btn-secondary" href="{{LINKEDIN}}" rel="me noopener" target="_blank">LinkedIn<span class="sr"> (opens in a new tab)</span></a>
+          <a class="btn btn-ghost" href="#matcher">Check a job against my resume</a>
+        </p>
+        <p class="email-line">{{EMAIL}}</p>
+      </div>
+    </div>
+    <div class="wrap">
+      <ul class="stats" aria-label="Highlights">
+{{HIGHLIGHTS}}
+      </ul>
+    </div>
+  </header>
+
+  <main>
+    <section class="section" id="matcher" aria-labelledby="matcher-h">
+      <div class="wrap narrow">
+        <h2 id="matcher-h">Does Ben match your role?</h2>
+        <p class="lede">Type job titles or requirements, separated by commas or new lines. Each one is checked against Ben&rsquo;s resume. You get a green <strong>YES</strong> with the proof, or a red <strong>NOT YET</strong> with an honest note.</p>
+        <form id="matcher-form" novalidate>
+          <label for="req-input" class="label">Job titles or requirements</label>
+          <textarea id="req-input" name="requirements" rows="5" maxlength="4000" placeholder="L&amp;D Manager, HRIS, change management, 8+ years HR, Power BI" autocomplete="off" spellcheck="true"></textarea>
+          <div class="form-row">
+            <button type="submit" class="btn btn-primary" id="check-btn">Check against Ben&rsquo;s resume</button>
+            <button type="button" class="btn btn-ghost" id="clear-btn">Clear</button>
+            <span class="hint">Tip: press Ctrl or Cmd + Enter</span>
+          </div>
+        </form>
+        <div class="examples" aria-label="Example searches">
+          <span class="examples-label">Try an example:</span>
+{{EXAMPLES}}
+        </div>
+        <div id="results" class="results" aria-live="polite" aria-atomic="false"></div>
+        <p class="fineprint">This runs entirely in your browser. Nothing you type is sent anywhere. It matches keywords and phrases against Ben&rsquo;s resume, so it can miss a differently worded requirement. If something shows NOT YET and you think it should match, ask him.</p>
+      </div>
+    </section>
+
+    <section class="section alt" id="experience" aria-labelledby="exp-h">
+      <div class="wrap narrow">
+        <h2 id="exp-h">Experience</h2>
+        <ol class="timeline">
+{{TIMELINE}}
+        </ol>
+        <h3 class="edu-h">Education and certifications</h3>
+        <ul class="edu">
+{{EDUCATION}}
+        </ul>
+      </div>
+    </section>
+
+    <section class="section" id="qualifications" aria-labelledby="qual-h">
+      <div class="wrap">
+        <h2 id="qual-h">Qualifications</h2>
+        <p class="lede">Search or filter everything Ben can show proof for. Each card quotes his resume or is confirmed by him.</p>
+        <div class="qual-controls">
+          <label for="qual-search" class="label">Search qualifications</label>
+          <input id="qual-search" type="search" placeholder="Try &ldquo;Power BI&rdquo;, &ldquo;survey&rdquo;, or &ldquo;AI&rdquo;" autocomplete="off">
+          <div class="chips" role="group" aria-label="Filter by category" id="qual-chips"></div>
+        </div>
+        <p id="qual-count" class="count" role="status" aria-live="polite"></p>
+        <ul id="qual-list" class="qual-list"></ul>
+        <noscript><p class="fineprint">The searchable qualifications list and the matcher need JavaScript. The experience section above works without it.</p></noscript>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="wrap">
+      <p><strong>Ben Lawson</strong> &middot; {{LOCATION}}</p>
+      <p><a href="mailto:{{EMAIL}}">{{EMAIL}}</a> &middot; <a href="{{LINKEDIN}}" rel="me noopener" target="_blank">LinkedIn</a></p>
+      <p class="fineprint">A static site. No analytics, no cookies, no third-party trackers. Last updated November 2026.</p>
+    </div>
+  </footer>
+
+  <script src="/matcher.js"></script>
+  <script src="/app.js"></script>
+</body>
+</html>

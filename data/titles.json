@@ -1,0 +1,94 @@
+{
+  "_readme": "Job titles map to sets of skill ids (core) and known gaps (gaps). A title is YES when matched/total >= threshold (default 0.75).",
+  "titles": [
+    {
+      "id": "ld-manager",
+      "name": "L&D Manager",
+      "aliases": ["ld manager", "l and d manager", "learning and development manager", "learning manager", "training manager", "learning and development lead", "l and d lead", "manager of learning", "manager learning and development", "learning development manager", "head of learning"],
+      "core": ["ld", "instructional-design", "facilitation", "leadership-development", "program-management", "learning-ops", "lms-platforms", "needs-assessment", "learning-evaluation", "change-management"],
+      "gaps": ["people-management"],
+      "note": "Ben's skills line up with this role. His titles so far have been specialist and product owner roles, not manager roles."
+    },
+    {
+      "id": "ld-specialist",
+      "name": "L&D Specialist",
+      "aliases": ["ld specialist", "l and d specialist", "learning and development specialist", "training specialist", "learning specialist", "training coordinator", "learning program specialist", "learning program manager", "training and development specialist", "learning and development coordinator", "l and d coordinator", "learning coordinator", "employee development specialist", "learning consultant", "l and d consultant", "learning and development consultant"],
+      "core": ["ld", "instructional-design", "facilitation", "articulate", "virtual-delivery", "lms-platforms", "program-management", "needs-assessment", "learning-evaluation"],
+      "gaps": []
+    },
+    {
+      "id": "instructional-designer",
+      "name": "Instructional Designer",
+      "aliases": ["instructional designer", "instructional design specialist", "senior instructional designer", "learning designer", "learning experience designer", "elearning developer", "e learning developer", "elearning designer", "curriculum developer", "learning content developer", "training developer", "course developer", "instructional design lead"],
+      "core": ["instructional-design", "articulate", "ld", "needs-assessment", "learning-evaluation", "facilitation", "virtual-delivery", "learning-ops"],
+      "gaps": ["authoring-other"]
+    },
+    {
+      "id": "leadership-development",
+      "name": "Leadership or Talent Development Manager",
+      "aliases": ["leadership development manager", "talent development manager", "leadership development specialist", "talent development specialist", "leadership development program manager", "organizational development", "org development", "od specialist", "od manager", "talent management", "talent management consultant", "leadership and talent development"],
+      "core": ["leadership-development", "mentorship", "ld", "facilitation", "program-management", "manager-training", "learning-evaluation", "change-management"],
+      "gaps": ["performance-mgmt"]
+    },
+    {
+      "id": "hrbp",
+      "name": "HR Business Partner",
+      "aliases": ["hr business partner", "hrbp", "human resources business partner", "people business partner", "hr partner", "hr generalist", "human resources generalist", "people partner", "hr manager", "hr consultant"],
+      "core": ["hr-experience", "employee-relations", "change-management", "retention-turnover", "people-analytics", "cross-functional", "leadership-reporting", "manager-training"],
+      "gaps": ["er-investigations", "performance-mgmt", "payroll-benefits"],
+      "threshold": 0.8,
+      "note": "This is a generalist-style role. Ben is strongest on the learning, analytics and AI side of HR."
+    },
+    {
+      "id": "ai-enablement",
+      "name": "AI Enablement Lead",
+      "aliases": ["ai enablement lead", "ai enablement specialist", "ai enablement manager", "ai enablement", "ai adoption lead", "ai adoption specialist", "ai program manager", "ai champion", "ai learning specialist", "ai transformation specialist", "ai training specialist", "ai upskilling lead", "hr ai specialist", "ai trainer enablement", "ai literacy lead", "ai strategist", "generative ai specialist", "ai workflow specialist", "ai automation specialist", "ai operations", "ai program lead", "head of ai enablement"],
+      "core": ["ai-enablement", "gen-ai", "ai-workflows", "facilitation", "change-management", "ld", "program-management"],
+      "gaps": ["ai-governance"]
+    },
+    {
+      "id": "people-analytics",
+      "name": "People Analytics Analyst",
+      "aliases": ["people analytics analyst", "people analyst", "hr analyst", "hr data analyst", "people data analyst", "workforce analyst", "people analytics specialist", "people analytics", "hr analytics analyst", "talent analytics analyst", "people insights analyst", "hr reporting analyst", "senior people analytics analyst", "analyst people analytics", "people analytics manager"],
+      "core": ["people-analytics", "power-bi", "excel-sheets", "leadership-reporting", "retention-turnover", "survey-design"],
+      "gaps": ["data-languages", "statistics"],
+      "threshold": 0.75
+    },
+    {
+      "id": "employee-experience",
+      "name": "Employee Experience Specialist",
+      "aliases": ["employee experience specialist", "employee experience manager", "employee experience partner", "employee experience analyst", "ex specialist", "employee engagement specialist", "employee listening specialist", "culture specialist", "employee experience lead", "employee programs manager"],
+      "core": ["employee-experience", "exit-survey", "survey-design", "retention-turnover", "erg", "people-analytics", "leadership-reporting"],
+      "gaps": []
+    },
+    {
+      "id": "learning-tech-po",
+      "name": "Learning Technology or Product Owner",
+      "aliases": ["learning technology specialist", "learning technologist", "learning systems specialist", "learning product owner", "product owner learning", "lms product owner", "learning technology manager", "learning platform owner", "hr technology specialist", "hr product owner", "hr systems analyst", "learning systems analyst", "learning operations specialist", "learning operations manager", "learning ops specialist", "product owner"],
+      "core": ["product-owner", "lms-platforms", "change-management", "learning-ops", "hr-systems", "program-management", "cross-functional"],
+      "gaps": ["lms-admin"]
+    },
+    {
+      "id": "ai-trainer",
+      "name": "AI Trainer or Evaluator",
+      "aliases": ["ai tutor", "ai trainer", "ai evaluator", "ai quality specialist", "llm trainer", "llm evaluator", "ai data specialist", "model evaluator", "ai quality evaluation specialist", "ai content reviewer", "ai quality reviewer", "prompt evaluator", "ai specialist"],
+      "core": ["ai-evaluation", "gen-ai", "quality-review", "guidelines-documentation"],
+      "gaps": []
+    },
+    {
+      "id": "risk-analyst",
+      "name": "Fraud or Risk Analyst",
+      "aliases": ["fraud analyst", "risk analyst", "fraud and risk analyst", "aml analyst", "bsa analyst", "bsa aml analyst", "compliance analyst", "sanctions analyst", "ofac analyst", "financial crimes analyst", "fraud investigator", "kyc analyst"],
+      "core": ["fraud-risk", "ofac", "bsa-aml", "compliance", "banking"],
+      "gaps": [],
+      "note": "This is earlier-career experience (BSA/AML at Bank of the West, then Fraud and Risk at PayPal). Ben moved into HR and L&D after that."
+    },
+    {
+      "id": "people-capability",
+      "name": "People Capability Lead",
+      "aliases": ["people capability lead", "people capability manager", "people capability specialist", "capability building lead", "capability development manager", "organizational capability", "learning and capability", "capability manager", "capability specialist", "people development manager", "employee development manager"],
+      "core": ["ld", "leadership-development", "change-management", "people-analytics", "ai-enablement", "program-management", "facilitation"],
+      "gaps": ["people-management"]
+    }
+  ]
+}
