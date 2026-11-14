@@ -141,7 +141,7 @@ test('hero stat boxes: the four credentials, no 7+ years box, honest framing, to
   assert.deepEqual(stats.map((s) => [s.value, s.label]), [
     ['xAI', 'Trained and evaluated Grok'],
     ['25%', 'Turnover drop from exit data'],
-    ['28 leaders', 'Leadership program designed'],
+    ['28 leaders', 'Leaders upskilled'],
     ['200+', 'ERG members served'],
   ]);
   for (const s of stats) assert.ok(s.label.split(' ').length <= 5, s.label + ' stays short');
@@ -153,7 +153,8 @@ test('hero stat boxes: the four credentials, no 7+ years box, honest framing, to
   assert.match(tips[1], /about 5,000 employees/);
   assert.match(tips[1], /helped drive a 25% drop in branch turnover/);
   assert.ok(!/cut turnover|cut branch turnover|reduced turnover by 25/i.test(hero));
-  assert.match(tips[2], /a leadership development program for 28 leaders at Airbus/);
+  assert.match(tips[2], /^Project managed a leadership development program at Airbus that upskilled 28 leaders\.$/);
+  assert.ok(!/designed|ran a/i.test(tips[2] + stats[2].label), 'box 3 must not claim designed/ran');
   assert.ok(!/Agile|Leadership Development Program/.test(hero));
   assert.match(tips[3], /Geo chair of the Omaha Aspire ERG, leading a team of 4 serving 200\+ members/);
 });
