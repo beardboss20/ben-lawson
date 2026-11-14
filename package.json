@@ -1,0 +1,10 @@
+{
+  "name": "ben-lawson",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Interactive About Me site for recruiters. Static, browser-only, no API.",
+  "scripts": {
+    "build:html": "node tools/build.mjs",
+    "test": "node --test tests/matcher.test.js tests/site.test.js"
+  }
+}

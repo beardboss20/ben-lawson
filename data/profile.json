@@ -1,0 +1,102 @@
+{
+  "name": "Ben Lawson",
+  "fullName": "Benjamin Lawson, MBA",
+  "tagline": "People Capability, L&D, and AI Enablement",
+  "location": "Omaha area (Fremont, NE)",
+  "summary": "I'm a people capability and L&D professional with seven plus years designing learning systems, running people analytics, and putting AI into HR workflows. I'm an instructional designer and facilitator across enterprise and startup settings, with an MBA.",
+  "contact": {
+    "email": "benhlawson@gmail.com",
+    "linkedin": "https://www.linkedin.com/in/benhlawson"
+  },
+  "highlights": [
+    {
+      "stat": "xAI",
+      "label": "Trained and evaluated Grok",
+      "details": "Trained and evaluated Grok, reviewed other trainers' work, and set guidelines on special projects."
+    },
+    {
+      "stat": "25%",
+      "label": "Turnover drop from exit data",
+      "details": "Ran the exit survey program for about 5,000 employees. The findings shaped new manager training, which helped drive a 25% drop in branch turnover."
+    },
+    {
+      "stat": "28 leaders",
+      "label": "Leaders upskilled",
+      "details": "Project managed a leadership development program at Airbus that upskilled 28 leaders."
+    },
+    {
+      "stat": "200+",
+      "label": "ERG members served",
+      "details": "Geo chair of the Omaha Aspire ERG, leading a team of 4 serving 200+ members."
+    }
+  ],
+  "experience": [
+    {
+      "org": "Airbus",
+      "title": "Employee Development Initiatives Specialist",
+      "badge": "Gemini Ambassador and HR AI Ambassador",
+      "dates": "March 2026 – Present",
+      "bullets": [
+        "Built multiple AI workflows (Gemini, Apps Script) as HR AI Ambassador automating HR processes, including one that cut manual effort by about 95%. Developing a hands-on workshop to help HR leaders build their own AI workflows.",
+        "Selected as one of three founding members to define Airbus's enterprise learning operations framework, setting org-wide standards for learning intake, needs assessment, assignment governance (request and approval rights), annual assignment calendars, and SCORM content structure.",
+        "Project managed a leadership development program, coordinating cross-functional teams and external facilitators to upskill 28 leaders.",
+        "Designed and facilitated programs and workshops on AI enablement and upskilling, mentorship, and presentation skills, for groups of 3 to 60."
+      ]
+    },
+    {
+      "org": "xAI",
+      "title": "AI Tutor / Quality & Evaluation Specialist",
+      "dates": "August 2024 – November 2025",
+      "bullets": [
+        "Trained and evaluated Grok, xAI's large language model, across 21,000+ multimodal tasks for executive-visible projects, achieving 98% alignment and converting findings into process improvements.",
+        "Reviewed and assessed other trainers' work as an informal senior reviewer, and was selected for special projects, establishing project guidelines and documentation."
+      ]
+    },
+    {
+      "org": "Bank of the West (acquired by BMO)",
+      "title": "Product Owner, Learning & Development / Release Specialist",
+      "dates": "January 2018 – August 2024",
+      "bullets": [
+        "Owned the exit survey program for about 5,000 employees, from survey design and vendor platform to retention reporting for HR leadership. Built the retention dashboards in Power BI.",
+        "Partnered with Employee Relations and with Employee Experience and L&D leaders to turn findings into new manager training, which contributed to a 25% reduction in branch turnover.",
+        "Designed, produced, and facilitated 20+ virtual and in-person learning programs on leadership, compliance, mentorship, communications, and environmental impact. Built content in Articulate and delivered it over Zoom, Webex, and Teams, with consistently high participant feedback.",
+        "Served as Product Owner for enterprise learning platform rollouts, including Workday Learning, driving change management and user adoption through the BMO acquisition integration.",
+        "Geo chair, Omaha Aspire ERG: led a team of 4 serving 200+ active members.",
+        "Began in BSA/AML at the bank before moving into HR."
+      ]
+    },
+    {
+      "org": "Earlier career",
+      "title": "Fraud and Risk Analyst at PayPal, and bank teller",
+      "dates": "Before HR",
+      "bullets": [
+        "Fraud and Risk analyst at PayPal, including OFAC sanctions work.",
+        "Bank teller."
+      ]
+    }
+  ],
+  "education": [
+    {
+      "name": "Master of Business Administration",
+      "org": "Bellevue University"
+    },
+    {
+      "name": "Bachelor of General Studies, Spanish",
+      "org": "University of Nebraska at Omaha"
+    },
+    {
+      "name": "Project Management for Learning Professionals",
+      "org": "ATD Certified"
+    },
+    {
+      "name": "Evaluating Learning Impact for HR Professionals",
+      "org": "ATD Certified"
+    }
+  ],
+  "examples": [
+    "L&D Manager, HRIS, change management, 8+ years HR, Power BI, LMS admin",
+    "AI enablement, workflow automation, generative AI, facilitation",
+    "HR Business Partner, employee relations, SHRM-CP",
+    "Instructional designer, Articulate, needs assessment, 5 years L&D"
+  ]
+}

@@ -24,3 +24,5 @@ A recruiter types job titles or requirements (commas or new lines) and each one 
 ## Deploy
 
 Pushed branches deploy as Vercel previews. Production is promoted only after Ben reviews.
+
+Preview URL pattern: branch deploys at ben-lawson-git-<branch>-beardboss20-projects1.vercel.app (Vercel Authentication on).
