@@ -35,16 +35,16 @@
         <img id="portrait-img" src="/assets/ben-600.webp" alt="Ben Lawson" width="300" height="372" decoding="async" fetchpriority="high">
       </div>
       <div class="hero-text">
-        <p class="eyebrow">{{TAGLINE}}</p>
         <h1>Ben Lawson</h1>
-        <p class="meta">{{FULLNAME}} &middot; {{LOCATION}}</p>
+        <p class="subtitle">{{TAGLINE}}</p>
+        <p class="contact-line"><a href="mailto:{{EMAIL}}">{{EMAIL}}</a> <span aria-hidden="true">&middot;</span> {{LOCATION}}</p>
         <p class="summary">{{SUMMARY}}</p>
         <p class="cta-row">
           <a class="btn btn-primary" href="mailto:{{EMAIL}}">Email Ben</a>
+          <button type="button" class="btn btn-secondary" id="request-resume-btn" aria-haspopup="dialog">Request Resume</button>
           <a class="btn btn-secondary" href="{{LINKEDIN}}" rel="me noopener" target="_blank">LinkedIn<span class="sr"> (opens in a new tab)</span></a>
           <a class="btn btn-ghost" href="#matcher">Check a job against my resume</a>
         </p>
-        <p class="email-line">{{EMAIL}}</p>
       </div>
     </div>
     <div class="wrap">
@@ -114,7 +114,48 @@
     </div>
   </footer>
 
+  <dialog id="resume-dialog" class="dialog" aria-labelledby="resume-h">
+    <form id="resume-form" novalidate autocomplete="on">
+      <h2 id="resume-h">Request Ben&rsquo;s resume</h2>
+      <p class="lede">Tell Ben who you are and which role you&rsquo;re hiring for. He reviews each request and sends his resume to verified recruiters.</p>
+      <p class="form-status" id="resume-status" role="status" aria-live="polite"></p>
+      <div class="field">
+        <label for="rr-name">Your name</label>
+        <input id="rr-name" name="name" type="text" autocomplete="name" maxlength="100" required aria-describedby="rr-name-err">
+        <p class="err" id="rr-name-err" hidden></p>
+      </div>
+      <div class="field">
+        <label for="rr-email">Your work email</label>
+        <input id="rr-email" name="email" type="email" autocomplete="email" inputmode="email" maxlength="160" required aria-describedby="rr-email-err">
+        <p class="err" id="rr-email-err" hidden></p>
+      </div>
+      <div class="field">
+        <label for="rr-company">Company</label>
+        <input id="rr-company" name="company" type="text" autocomplete="organization" maxlength="120" required aria-describedby="rr-company-err">
+        <p class="err" id="rr-company-err" hidden></p>
+      </div>
+      <div class="field">
+        <label for="rr-title">Job opening title</label>
+        <input id="rr-title" name="jobTitle" type="text" maxlength="140" required aria-describedby="rr-title-err">
+        <p class="err" id="rr-title-err" hidden></p>
+      </div>
+      <div class="hp" aria-hidden="true">
+        <label for="rr-website">Leave this field empty</label>
+        <input id="rr-website" name="website" type="text" tabindex="-1" autocomplete="off">
+      </div>
+      <div class="form-row">
+        <button type="submit" class="btn btn-primary" id="rr-submit">Send request</button>
+        <button type="button" class="btn btn-ghost" id="rr-close">Close</button>
+      </div>
+      <p class="fineprint">Or email <a href="mailto:{{EMAIL}}?subject=Resume%20request">{{EMAIL}}</a> directly. Your details are used only to reply about this request.</p>
+    </form>
+  </dialog>
+
+  <script type="application/json" id="data-skills">{{DATA_SKILLS}}</script>
+  <script type="application/json" id="data-titles">{{DATA_TITLES}}</script>
+  <script type="application/json" id="data-gaps">{{DATA_GAPS}}</script>
   <script src="/matcher.js"></script>
+  <script src="/resume-request.js"></script>
   <script src="/app.js"></script>
 </body>
 </html>

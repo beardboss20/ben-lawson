@@ -21,11 +21,11 @@
     if (img.complete) ok(); else img.addEventListener('load', ok);
   })();
 
-  function load(name) {
-    return fetch('/data/' + name + '.json', { credentials: 'omit' }).then(function (r) {
-      if (!r.ok) throw new Error('Could not load ' + name);
-      return r.json();
-    });
+  // Data is inlined in the page (see tools/build.mjs), so there is no runtime fetch.
+  function readData(id) {
+    var node = $(id);
+    if (!node) throw new Error('Missing data block ' + id);
+    return JSON.parse(node.textContent);
   }
 
   function renderProof(parent, e) {
@@ -141,9 +141,10 @@
     });
   }
 
-  Promise.all([load('skills'), load('titles'), load('gaps')]).then(function (r) {
-    init({ skills: r[0], titles: r[1], gaps: r[2] });
-  }).catch(function () {
+  try {
+    init({ skills: readData('data-skills'), titles: readData('data-titles'), gaps: readData('data-gaps') });
+  } catch (err) {
     $('results').textContent = 'The matcher could not load. Please refresh, or email Ben directly.';
-  });
+    if (window.console) console.error(err);
+  }
 })();

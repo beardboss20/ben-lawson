@@ -16,12 +16,16 @@ const timeline = p.experience.map((e) => {
 }).join('\n');
 const education = p.education.map((e) => li(10, `<li><strong>${esc(e.name)}</strong><span>${esc(e.org)}</span></li>`)).join('\n');
 const examples = p.examples.map((x) => li(10, `<button type="button" class="chip example" data-text="${esc(x)}">${esc(x.split(',').slice(0, 3).join(',').trim())}&hellip;</button>`)).join('\n');
+// Data is inlined into the page so the matcher needs no runtime fetch.
+// '<' is escaped so the JSON can never close its script tag.
+const inline = (name) => JSON.stringify(JSON.parse(readFileSync(join(root, 'data', name + '.json'), 'utf8'))).replace(/</g, '\\u003c');
 const map = {
+  DATA_SKILLS: inline('skills'), DATA_TITLES: inline('titles'), DATA_GAPS: inline('gaps'),
   TAGLINE: esc(p.tagline), FULLNAME: esc(p.fullName), LOCATION: esc(p.location), SUMMARY: esc(p.summary),
   EMAIL: esc(p.contact.email), LINKEDIN: esc(p.contact.linkedin),
   HIGHLIGHTS: highlights, TIMELINE: timeline, EDUCATION: education, EXAMPLES: examples,
 };
 let html = readFileSync(join(root, 'index.template.html'), 'utf8');
-html = html.replace(/\{\{([A-Z]+)\}\}/g, (_, k) => { if (!(k in map)) throw new Error('Missing ' + k); return map[k]; });
+html = html.replace(/\{\{([A-Z_]+)\}\}/g, (_, k) => { if (!(k in map)) throw new Error('Missing ' + k); return map[k]; });
 writeFileSync(join(root, 'index.html'), html);
 console.log('index.html written');

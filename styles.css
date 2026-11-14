@@ -52,11 +52,10 @@ h3 { font-size: 1.1rem; }
 .portrait.has-photo img { display: block; }
 .portrait .monogram { position: absolute; inset: 0; display: grid; place-items: center; font-size: 3.4rem; font-weight: 700; letter-spacing: .04em; color: #d6f3ef; }
 .portrait.has-photo .monogram { display: none; }
-.eyebrow { text-transform: uppercase; letter-spacing: .12em; font-size: .8rem; font-weight: 700; color: #bfeee9; margin: 0 0 .5rem; }
-.meta { margin: 0 0 1rem; color: #d7e4ea; }
+.subtitle { font-size: 1.2rem; font-weight: 650; color: #bfeee9; margin: 0 0 .25rem; }
+.contact-line { margin: 0 0 1rem; color: #d7e4ea; word-break: break-word; }
 .summary { font-size: 1.15rem; max-width: 62ch; margin: 0 0 1.25rem; }
 .cta-row { display: flex; flex-wrap: wrap; gap: .75rem; margin: 0 0 .5rem; }
-.email-line { margin: 0; color: #d7e4ea; font-size: .95rem; word-break: break-all; }
 .stats { list-style: none; padding: 0; margin: 2rem 0 0; display: grid; grid-template-columns: repeat(2, 1fr); gap: .75rem; }
 .stats li { background: rgba(255,255,255,.08); border: 1px solid rgba(255,255,255,.16); border-radius: var(--radius); padding: .9rem 1rem; display: flex; flex-direction: column; }
 .stats strong { font-size: 1.7rem; line-height: 1.1; color: #fff; }
@@ -154,3 +153,20 @@ details.breakdown ul { margin: .4rem 0 0; padding-left: 1.2rem; }
   .edu { grid-template-columns: repeat(2, 1fr); }
   .qual-controls { grid-template-columns: 1fr; }
 }
+
+/* Request Resume dialog */
+.dialog { border: 0; border-radius: 18px; padding: 0; width: min(560px, calc(100% - 1.5rem)); max-height: calc(100% - 1.5rem); background: var(--surface); color: var(--ink); box-shadow: 0 20px 60px rgba(0,0,0,.4); }
+.dialog::backdrop { background: rgba(7, 19, 27, .65); }
+.dialog form { padding: 1.5rem; }
+.field { margin-bottom: 1rem; }
+.field label { display: block; font-weight: 650; margin-bottom: .3rem; }
+.field input { width: 100%; font: inherit; font-size: 1rem; color: var(--ink); background: var(--bg); border: 2px solid var(--line); border-radius: 12px; padding: .7rem .9rem; min-height: 48px; }
+.field input:focus-visible { outline: 3px solid var(--focus); outline-offset: 1px; border-color: var(--focus); }
+.field input[aria-invalid="true"] { border-color: var(--no-ink); }
+.err { color: var(--no-ink); font-size: .92rem; font-weight: 600; margin: .3rem 0 0; }
+.hp { position: absolute; left: -10000px; width: 1px; height: 1px; overflow: hidden; }
+.form-status { margin: 0 0 1rem; font-weight: 650; }
+.form-status:empty { display: none; }
+.form-status.ok { color: var(--yes-ink); background: var(--yes-bg); border: 1px solid var(--yes-line); border-radius: 10px; padding: .6rem .8rem; }
+.form-status.bad { color: var(--no-ink); background: var(--no-bg); border: 1px solid var(--no-line); border-radius: 10px; padding: .6rem .8rem; }
+.btn[disabled] { opacity: .6; cursor: not-allowed; }
