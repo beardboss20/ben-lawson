@@ -63,7 +63,11 @@
     return li;
   }
 
-  function runCheck() {
+  function logSearch(fn, entry) {
+    try { if (window.BenSearchLog) window.BenSearchLog[fn](entry); } catch (e) { /* logging must never break the page */ }
+  }
+
+  function runCheck(source) {
     var out = $('results');
     out.textContent = '';
     var text = $('req-input').value;
@@ -82,6 +86,11 @@
     out.appendChild(ul);
     bar.setAttribute('tabindex', '-1');
     bar.scrollIntoView({ block: 'nearest' });
+    logSearch('log', {
+      box: 'matcher', query: text, source: source,
+      result: res.yes === res.total ? 'YES' : 'NOT YET', matched: res.yes, total: res.total,
+      unmet: res.items.filter(function (i) { return i.verdict !== 'yes'; }).map(function (i) { return i.input; })
+    });
   }
 
   function renderQuals() {
@@ -101,6 +110,7 @@
       ul.appendChild(li);
     });
     $('qual-count').textContent = 'Showing ' + list.length + ' of ' + matcher.skills.length + ' qualifications';
+    return list.length;
   }
 
   function renderChips() {
@@ -125,10 +135,16 @@
     matcher = window.BenMatcher.createMatcher(data);
     renderChips();
     renderQuals();
-    $('qual-search').addEventListener('input', renderQuals);
-    $('matcher-form').addEventListener('submit', function (e) { e.preventDefault(); runCheck(); });
+    $('qual-search').addEventListener('input', function () {
+      var n = renderQuals();
+      var q = $('qual-search').value;
+      if (q.trim().length >= 2) {
+        logSearch('schedule', { box: 'qualifications', query: q, result: n > 0 ? 'YES' : 'NOT YET', matched: n, total: matcher.skills.length, unmet: [] });
+      }
+    });
+    $('matcher-form').addEventListener('submit', function (e) { e.preventDefault(); runCheck('typed'); });
     $('req-input').addEventListener('keydown', function (e) {
-      if ((e.ctrlKey || e.metaKey) && e.key === 'Enter') { e.preventDefault(); runCheck(); }
+      if ((e.ctrlKey || e.metaKey) && e.key === 'Enter') { e.preventDefault(); runCheck('typed'); }
     });
     $('clear-btn').addEventListener('click', function () {
       $('req-input').value = ''; $('results').textContent = ''; $('req-input').focus();
@@ -136,7 +152,7 @@
     Array.prototype.forEach.call(document.querySelectorAll('.example'), function (b) {
       b.addEventListener('click', function () {
         $('req-input').value = b.getAttribute('data-text');
-        runCheck();
+        runCheck('example');
       });
     });
   }

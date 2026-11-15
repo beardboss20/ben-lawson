@@ -14,6 +14,7 @@ const LIMITS = { name: 100, email: 160, company: 120, jobTitle: 140 };
 const EMAIL_RE = /^[^\s@<>()[\]\\,;:"]+@[^\s@<>()[\]\\,;:"]+\.[A-Za-z]{2,}$/;
 const MAX_BODY_BYTES = 4000;
 const RATE = { windowMs: 10 * 60 * 1000, perIp: 3, perEmail: 2, globalPerHour: 40 };
+const UPSTREAM_TIMEOUT_MS = 25000; // Apps Script cold starts can take 10s+; keep in step with maxDuration in vercel.json
 
 // Basic best-effort rate limit. Memory is per serverless instance, so this slows bursts,
 // it is not a hard guarantee. The Apps Script side re-validates everything.
@@ -91,7 +92,7 @@ module.exports = async function handler(req, res) {
   }
 
   const ctrl = new AbortController();
-  const timer = setTimeout(() => ctrl.abort(), 9000);
+  const timer = setTimeout(() => ctrl.abort(), UPSTREAM_TIMEOUT_MS);
   try {
     const r = await fetch(url, {
       method: 'POST',

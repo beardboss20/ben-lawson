@@ -75,7 +75,8 @@
           </div>
         </div>
         <div id="results" class="results" aria-live="polite" aria-atomic="false"></div>
-        <p class="fineprint">This runs entirely in your browser. Nothing you type is sent anywhere. It matches keywords and phrases against Ben&rsquo;s resume, so it can miss a differently worded requirement. If something shows NOT YET and you think it should match, ask him.</p>
+        <p class="fineprint">The matching runs in your browser and only looks at keywords and phrases on Ben&rsquo;s resume, so it can miss a differently worded requirement. If something shows NOT YET and you think it should match, ask him.</p>
+        <p class="fineprint privacy-note" id="privacy-note">Searches on this page are logged anonymously to help Ben improve it.</p>
       </div>
     </section>
 
@@ -112,7 +113,7 @@
     <div class="wrap">
       <p><strong>Ben Lawson</strong> &middot; {{LOCATION}}</p>
       <p><a href="mailto:{{EMAIL}}">{{EMAIL}}</a> &middot; <a href="{{LINKEDIN}}" rel="me noopener" target="_blank">LinkedIn</a></p>
-      <p class="fineprint">A static site. No analytics, no cookies, no third-party trackers. Last updated November 2026.</p>
+      <p class="fineprint">Visits are counted with Vercel Web Analytics, which sets no cookies. Searches on this page are logged anonymously, with no name, email or IP address. Last updated November 2026.</p>
     </div>
   </footer>
 
@@ -158,6 +159,8 @@
   <script type="application/json" id="data-gaps">{{DATA_GAPS}}</script>
   <script src="/matcher.js"></script>
   <script src="/resume-request.js"></script>
+  <script src="/search-log.js"></script>
   <script src="/app.js"></script>
+  <script defer src="/_vercel/insights/script.js"></script>
 </body>
 </html>
