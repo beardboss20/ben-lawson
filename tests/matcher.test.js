@@ -130,3 +130,51 @@ test('qualification search and category filter', () => {
   assert.ok(m.searchSkills('', 'risk').every((s) => s.category === 'risk'));
   assert.equal(m.searchSkills('zzzzqqq').length, 0);
 });
+
+// --- Airbus learning operations bullet (resume change, Nov 2026) ---
+const AIRBUS_OPS = "Defined Airbus's US learning operations framework as part of a three-person SME team, setting standards for learning intake, needs assessment, assignment governance, annual calendars, and SCORM content structure.";
+const OPS_SKILLS = ['learning-ops', 'learning-ops-framework', 'learning-intake', 'needs-assessment', 'assignment-governance', 'learning-calendar', 'scorm', 'sme'];
+
+test('Airbus ops bullet: exact text on the site and no leftover "founding members" wording anywhere', () => {
+  const profile = read('profile');
+  const airbus = profile.experience.find((e) => /Airbus/.test(e.org));
+  assert.ok(airbus.bullets.includes(AIRBUS_OPS));
+  const html = fs.readFileSync(path.join(__dirname, '..', 'index.html'), 'utf8');
+  assert.ok(html.includes('<li>' + AIRBUS_OPS + '</li>'), "'Airbus's' must appear exactly as written");
+  assert.ok(!/founding members|org-wide standards|enterprise learning operations|request and approval rights/i.test(html));
+});
+
+test('Airbus ops bullet: every new skill quotes it as resume evidence', () => {
+  for (const id of OPS_SKILLS) {
+    const s = data.skills.skills.find((x) => x.id === id);
+    assert.ok(s, id + ' exists');
+    assert.ok(s.evidence.some((e) => e.source === 'resume' && e.text === AIRBUS_OPS), id + ' quotes the bullet');
+  }
+});
+
+test('Airbus ops bullet: SCORM, needs assessment, learning operations (and friends) are YES', () => {
+  for (const q of ['SCORM', 'needs assessment', 'learning operations', 'learning ops', 'L&D operations', 'learning operations framework', 'learning governance', 'learning standards',
+    'learning intake', 'intake process', 'training request intake', 'TNA', 'training needs analysis', 'needs analysis', 'assignment governance', 'training assignment governance', 'LMS assignment rules',
+    'annual learning calendar', 'training calendar', 'learning calendar planning', 'SCORM content', 'e-learning standards', 'content structure', 'SME', 'subject matter expert']) {
+    assert.equal(one(q).verdict, 'yes', q);
+  }
+});
+
+test('Airbus ops bullet: titles. Specialist is YES; Manager is YES with the direct-reports note; Director stays NOT YET', () => {
+  assert.equal(one('Learning Operations Specialist').verdict, 'yes');
+  const mgr = one('L&D Operations Manager');
+  assert.equal(mgr.verdict, 'yes');
+  assert.match(mgr.note, /Managing direct reports/);
+  assert.equal(one('Learning Operations Manager').verdict, 'yes');
+  assert.equal(one('Director of Learning Operations').verdict, 'no');
+});
+
+test('Airbus ops bullet: no overclaiming. Authoring SCORM or other tools stays NOT YET, and the SCORM caveat is honest', () => {
+  assert.equal(one('author SCORM courses in Storyline').verdict, 'no');
+  assert.equal(one('Storyline').verdict, 'no');
+  const scorm = data.skills.skills.find((s) => s.id === 'scorm');
+  assert.match(scorm.caveat, /does not say he authored SCORM courses/);
+  assert.ok(!/authored|built SCORM|SCORM courses (in|with)/i.test(JSON.stringify(scorm.evidence)));
+  const gapIds = new Set(data.gaps.gaps.map((g) => g.id));
+  for (const id of ['scorm', 'needs-assessment', 'learning-ops']) assert.ok(!gapIds.has(id), id + ' must not be listed as a gap');
+});

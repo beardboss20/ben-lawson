@@ -197,3 +197,159 @@ test('layout: every section shares the same outer container; only long text has 
   assert.match(css, /\.lede \{[^}]*max-width: 75ch/);
   assert.match(css, /\.job ul \{[^}]*max-width: 75ch/);
 });
+
+// ---- Visitor count, search logging, cold-start fix ----
+const vm = require('node:vm');
+
+function loadAppsScript() {
+  const rows = { Requests: [], Searches: null }; const mails = []; const calls = [];
+  const mkSheet = (name) => ({ appendRow: (r) => { rows[name].push(r); }, setFrozenRows() {}, getRange: () => ({ getValue: () => 'SHARED_SECRET' }), isSheetHidden: () => true, hideSheet() {} });
+  const sheets = { Requests: mkSheet('Requests') };
+  const ss = { getSheetByName: (n) => sheets[n] || null, insertSheet: (n) => { calls.push('insert:' + n); rows[n] = []; sheets[n] = mkSheet(n); return sheets[n]; }, getUrl: () => 'https://sheet' };
+  const ctx = {
+    console, JSON, Math, Date, String, Number, Array, isFinite, RegExp, Object, Error,
+    SpreadsheetApp: { getActiveSpreadsheet: () => ss },
+    LockService: { getScriptLock: () => ({ waitLock() {}, releaseLock() {} }) },
+    PropertiesService: { getScriptProperties: () => ({ getProperty: () => 'test-secret' }) },
+    Utilities: { formatDate: () => '2026-11-14 12:00:00' },
+    MailApp: { sendEmail: (m) => mails.push(m) },
+    ContentService: { MimeType: { JSON: 'json' }, createTextOutput: (s) => ({ setMimeType: () => ({ getContent: () => s }) }) },
+  };
+  vm.createContext(ctx);
+  vm.runInContext(fs.readFileSync(path.join(root, 'apps-script', 'Code.gs'), 'utf8'), ctx);
+  const post = (obj) => JSON.parse(ctx.doPost({ postData: { contents: JSON.stringify(obj) } }).getContent());
+  const plain = (x) => JSON.parse(JSON.stringify(x));
+  return { post, mails, calls: { get length() { return calls.length; }, list: () => plain(calls) }, get rows() { return plain(rows); } };
+}
+
+test('Apps Script: type search adds a Searches row, escapes formulas, never emails', () => {
+  const a = loadAppsScript();
+  const r = a.post({ token: 'test-secret', type: 'search', box: 'matcher', query: '=HYPERLINK("x")  L&D\nManager', result: 'NOT YET', matched: 2, total: 3, unmet: ['+cmd', '15+ years HR'], source: 'example', referrer: 'LinkedIn.com' });
+  assert.deepEqual(r, { ok: true });
+  assert.equal(a.mails.length, 0, 'searches must not email');
+  assert.equal(a.rows.Requests.length, 0);
+  assert.deepEqual(a.calls.list(), ['insert:Searches']);
+  const [headers, row] = a.rows.Searches;
+  assert.deepEqual(headers, ['Timestamp (America/Chicago)', 'Box', 'Query', 'Result', 'Matched', 'Of', 'Not yet items', 'Input', 'Referrer']);
+  assert.equal(row[2], "'=HYPERLINK(\"x\") L&D Manager");
+  assert.equal(row[6], "'+cmd; 15+ years HR");
+  assert.deepEqual([row[1], row[3], row[4], row[5], row[7], row[8]], ['matcher', 'NOT YET', 2, 3, 'example', 'linkedin.com']);
+  assert.equal(row.length, 9, 'no ip, user agent, name or email columns');
+});
+
+test('Apps Script: search rejects bad token and bad fields; caps the query at 200', () => {
+  const a = loadAppsScript();
+  assert.deepEqual(a.post({ token: 'nope', type: 'search', box: 'matcher', query: 'x', result: 'YES' }), { ok: false, error: 'unauthorized' });
+  assert.equal(a.post({ token: 'test-secret', type: 'search', box: 'other', query: 'x', result: 'YES' }).ok, false);
+  assert.equal(a.post({ token: 'test-secret', type: 'search', box: 'matcher', query: '   ', result: 'YES' }).ok, false);
+  assert.equal(a.post({ token: 'test-secret', type: 'search', box: 'qualifications', query: 'a'.repeat(500), result: 'YES', matched: 1, total: 50, referrer: 'bad domain!' }).ok, true);
+  const row = a.rows.Searches[1];
+  assert.equal(row[2].length, 200);
+  assert.equal(row[8], '', 'invalid referrer is dropped');
+});
+
+test('Apps Script: resume requests still add a Requests row and email Ben exactly as before', () => {
+  const a = loadAppsScript();
+  const r = a.post({ token: 'test-secret', name: 'Pat Recruiter', email: 'pat@example.com', company: 'Acme', jobTitle: 'L&D Manager' });
+  assert.deepEqual(r, { ok: true });
+  assert.equal(a.rows.Requests.length, 1);
+  assert.deepEqual(a.rows.Requests[0].slice(1), ['Pat Recruiter', 'pat@example.com', 'Acme', 'L&D Manager', 'New', '']);
+  assert.equal(a.mails.length, 1);
+  assert.equal(a.mails.length, 1);
+  assert.equal(a.mails[0].to, 'benhlawson@gmail.com');
+  assert.equal(a.mails[0].subject, 'Resume request from Pat Recruiter at Acme, L&D Manager');
+  assert.equal(a.rows.Searches, null);
+});
+
+test('/api/log-search: validation keeps only anonymous fields and caps the query', () => {
+  const { validate } = require(path.join(root, 'api', 'log-search.js'));
+  const ok = validate({ box: 'matcher', query: '  ' + 'x'.repeat(300), result: 'YES', matched: 3, total: 3, unmet: [], source: 'typed', referrer: 'Google.com', ip: '1.2.3.4', name: 'N', email: 'e@x.com', userAgent: 'UA' });
+  assert.deepEqual(Object.keys(ok).sort(), ['box', 'matched', 'query', 'referrer', 'result', 'source', 'total', 'unmet']);
+  assert.equal(ok.query.length, 200);
+  assert.equal(ok.referrer, 'google.com');
+  for (const bad of [null, {}, { box: 'x', query: 'a', result: 'YES' }, { box: 'matcher', query: '', result: 'YES' }, { box: 'matcher', query: 'a', result: 'MAYBE' }]) assert.equal(validate(bad), null);
+  assert.equal(validate({ box: 'matcher', query: 'a\u0000b\n\tc', result: 'NOT YET', unmet: ['u'.repeat(200)] }).unmet.length, 80);
+});
+
+function fakeRes() { const r = { headers: {}, statusCode: 0, body: undefined, setHeader(k, v) { r.headers[k] = v; }, end(b) { r.body = b; } }; return r; }
+async function callLog(body, { headers = {}, method = 'POST' } = {}) {
+  const handler = require(path.join(root, 'api', 'log-search.js'));
+  const res = fakeRes();
+  await handler({ method, headers: { host: 'x.test', ...headers }, body, socket: { remoteAddress: '9.9.9.9' } }, res);
+  return res;
+}
+
+test('/api/log-search: forwards type search with the secret; fails silently without storing IP or UA', async () => {
+  process.env.APPS_SCRIPT_URL = 'https://script.example/exec'; process.env.APPS_SCRIPT_SECRET = 's3cret-test';
+  const realFetch = global.fetch; let sent;
+  global.fetch = async (url, init) => { sent = { url, init }; return { ok: true, status: 200, json: async () => ({ ok: true }) }; };
+  try {
+    const res = await callLog({ box: 'qualifications', query: 'Power BI', result: 'YES', matched: 2, total: 50, referrer: '' }, { headers: { origin: 'https://x.test', 'user-agent': 'Mozilla/5.0 secret-ua', 'x-forwarded-for': '203.0.113.7' } });
+    assert.equal(res.statusCode, 204);
+    const payload = JSON.parse(sent.init.body);
+    assert.equal(payload.type, 'search'); assert.equal(payload.token, 's3cret-test'); assert.equal(payload.query, 'Power BI');
+    const flat = JSON.stringify(payload) + JSON.stringify(sent.init.headers);
+    assert.ok(!/203\.0\.113\.7|secret-ua|Mozilla/.test(flat), 'no IP or user agent forwarded');
+    global.fetch = async () => { throw Object.assign(new Error('boom'), { name: 'AbortError' }); };
+    const bad = await callLog({ box: 'matcher', query: 'x1', result: 'YES' });
+    assert.equal(bad.statusCode, 502); // the browser ignores this: fire-and-forget
+    assert.equal((await callLog({ box: 'matcher', query: 'x1', result: 'YES' }, { headers: { origin: 'https://evil.test' } })).statusCode, 403);
+    assert.equal((await callLog({}, { method: 'GET' })).statusCode, 405);
+    assert.equal((await callLog({ query: '' })).statusCode, 400);
+    delete process.env.APPS_SCRIPT_SECRET;
+    assert.equal((await callLog({ box: 'matcher', query: 'x1', result: 'YES' })).statusCode, 503);
+  } finally { global.fetch = realFetch; }
+});
+
+test('/api/log-search: per-IP in-memory rate limit', async () => {
+  process.env.APPS_SCRIPT_URL = 'https://script.example/exec'; process.env.APPS_SCRIPT_SECRET = 'x';
+  const realFetch = global.fetch; global.fetch = async () => ({ ok: true, status: 200, json: async () => ({ ok: true }) });
+  try {
+    const handler = require(path.join(root, 'api', 'log-search.js'));
+    let limited = 0;
+    for (let i = 0; i < 60; i++) {
+      const res = fakeRes();
+      await handler({ method: 'POST', headers: { host: 'x.test', 'x-forwarded-for': '198.51.100.9' }, body: { box: 'matcher', query: 'q' + i, result: 'YES' }, socket: {} }, res);
+      if (res.statusCode === 429) limited++;
+    }
+    assert.ok(limited >= 15, 'limited ' + limited);
+  } finally { global.fetch = realFetch; }
+});
+
+test('cold-start fix: 25s upstream timeout and 30s maxDuration for both endpoints', () => {
+  const vj = JSON.parse(fs.readFileSync(path.join(root, 'vercel.json'), 'utf8'));
+  assert.ok(vj.functions['api/*.js'].maxDuration >= 30);
+  for (const f of ['request-resume.js', 'log-search.js']) {
+    const src = fs.readFileSync(path.join(root, 'api', f), 'utf8');
+    assert.match(src, /UPSTREAM_TIMEOUT_MS = 25000/);
+    assert.ok(!/abort\(\), 9000/.test(src));
+  }
+});
+
+test('Web Analytics: first-party script tag, and the CSP already allows it and its beacon', () => {
+  assert.match(html, /<script defer src="\/_vercel\/insights\/script\.js"><\/script>/);
+  const vj = JSON.parse(fs.readFileSync(path.join(root, 'vercel.json'), 'utf8'));
+  const csp = vj.headers[0].headers.find((h) => h.key === 'Content-Security-Policy').value;
+  assert.match(csp, /script-src 'self'(;|$)/); // /_vercel/insights/script.js is same-origin
+  assert.match(csp, /connect-src 'self'(;|$)/); // the beacon posts to /_vercel/insights/view on this origin
+  assert.ok(!/unsafe-inline|unsafe-eval|https?:\/\//.test(csp.replace(/frame-ancestors[^;]*/, '')), 'CSP stays strict');
+  assert.ok(!/\bwindow\.va\b|<script>[^<]/.test(html.split('<body')[1] || ''), 'no inline script needed');
+});
+
+test('privacy: honest copy about logging, no stale "nothing is sent" claims', () => {
+  assert.match(html, /Searches on this page are logged anonymously to help Ben improve it\./);
+  assert.ok(!/Nothing you type is sent anywhere|entirely in your browser|No analytics, no cookies/.test(html));
+  assert.match(html, /Vercel Web Analytics, which sets no cookies/);
+  assert.ok(html.indexOf('privacy-note') < html.indexOf('id="experience"'), 'note sits in the matcher section');
+});
+
+test('client logging: debounced, anonymous, never breaks the UI', () => {
+  const src = fs.readFileSync(path.join(root, 'search-log.js'), 'utf8');
+  assert.match(src, /sendBeacon/);
+  assert.match(src, /DEBOUNCE_MS = 1500/);
+  assert.match(src, /QUERY_MAX = 200/);
+  assert.ok(!/userAgent|navigator\.language|localStorage|document\.cookie/.test(src), 'no fingerprinting or storage');
+  assert.match(html, /<script src="\/search-log\.js"><\/script>\s*<script src="\/app\.js"><\/script>/);
+  assert.match(appJs, /logSearch\('log'/); assert.match(appJs, /logSearch\('schedule'/);
+  assert.ok(!/fetch\(/.test(appJs), 'app.js itself still does not fetch');
+});

@@ -1,6 +1,6 @@
 # ben-lawson
 
-Interactive About Me site for recruiters. Static and browser-only: no API, no AI calls, no keys, no backend, no analytics.
+Interactive About Me site for recruiters. Static site with a browser-side matcher: no AI calls and no keys in the page. Two small Vercel functions (`/api/request-resume`, `/api/log-search`) forward to a Google Apps Script. Visits are counted with Vercel Web Analytics (no cookies).
 
 A recruiter types job titles or requirements (commas or new lines) and each one is checked against Ben's resume. The result is a green **YES** with a proof line, or a red **NOT YET** with an honest note.
 
