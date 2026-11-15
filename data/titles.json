@@ -64,9 +64,25 @@
     {
       "id": "learning-tech-po",
       "name": "Learning Technology or Product Owner",
-      "aliases": ["learning technology specialist", "learning technologist", "learning systems specialist", "learning product owner", "product owner learning", "lms product owner", "learning technology manager", "learning platform owner", "hr technology specialist", "hr product owner", "hr systems analyst", "learning systems analyst", "learning operations specialist", "learning operations manager", "learning ops specialist", "product owner"],
+      "aliases": ["learning technology specialist", "learning technologist", "learning systems specialist", "learning product owner", "product owner learning", "lms product owner", "learning technology manager", "learning platform owner", "hr technology specialist", "hr product owner", "hr systems analyst", "learning systems analyst", "product owner"],
       "core": ["product-owner", "lms-platforms", "lms-admin", "change-management", "learning-ops", "hr-systems", "program-management", "cross-functional"],
       "gaps": []
+    },
+    {
+      "id": "learning-ops-specialist",
+      "name": "Learning Operations Specialist",
+      "aliases": ["learning operations specialist", "learning ops specialist", "learning operations analyst", "learning operations coordinator", "learning operations associate", "learning operations program specialist", "l and d operations specialist", "ld operations specialist", "learning and development operations specialist", "training operations specialist", "training operations coordinator", "learning administration specialist"],
+      "core": ["learning-ops", "learning-ops-framework", "learning-intake", "needs-assessment", "assignment-governance", "learning-calendar", "scorm", "lms-platforms", "lms-admin"],
+      "gaps": [],
+      "note": "Ben helped define Airbus's US learning operations framework as part of a three-person SME team, and he has hands-on LMS administration. The resume doesn't list running day-to-day operations for a learning function."
+    },
+    {
+      "id": "learning-ops-manager",
+      "name": "Learning Operations Manager",
+      "aliases": ["learning operations manager", "learning ops manager", "learning operations lead", "learning ops lead", "l and d operations manager", "ld operations manager", "learning and development operations manager", "learning and development operations lead", "training operations manager", "manager of learning operations", "manager learning operations"],
+      "core": ["learning-ops", "learning-ops-framework", "learning-intake", "needs-assessment", "assignment-governance", "learning-calendar", "scorm", "lms-platforms", "lms-admin", "program-management"],
+      "gaps": ["people-management"],
+      "note": "Ben helped define Airbus's US learning operations framework as part of a three-person SME team. His titles so far have been specialist and product owner roles, not manager roles."
     },
     {
       "id": "ai-trainer",

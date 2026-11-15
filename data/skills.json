@@ -193,13 +193,94 @@
     },
     {
       "id": "learning-ops",
-      "name": "Enterprise learning operations and governance",
+      "name": "Learning operations",
       "category": "hr",
       "years": null,
-      "synonyms": ["learning operations", "learning ops", "learning governance", "learning intake", "assignment governance", "annual assignment calendar", "learning framework", "learning standards", "learning operations framework", "scorm", "scorm content", "learning administration process", "enterprise learning"],
+      "caveat": "The resume shows Ben helping define the learning operations framework as part of a three-person SME team. It does not list running day-to-day learning operations or managing an operations team.",
+      "synonyms": ["learning operations", "learning ops", "learning operation", "l and d operations", "ld operations", "l&d operations", "learning and development operations", "learning and development ops", "training operations", "training ops", "learning administration process"],
       "evidence": [
         {
-          "text": "Selected as one of three founding members to define Airbus's enterprise learning operations framework, setting org-wide standards for learning intake, needs assessment, assignment governance (request and approval rights), annual assignment calendars, and SCORM content structure.",
+          "text": "Defined Airbus's US learning operations framework as part of a three-person SME team, setting standards for learning intake, needs assessment, assignment governance, annual calendars, and SCORM content structure.",
+          "source": "resume"
+        }
+      ]
+    },
+    {
+      "id": "learning-ops-framework",
+      "name": "Learning operations framework, governance, and standards",
+      "category": "hr",
+      "years": null,
+      "synonyms": ["learning operations framework", "learning ops framework", "learning framework", "learning governance", "learning standards", "learning operations standards", "learning operations governance", "l and d governance", "ld governance", "l&d governance", "standards for learning", "framework for learning operations"],
+      "evidence": [
+        {
+          "text": "Defined Airbus's US learning operations framework as part of a three-person SME team, setting standards for learning intake, needs assessment, assignment governance, annual calendars, and SCORM content structure.",
+          "source": "resume"
+        }
+      ]
+    },
+    {
+      "id": "learning-intake",
+      "name": "Learning intake process",
+      "category": "hr",
+      "years": null,
+      "synonyms": ["learning intake", "learning intake process", "intake process", "intake standards", "training intake", "training request intake", "training requests", "training request", "learning request intake"],
+      "evidence": [
+        {
+          "text": "Defined Airbus's US learning operations framework as part of a three-person SME team, setting standards for learning intake, needs assessment, assignment governance, annual calendars, and SCORM content structure.",
+          "source": "resume"
+        }
+      ]
+    },
+    {
+      "id": "assignment-governance",
+      "name": "Assignment governance",
+      "category": "hr",
+      "years": null,
+      "synonyms": ["assignment governance", "training assignment governance", "learning assignment governance", "lms assignment rules", "assignment rules", "training assignment rules", "learning assignment rules", "course assignment governance"],
+      "evidence": [
+        {
+          "text": "Defined Airbus's US learning operations framework as part of a three-person SME team, setting standards for learning intake, needs assessment, assignment governance, annual calendars, and SCORM content structure.",
+          "source": "resume"
+        }
+      ]
+    },
+    {
+      "id": "learning-calendar",
+      "name": "Annual learning calendar",
+      "category": "hr",
+      "years": null,
+      "synonyms": ["annual learning calendar", "annual training calendar", "learning calendar", "training calendar", "learning calendar planning", "training calendar planning", "annual calendar", "annual calendars", "annual assignment calendar", "annual assignment calendars", "annual planning calendar"],
+      "evidence": [
+        {
+          "text": "Defined Airbus's US learning operations framework as part of a three-person SME team, setting standards for learning intake, needs assessment, assignment governance, annual calendars, and SCORM content structure.",
+          "source": "resume"
+        }
+      ]
+    },
+    {
+      "id": "scorm",
+      "name": "SCORM content structure",
+      "category": "ld",
+      "years": null,
+      "caveat": "The resume shows Ben setting SCORM content-structure standards as part of a team. It does not say he authored SCORM courses, and it names Articulate 360 and Rise as his authoring tools.",
+      "synonyms": ["scorm", "scorm content", "scorm content structure", "scorm standards", "scorm compliant", "scorm packages", "e-learning standards", "elearning standards", "e learning standards", "content structure"],
+      "evidence": [
+        {
+          "text": "Defined Airbus's US learning operations framework as part of a three-person SME team, setting standards for learning intake, needs assessment, assignment governance, annual calendars, and SCORM content structure.",
+          "source": "resume"
+        }
+      ]
+    },
+    {
+      "id": "sme",
+      "name": "Subject matter expert (SME)",
+      "category": "ld",
+      "years": null,
+      "caveat": "The resume shows Ben as one of three SMEs defining Airbus's US learning operations framework. It does not claim SME status in other areas.",
+      "synonyms": ["sme", "smes", "subject matter expert", "subject matter experts", "subject-matter expert", "subject matter expertise", "sme team", "sme collaboration", "sme partnership"],
+      "evidence": [
+        {
+          "text": "Defined Airbus's US learning operations framework as part of a three-person SME team, setting standards for learning intake, needs assessment, assignment governance, annual calendars, and SCORM content structure.",
           "source": "resume"
         }
       ]
@@ -371,10 +452,10 @@
       "name": "Needs assessment",
       "category": "ld",
       "years": null,
-      "synonyms": ["needs assessment", "needs analysis", "training needs analysis", "training needs assessment", "tna", "learning needs", "learning needs analysis", "gap analysis", "learning intake"],
+      "synonyms": ["needs assessment", "needs assessments", "needs analysis", "training needs analysis", "training needs assessment", "training needs", "tna", "tnas", "learning needs", "learning needs analysis", "learning needs assessment", "gap analysis"],
       "evidence": [
         {
-          "text": "...setting org-wide standards for learning intake, needs assessment, assignment governance...",
+          "text": "Defined Airbus's US learning operations framework as part of a three-person SME team, setting standards for learning intake, needs assessment, assignment governance, annual calendars, and SCORM content structure.",
           "source": "resume"
         }
       ]
@@ -511,7 +592,7 @@
           "source": "resume"
         },
         {
-          "text": "...setting org-wide standards for learning intake, needs assessment, assignment governance...",
+          "text": "...setting standards for learning intake, needs assessment, assignment governance...",
           "source": "resume"
         }
       ]
