@@ -18,7 +18,7 @@ A recruiter types job titles or requirements (commas or new lines) and each one 
 
 - Evidence is quoted from Ben's resume (`source: resume`) or confirmed by Ben (`source: confirmed`). Never invent a claim.
 - `years` is only set when it can be backed by dates. `null` means the resume does not say.
-- Seven plus years of HR, never 8. The leadership development program stays lowercase.
+- Years of experience are only claimed when backed by dates, never as 8. The leadership development program stays lowercase.
 - Contact is email and LinkedIn only. No phone number or street address.
 
 ## Deploy
