@@ -33,6 +33,18 @@ test('no claim of 8+ years or a capitalized program name anywhere in the data', 
   assert.ok(!/\bAgile (leadership|program)/i.test(blob));
 });
 
+const YEARS_IN_SUGGESTION = /\b(?:\d+\+?|(?:one|two|three|four|five|six|seven|eight|nine|ten|twelve|fifteen|twenty)(?:\s+plus)?)\s+years?\b/i;
+
+test('example searches have no years counts and each one is a full YES', () => {
+  const examples = read('profile').examples;
+  assert.equal(examples.length, 4);
+  for (const q of examples) {
+    assert.ok(!YEARS_IN_SUGGESTION.test(q), 'example should not suggest a years count: ' + q);
+    const r = m.check(q);
+    assert.equal(r.yes, r.total, q + ' -> ' + r.summary);
+  }
+});
+
 // --- parsing ---
 test('splits commas, new lines and bullets, but not commas inside parentheses', () => {
   assert.deepEqual(splitRequirements('HRIS, Power BI\n- change management\n\u2022 L&D (training, learning)'), ['HRIS', 'Power BI', 'change management', 'L&D (training, learning)']);

@@ -172,6 +172,19 @@ test('example chips: label on its own line, all chips grouped underneath', () =>
   assert.match(fs.readFileSync(path.join(root, 'styles.css'), 'utf8'), /\.example-chips \{[^}]*flex-direction: column/);
 });
 
+test('suggested searches (placeholder and example chips) do not include a years count', () => {
+  const ph = html.match(/id="req-input"[^>]*placeholder="([^"]+)"/);
+  assert.ok(ph, 'textarea placeholder');
+  const chips = [...html.matchAll(/class="chip example" data-text="([^"]+)"/g)].map((m) => m[1]);
+  assert.equal(chips.length, 4);
+  const years = /\b(?:\d+\+?|(?:one|two|three|four|five|six|seven|eight|nine|ten|twelve|fifteen|twenty)(?:\s+plus)?)\s+years?\b/i;
+  assert.ok(!years.test(ph[1].replace(/&amp;/g, '&')), 'placeholder has a years count: ' + ph[1]);
+  for (const t of chips) {
+    const plain = t.replace(/&amp;/g, '&');
+    assert.ok(!years.test(plain), 'example chip has a years count: ' + plain);
+  }
+});
+
 test('timeline: circles and line share one x variable; line starts and ends at circle centers', () => {
   const css = fs.readFileSync(path.join(root, 'styles.css'), 'utf8');
   assert.match(css, /\.timeline \{[^}]*--tl-x: \d+px/);
