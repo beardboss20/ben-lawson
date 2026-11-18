@@ -42,9 +42,9 @@
     {
       "id": "ai-enablement",
       "name": "AI Enablement Lead",
-      "aliases": ["ai enablement lead", "ai enablement specialist", "ai enablement manager", "ai enablement", "ai adoption lead", "ai adoption specialist", "ai program manager", "ai champion", "ai learning specialist", "ai transformation specialist", "ai training specialist", "ai upskilling lead", "hr ai specialist", "ai trainer enablement", "ai literacy lead", "ai strategist", "generative ai specialist", "ai workflow specialist", "ai automation specialist", "ai operations", "ai program lead", "head of ai enablement"],
-      "core": ["ai-enablement", "gen-ai", "prompt-engineering", "ai-workflows", "facilitation", "change-management", "ld", "program-management"],
-      "gaps": ["ai-governance"]
+      "aliases": ["ai enablement lead", "ai enablement specialist", "ai enablement manager", "ai adoption lead", "ai adoption specialist", "ai program manager", "ai champion", "ai learning specialist", "ai transformation specialist", "ai training specialist", "ai upskilling lead", "hr ai specialist", "ai trainer enablement", "ai literacy lead", "ai strategist", "generative ai specialist", "ai workflow specialist", "ai automation specialist", "ai operations", "ai program lead", "head of ai enablement"],
+      "core": ["ai-enablement", "gen-ai", "prompt-engineering", "ai-workflows", "facilitation", "change-management", "ld", "program-management", "responsible-ai"],
+      "gaps": []
     },
     {
       "id": "people-analytics",

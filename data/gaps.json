@@ -81,9 +81,9 @@
     },
     {
       "id": "ai-governance",
-      "name": "AI governance and policy",
-      "synonyms": ["ai governance", "responsible ai", "ai policy", "ai ethics", "ai risk", "ai compliance", "ai security", "ai strategy", "ai roadmap", "ai policy development", "ai standards"],
-      "note": "Ben enables people and builds with AI. Formal AI governance or policy ownership isn't on his resume."
+      "name": "Enterprise AI governance and policy",
+      "synonyms": ["ai governance", "ai governance framework", "ai governance board", "ai governance council", "ai governance committee", "enterprise ai governance", "formal ai governance", "ai risk assessment", "ai compliance", "eu ai act", "model risk management", "ai policy ownership", "ai policy", "ai policy development", "ai ethics", "ai risk", "ai security", "ai strategy", "ai roadmap", "ai standards"],
+      "note": "Ben writes team-level AI guidance and teaches safe use, but hasn't owned enterprise AI governance or policy."
     },
     {
       "id": "change-certs",

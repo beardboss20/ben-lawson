@@ -508,6 +508,18 @@
       ]
     },
     {
+      "id": "responsible-ai",
+      "name": "Responsible AI use and team AI guidelines",
+      "category": "ai",
+      "years": null,
+      "synonyms": ["responsible ai", "responsible ai use", "responsible use of ai", "ai guidelines", "ai usage guidelines", "ai usage guidance", "ai use policy", "team ai policy", "team ai guidelines", "team ai guidance", "ai use policy for the team", "safe ai use", "ai safety training", "data privacy in ai", "ai data privacy", "ai best practices", "ai acceptable use", "what not to paste", "ai usage policy"],
+      "evidence": [
+        {"text": "Wrote AI usage guidance for his team and teaches safe use, including what data not to paste into AI tools.", "source": "confirmed"},
+        {"text": "Took part in many AI tool discussions at xAI, from quick reviews to in-depth evaluations.", "source": "confirmed"},
+        {"text": "Reviewed and assessed other trainers' work as an informal senior reviewer, and was selected for special projects, establishing project guidelines and documentation.", "source": "resume"}
+      ]
+    },
+    {
       "id": "gen-ai",
       "name": "Generative AI and LLM tools (Gemini, ChatGPT, Grok)",
       "category": "ai",

@@ -129,9 +129,9 @@ test('HRIS administration is a NOT YET even though HRIS matches', () => {
 test('summary line counts matches', () => {
   const r = m.check('HRIS, L&D, SQL, 8+ years HR, change management, LMS admin, Power BI, AI enablement');
   assert.equal(r.total, 8);
-  assert.equal(r.yes, 5);
-  assert.equal(r.partial, 1);
-  assert.equal(r.summary, '6 of 8 matched, 1 with gap');
+  assert.equal(r.yes, 6);
+  assert.equal(r.partial, 0);
+  assert.equal(r.summary, '6 of 8 matched');
   assert.equal(r.overall, 'no');
 });
 test('empty input gives no results; long input is capped', () => {
@@ -227,8 +227,10 @@ no('red-teaming');
 no('SAM');
 no('defense');
 no('talent acquisition', /talent acquisition|Recruiting/);
-no('responsible AI', /governance|Responsible/);
-no('AI governance', /governance/);
+yes('responsible AI');
+yes('AI guidelines');
+yes('AI enablement');
+no('AI governance', /team-level AI guidance|enterprise AI governance/);
 
 test('xAI / RLHF searches show Grok training evidence', () => {
   for (const q of ['xAI', 'RLHF', 'human-in-the-loop', 'HITL', 'data annotation']) {
@@ -411,4 +413,49 @@ test('a list of only YES, BUT titles gets a striped overall summary, and mixed l
   // SQL is no, L&D Manager is partial: matched = 1 of 2
   assert.equal(withNo.summary, '1 of 2 matched, 1 with gap');
   assert.equal(withNo.tone.startsWith('A strong start'), true);
+});
+
+// --- Responsible AI use and team guidelines (confirmed by Ben, Nov 2026) ---
+test('responsible AI and team AI guidelines are YES with confirmed team-level evidence', () => {
+  for (const q of ['responsible AI', 'responsible AI use', 'AI guidelines', 'AI usage guidelines', 'AI use policy', 'safe AI use', 'data privacy in AI', 'AI best practices']) {
+    const r = one(q);
+    assert.equal(r.verdict, 'yes', q + ' -> ' + r.note);
+    assert.equal(r.headline, 'YES');
+    assert.ok(r.matchedSkills.includes('responsible-ai'), q + ' -> ' + r.matchedSkills);
+    assert.ok(r.evidence.some((e) => e.source === 'confirmed' && /AI usage guidance for his team/.test(e.text)), q);
+  }
+  const r = one('responsible AI');
+  assert.ok(r.evidence.some((e) => e.source === 'confirmed' && /AI tool discussions at xAI/.test(e.text)));
+  assert.ok(r.evidence.some((e) => e.source === 'resume' && /project guidelines and documentation/.test(e.text)));
+  const gap = data.gaps.gaps.find((g) => g.id === 'ai-governance');
+  assert.ok(!gap.synonyms.includes('responsible ai'));
+  assert.ok(gap.synonyms.includes('ai governance'));
+});
+
+test('bare AI governance stays NOT YET and points to team-level guidance; formal terms stay gaps', () => {
+  for (const q of ['AI governance', 'enterprise AI governance', 'AI governance board', 'AI governance framework', 'AI policy ownership', 'EU AI Act', 'model risk management', 'AI risk assessment']) {
+    const r = one(q);
+    assert.equal(r.verdict, 'no', q + ' -> ' + r.headline + ' ' + r.note);
+    assert.equal(r.headline, 'NOT YET');
+    assert.match(r.note, /team-level AI guidance and teaches safe use/);
+    assert.match(r.note, /hasn't owned enterprise AI governance or policy/);
+  }
+});
+
+test('bare AI enablement is a solid skill YES; AI Enablement Lead is a solid title YES', () => {
+  const skill = one('AI enablement');
+  assert.equal(skill.verdict, 'yes');
+  assert.equal(skill.headline, 'YES');
+  assert.ok(skill.matchedSkills.includes('ai-enablement'));
+  assert.ok(!skill.breakdown, 'bare AI enablement should not be scored as a title');
+  const lead = one('AI Enablement Lead');
+  assert.equal(lead.verdict, 'yes', lead.note);
+  assert.equal(lead.headline, 'YES');
+  assert.match(lead.note, /Ben covers 9 of 9 areas this role usually needs/);
+  assert.ok(lead.matchedSkills.includes('responsible-ai'));
+  assert.ok(!(lead.note || '').includes('Yes, but not yet'));
+  const chip = m.check('AI enablement, workflow automation, generative AI, facilitation');
+  assert.equal(chip.yes, chip.total);
+  assert.equal(chip.partial, 0);
+  assert.equal(chip.overall, 'yes');
 });
