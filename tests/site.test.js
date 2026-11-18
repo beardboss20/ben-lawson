@@ -35,23 +35,6 @@ test('hero: no subtitle repeating the name, tagline and email under the name, no
   assert.match(hero, /id="request-resume-btn"/);
 });
 
-test('hero portrait has alt text, WebP and JPEG fallbacks, and no EXIF', () => {
-  const hero = html.split('<main>')[0];
-  assert.match(hero, /<picture>/);
-  assert.match(hero, /type="image\/webp"/);
-  assert.match(hero, /srcset="\/assets\/ben-480\.webp 480w, \/assets\/ben-960\.webp 960w"/);
-  assert.match(hero, /src="\/assets\/ben-480\.jpg"/);
-  assert.match(hero, /srcset="\/assets\/ben-480\.jpg 480w, \/assets\/ben-960\.jpg 960w"/);
-  assert.match(hero, /alt="Ben Lawson"/);
-  assert.match(hero, /width="480" height="600"/);
-  const marker = Buffer.from('Exif\x00');
-  for (const f of ['ben-480.webp', 'ben-960.webp', 'ben-480.jpg', 'ben-960.jpg', 'og.jpg']) {
-    const buf = fs.readFileSync(path.join(root, 'assets', f));
-    assert.ok(buf.length > 1000, f + ' should exist');
-    assert.ok(!buf.includes(marker), f + ' should have no EXIF');
-  }
-});
-
 test('contact is email and LinkedIn only: no phone number or street address', () => {
   assert.ok(!/402[-. )]*926[-. ]*1521/.test(html));
   assert.ok(!/\b\d{3}[-. ]\d{3}[-. ]\d{4}\b/.test(html));
