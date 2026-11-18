@@ -47,7 +47,7 @@
       st.textContent = (item.verdict === 'yes' ? '\u2713 ' : '\u2717 ') + item.headline;
     }
     head.appendChild(st);
-    head.appendChild(el('span', 'req', item.input));
+    head.appendChild(el('span', 'req', window.BenMatcher.formatHeading(item.input)));
     li.appendChild(head);
     if (item.note) li.appendChild(el('p', 'note', item.note));
     var seenCaveat = {};
@@ -60,8 +60,8 @@
         var d = el('details', 'breakdown');
         d.appendChild(el('summary', null, 'See the ' + b.haveCount + ' of ' + b.total + ' areas for ' + b.title));
         var ul = el('ul');
-        b.have.forEach(function (n) { ul.appendChild(el('li', null, '\u2713 ' + n)); });
-        b.missing.forEach(function (m) { ul.appendChild(el('li', null, '\u2717 Not yet: ' + m.name)); });
+        b.have.forEach(function (n) { ul.appendChild(el('li', null, '\u2713 ' + window.BenMatcher.formatHeading(n)); });
+        b.missing.forEach(function (m) { ul.appendChild(el('li', null, '\u2717 Not yet: ' + window.BenMatcher.formatHeading(m.name)); });
         d.appendChild(ul);
         li.appendChild(d);
       });
@@ -109,9 +109,9 @@
     matcher.categories.forEach(function (c) { cats[c.id] = c.name; });
     list.forEach(function (s) {
       var li = el('li', 'qual');
-      li.appendChild(el('h3', null, s.name));
+      li.appendChild(el('h3', null, window.BenMatcher.formatHeading(s.name)));
       li.appendChild(el('p', 'cat', cats[s.category] || ''));
-      if (s.years) li.appendChild(el('p', 'years', (s.yearsLabel || (s.years + ' years'))));
+      if (s.years) li.appendChild(el('p', 'years', window.BenMatcher.formatHeading(s.yearsLabel || (s.years + ' years'))));
       s.evidence.slice(0, 2).forEach(function (e) { renderProof(li, e); });
       if (s.caveat) li.appendChild(el('p', 'caveat', 'Good to know: ' + s.caveat));
       ul.appendChild(li);

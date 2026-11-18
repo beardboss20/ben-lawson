@@ -454,8 +454,53 @@ test('bare AI enablement is a solid skill YES; AI Enablement Lead is a solid tit
   assert.match(lead.note, /Ben covers 9 of 9 areas this role usually needs/);
   assert.ok(lead.matchedSkills.includes('responsible-ai'));
   assert.ok(!(lead.note || '').includes('Yes, but not yet'));
-  const chip = m.check('AI enablement, workflow automation, generative AI, facilitation');
+  const chip = m.check('AI enablement, Workflow automation, Generative AI, Facilitation');
   assert.equal(chip.yes, chip.total);
   assert.equal(chip.partial, 0);
   assert.equal(chip.overall, 'yes');
+});
+
+// --- Display capitalization (headings and labels, Nov 2026) ---
+const { formatHeading } = require('../matcher.js');
+
+test('formatHeading capitalizes the first letter and leaves the rest, acronyms, and iOS-style names alone', () => {
+  assert.equal(formatHeading('change management'), 'Change management');
+  assert.equal(formatHeading('analytics'), 'Analytics');
+  assert.equal(formatHeading('Power BI'), 'Power BI');
+  assert.equal(formatHeading('SQL'), 'SQL');
+  assert.equal(formatHeading('HRIS'), 'HRIS');
+  assert.equal(formatHeading('L&D'), 'L&D');
+  assert.equal(formatHeading('AI enablement'), 'AI enablement');
+  assert.equal(formatHeading('8+ years HR'), '8+ years HR');
+  assert.equal(formatHeading('iOS'), 'iOS');
+  assert.equal(formatHeading('xAI'), 'xAI');
+  assert.equal(formatHeading('eBay'), 'eBay');
+  assert.equal(formatHeading(''), '');
+  assert.equal(formatHeading('  change management'), '  Change management');
+  // matching still uses the raw input
+  assert.equal(one('change management').verdict, 'yes');
+  assert.equal(one('change management').input, 'change management');
+});
+
+test('every skill, title, and gap name, and every example chip term, starts with an uppercase letter or digit', () => {
+  const startsOk = (s) => {
+    const t = String(s).trim();
+    if (!t) return false;
+    const ch = t.charAt(0);
+    if (/[A-Z0-9]/.test(ch)) return true;
+    // iOS-style brand exception: xAI
+    if (/[a-z]/.test(ch) && t.length > 1 && /[A-Z]/.test(t.charAt(1))) return true;
+    return false;
+  };
+  for (const s of data.skills.skills) assert.ok(startsOk(s.name), 'skill ' + s.id + ': ' + s.name);
+  for (const c of data.skills.categories) assert.ok(startsOk(c.name), 'category ' + c.id + ': ' + c.name);
+  for (const t of data.titles.titles) assert.ok(startsOk(t.name), 'title ' + t.id + ': ' + t.name);
+  for (const g of data.gaps.gaps) assert.ok(startsOk(g.name), 'gap ' + g.id + ': ' + g.name);
+  const examples = read('profile').examples;
+  for (const q of examples) {
+    assert.ok(startsOk(q), 'chip: ' + q);
+    for (const part of q.split(',').map((x) => x.trim()).filter(Boolean)) {
+      assert.ok(startsOk(part), 'chip term: ' + part + ' in ' + q);
+    }
+  }
 });

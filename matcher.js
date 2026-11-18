@@ -68,6 +68,19 @@
     return { years: n, rest: rest };
   }
 
+  // Display-only: capitalize the first letter of a typed requirement or label.
+  // Does not change matching. Leaves iOS-style names (iOS, xAI, eBay) and non-letters alone.
+  function formatHeading(s) {
+    s = String(s == null ? '' : s);
+    var i = 0;
+    while (i < s.length && /\s/.test(s.charAt(i))) i++;
+    if (i >= s.length) return s;
+    var ch = s.charAt(i);
+    if (!/[a-z]/.test(ch)) return s;
+    if (i + 1 < s.length && /[A-Z]/.test(s.charAt(i + 1))) return s;
+    return s.slice(0, i) + ch.toUpperCase() + s.slice(i + 1);
+  }
+
   function createMatcher(data) {
     var skills = data.skills.skills;
     var categories = data.skills.categories;
@@ -313,5 +326,5 @@
     return { check: check, checkOne: checkOne, splitRequirements: splitRequirements, searchSkills: searchSkills, tokenize: tokenize, extractYears: extractYears, skills: skills, categories: categories };
   }
 
-  return { createMatcher: createMatcher, splitRequirements: splitRequirements, tokenize: tokenize, extractYears: extractYears };
+  return { createMatcher: createMatcher, splitRequirements: splitRequirements, tokenize: tokenize, extractYears: extractYears, formatHeading: formatHeading };
 });
