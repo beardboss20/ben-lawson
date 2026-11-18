@@ -304,3 +304,32 @@ test('Gemini Enterprise is YES with department-scoped confirmed evidence, not an
   assert.ok(!skill.evidence.some((e) => /entire org|company-wide|org-wide|whole (company|organization|org)/i.test(e.text)));
   assert.equal(one('Gemini').verdict, 'yes');
 });
+
+// --- Plain "analytics" and related people-analytics synonyms (Nov 2026) ---
+yes('analytics');
+yes('data analytics');
+yes('hr analytics');
+yes('data analysis');
+yes('analytical skills');
+yes('reporting and analytics');
+no('predictive analytics', /predictive analytics|statistical modeling/);
+no('web analytics', /Web, marketing|people analytics/);
+no('marketing analytics', /Web, marketing|people analytics/);
+
+test('plain analytics is people analytics YES, with Power BI and survey evidence, and domain analytics stay NOT YET', () => {
+  for (const q of ['analytics', 'Analytics', 'data analytics', 'analytical skills', 'reporting and analytics']) {
+    const r = one(q);
+    assert.equal(r.verdict, 'yes', q);
+    assert.ok(r.matchedSkills.includes('people-analytics'), q + ' -> ' + r.matchedSkills);
+  }
+  const r = one('analytics');
+  assert.ok(r.evidence.some((e) => /People Analytics & Retention Insights/.test(e.text) || /retention reporting/.test(e.text) || /Power BI retention dashboards/.test(e.text)));
+  const da = one('data analysis');
+  assert.equal(da.verdict, 'yes');
+  assert.ok(da.matchedSkills.includes('people-analytics'), 'data analysis -> ' + da.matchedSkills);
+  for (const q of ['predictive analytics', 'turnover modeling', 'web analytics', 'marketing analytics', 'business analytics', 'learning analytics', 'product analytics']) {
+    assert.equal(one(q).verdict, 'no', q + ' should stay NOT YET, got ' + one(q).note);
+  }
+  assert.equal(one('turnover').verdict, 'yes');
+  assert.equal(one('people analytics').verdict, 'yes');
+});

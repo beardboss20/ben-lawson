@@ -58,14 +58,20 @@
     {
       "id": "statistics",
       "name": "Statistical analysis",
-      "synonyms": ["statistics", "statistical analysis", "regression", "predictive modeling", "predictive modelling", "hypothesis testing", "statistical modeling", "survival analysis", "a b testing"],
-      "note": "Formal statistical modeling isn't on Ben's resume."
+      "synonyms": ["statistics", "statistical analysis", "regression", "predictive modeling", "predictive modelling", "predictive analytics", "hypothesis testing", "statistical modeling", "survival analysis", "a b testing"],
+      "note": "Formal statistical modeling and predictive analytics aren't on Ben's resume."
     },
     {
       "id": "turnover-modeling",
       "name": "Turnover modeling",
       "synonyms": ["turnover modeling", "turnover modelling", "turnover model", "turnover models", "attrition modeling", "attrition modelling", "predictive attrition"],
       "note": "Ben built retention reporting in Power BI and contributed to turnover reduction, but he hasn't built predictive turnover models."
+    },
+    {
+      "id": "other-analytics",
+      "name": "Web or marketing analytics",
+      "synonyms": ["web analytics", "marketing analytics", "business analytics", "learning analytics", "product analytics"],
+      "note": "Ben's analytics work is in people analytics (Power BI retention reporting and survey analysis). Web, marketing, and other domain-specific analytics aren't on his resume."
     },
     {
       "id": "dei",

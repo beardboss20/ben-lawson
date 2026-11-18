@@ -603,10 +603,11 @@
       "name": "People analytics",
       "category": "analytics",
       "years": null,
-      "synonyms": ["people analytics", "hr analytics", "workforce analytics", "talent analytics", "people data", "hr data", "hr reporting", "people reporting", "retention analytics", "workforce data", "hr metrics", "people metrics", "data driven hr", "data-driven hr", "qualitative analysis", "quantitative analysis", "sentiment analysis"],
+      "synonyms": ["people analytics", "hr analytics", "workforce analytics", "talent analytics", "people data", "hr data", "hr reporting", "people reporting", "retention analytics", "workforce data", "hr metrics", "people metrics", "data driven hr", "data-driven hr", "qualitative analysis", "quantitative analysis", "sentiment analysis", "analytics", "data analytics", "data analysis", "analytical skills", "reporting and analytics"],
       "evidence": [
         {"text": "Core competencies: People Analytics & Retention Insights", "source": "resume"},
-        {"text": "Owned the exit survey program for about 5,000 employees, from survey design and vendor platform to retention reporting for HR leadership", "source": "resume"}
+        {"text": "Owned the exit survey program for about 5,000 employees, from survey design and vendor platform to retention reporting for HR leadership", "source": "resume"},
+        {"text": "Built Power BI retention dashboards for the exit survey program.", "source": "confirmed"}
       ]
     },
     {
