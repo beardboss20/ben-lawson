@@ -32,7 +32,10 @@
     <div class="wrap hero-grid">
       <div class="portrait" id="portrait">
         <span class="monogram" aria-hidden="true">BL</span>
-        <img id="portrait-img" src="/assets/ben-600.webp" alt="Ben Lawson" width="300" height="372" decoding="async" fetchpriority="high">
+        <picture>
+          <source type="image/webp" srcset="/assets/ben-480.webp 480w, /assets/ben-960.webp 960w" sizes="(min-width: 720px) 240px, 168px">
+          <img id="portrait-img" src="/assets/ben-480.jpg" srcset="/assets/ben-480.jpg 480w, /assets/ben-960.jpg 960w" sizes="(min-width: 720px) 240px, 168px" alt="Ben Lawson" width="480" height="600" decoding="async" fetchpriority="high">
+        </picture>
       </div>
       <div class="hero-text">
         <h1>Ben Lawson</h1>

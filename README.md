@@ -12,7 +12,7 @@ A recruiter types job titles or requirements (commas or new lines) and each one 
 - `data/titles.json` job titles mapped to sets of skills, plus known gaps
 - `data/gaps.json` things Ben has not done, so the matcher can say NOT YET honestly
 - `tests/matcher.test.js` run with `npm test`
-- `tools/make-images.py [headshot.jpg]` builds the favicon, apple-touch-icon, OG image and portrait (metadata stripped)
+- `tools/make-images.py [headshot.jpg]` builds the favicon, apple-touch-icon, OG image, and hero portrait at 480 and 960px (WebP + JPEG, metadata stripped)
 
 ## Rules for the data
 
