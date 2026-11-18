@@ -16,7 +16,7 @@
       "category": "hr",
       "years": 7,
       "yearsLabel": "7+ years",
-      "synonyms": ["hr", "human resources", "hr experience", "people team", "people and culture", "hr professional"],
+      "synonyms": ["hr", "human resources", "hr experience", "people team", "people and culture", "hr professional", "aerospace"],
       "evidence": [
         {
           "text": "L&D and HR AI enablement professional (Airbus, xAI, Bank of the West) who designs learning programs and puts generative AI into HR workflows.",
@@ -33,7 +33,7 @@
       "name": "Exit survey program ownership",
       "category": "hr",
       "years": null,
-      "synonyms": ["exit survey", "exit surveys", "offboarding survey", "attrition survey", "separation survey", "retention survey", "employee survey", "employee surveys"],
+      "synonyms": ["exit survey", "exit surveys", "offboarding survey", "attrition survey", "separation survey", "retention survey", "employee survey", "employee surveys", "exit interview", "exit interviews"],
       "evidence": [
         {
           "text": "Owned the exit survey program for about 5,000 employees, from survey design and vendor platform to retention reporting for HR leadership; partnered with L&D leaders to turn findings into new manager training, which contributed to a 25% reduction in branch turnover.",
@@ -305,7 +305,7 @@
       "category": "ld",
       "years": 7,
       "yearsLabel": "7+ years",
-      "synonyms": ["l and d", "ld", "learning and development", "learning & development", "training", "learning programs", "learning program", "corporate training", "employee training", "employee development", "learning design", "learning solutions", "talent development", "training programs", "training program", "training and development", "capability building", "people capability", "capability", "learning and talent development", "upskilling", "learning strategy"],
+      "synonyms": ["l and d", "ld", "learning and development", "learning & development", "training", "learning programs", "learning program", "corporate training", "employee training", "employee development", "learning design", "learning solutions", "talent development", "training programs", "training program", "training and development", "capability building", "people capability", "capability", "learning and talent development", "upskilling", "learning strategy", "workforce development"],
       "evidence": [
         {
           "text": "Designed, produced, and facilitated 20+ virtual and in-person learning programs on leadership, compliance, mentorship, communications, and environmental impact. Built content in Articulate and delivered it over Zoom, Webex, and Teams, with consistently high participant feedback.",
@@ -493,7 +493,7 @@
       "category": "ai",
       "years": 2,
       "yearsLabel": "about 2 years hands-on (since August 2024)",
-      "synonyms": ["ai enablement", "ai adoption", "ai upskilling", "ai training", "ai literacy", "ai workshops", "ai workshop", "ai in hr", "ai for hr", "hr ai", "ai change management", "ai transformation", "ai education", "ai fluency", "ai champion", "ai ambassador", "hr ai ambassador", "gemini ambassador", "ai program", "ai programs"],
+      "synonyms": ["ai enablement", "ai adoption", "ai upskilling", "ai training", "ai literacy", "ai workshops", "ai workshop", "ai in hr", "ai for hr", "hr ai", "ai change management", "ai transformation", "ai education", "ai fluency", "ai champion", "ai ambassador", "hr ai ambassador", "gemini ambassador", "ai program", "ai programs", "reskilling"],
       "evidence": [
         {
           "text": "Designed and facilitated programs and workshops on AI enablement and upskilling, mentorship, and presentation skills, for groups of 3 to 60.",
@@ -557,7 +557,7 @@
       "category": "ai",
       "years": 1,
       "yearsLabel": "about 1 year (August 2024 – November 2025)",
-      "synonyms": ["ai training data", "model training", "model evaluation", "llm evaluation", "ai evaluation", "ai tutor", "ai trainer", "quality evaluation", "evals", "multimodal", "multimodal tasks", "ai quality", "grok training", "ai model evaluation", "human feedback"],
+      "synonyms": ["ai training data", "model training", "model evaluation", "llm evaluation", "ai evaluation", "ai tutor", "ai trainer", "quality evaluation", "evals", "multimodal", "multimodal tasks", "ai quality", "grok training", "ai model evaluation", "human feedback", "xai", "rlhf", "reinforcement learning from human feedback", "human-in-the-loop", "human in the loop", "hitl", "annotation", "data annotation"],
       "evidence": [
         {
           "text": "Trained and evaluated Grok, xAI's large language model, across 21,000+ multimodal tasks for executive-visible projects, achieving 98% alignment and converting findings into process improvements.",
@@ -602,9 +602,20 @@
       "name": "People analytics",
       "category": "analytics",
       "years": null,
-      "synonyms": ["people analytics", "hr analytics", "workforce analytics", "talent analytics", "people data", "hr data", "hr reporting", "people reporting", "retention analytics", "workforce data", "hr metrics", "people metrics", "data driven hr", "data-driven hr"],
+      "synonyms": ["people analytics", "hr analytics", "workforce analytics", "talent analytics", "people data", "hr data", "hr reporting", "people reporting", "retention analytics", "workforce data", "hr metrics", "people metrics", "data driven hr", "data-driven hr", "qualitative analysis", "quantitative analysis", "sentiment analysis"],
       "evidence": [
-        {"text": "Core competencies: People Analytics & Retention Insights", "source": "resume"}
+        {"text": "Core competencies: People Analytics & Retention Insights", "source": "resume"},
+        {"text": "Owned the exit survey program for about 5,000 employees, from survey design and vendor platform to retention reporting for HR leadership", "source": "resume"}
+      ]
+    },
+    {
+      "id": "engagement-survey",
+      "name": "Employee engagement survey analysis",
+      "category": "analytics",
+      "years": null,
+      "synonyms": ["employee engagement", "engagement survey", "employee engagement survey", "employee engagement survey analysis", "engagement survey analysis", "biannual engagement survey", "bi-annual engagement survey", "bi annual engagement survey", "biannual employee engagement survey", "bi-annual employee engagement survey", "employee engagement surveys"],
+      "evidence": [
+        {"text": "Analyzed the bi-annual employee engagement survey at Bank of the West.", "source": "confirmed"}
       ]
     },
     {
@@ -612,7 +623,7 @@
       "name": "Microsoft Power BI",
       "category": "analytics",
       "years": null,
-      "synonyms": ["power bi", "powerbi", "microsoft power bi", "dashboards", "dashboard", "data visualization", "data visualisation", "bi tool", "bi reporting", "business intelligence", "retention dashboards", "reporting dashboards", "visualization"],
+      "synonyms": ["power bi", "powerbi", "microsoft power bi", "dashboards", "dashboard", "data visualization", "data visualisation", "bi tool", "bi reporting", "business intelligence", "retention dashboards", "reporting dashboards", "visualization", "data storytelling", "data story telling"],
       "evidence": [
         {"text": "Tools & technologies: Microsoft Power BI", "source": "resume"},
         {"text": "Built Power BI retention dashboards for the exit survey program.", "source": "confirmed"}
@@ -634,7 +645,7 @@
       "name": "Reporting to HR leadership",
       "category": "analytics",
       "years": null,
-      "synonyms": ["executive reporting", "reporting to leadership", "leadership reporting", "stakeholder reporting", "retention reporting", "reporting to hr leadership", "executive presentations", "executive communication", "executive-visible", "executive visible", "report to executives", "reporting"],
+      "synonyms": ["executive reporting", "reporting to leadership", "leadership reporting", "stakeholder reporting", "retention reporting", "reporting to hr leadership", "executive presentations", "executive communication", "executive-visible", "executive visible", "report to executives", "reporting", "kpi tracking", "kpis", "kpi"],
       "evidence": [
         {
           "text": "...from survey design and vendor platform to retention reporting for HR leadership",

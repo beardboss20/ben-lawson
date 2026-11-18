@@ -190,3 +190,73 @@ test('Airbus ops bullet: no overclaiming. Authoring SCORM or other tools stays N
   const gapIds = new Set(data.gaps.gaps.map((g) => g.id));
   for (const id of ['scorm', 'needs-assessment', 'learning-ops']) assert.ok(!gapIds.has(id), id + ' must not be listed as a gap');
 });
+
+// --- Recruiter search synonyms (Nov 2026; engagement survey analysis confirmed by Ben) ---
+yes('xAI');
+yes('RLHF');
+yes('reinforcement learning from human feedback');
+yes('human-in-the-loop');
+yes('HITL');
+yes('annotation');
+yes('data annotation');
+yes('RLHF Specialist');
+yes('Aerospace');
+yes('exit interviews');
+yes('qualitative analysis');
+yes('quantitative analysis');
+yes('sentiment analysis');
+yes('data storytelling');
+yes('KPI tracking');
+yes('reskilling');
+yes('workforce development specialist');
+yes('workforce development partner');
+yes('workforce development');
+yes('Employee engagement');
+yes('engagement survey');
+yes('employee engagement survey');
+yes('employee engagement survey analysis');
+yes('biannual engagement survey');
+yes('bi-annual engagement survey');
+no('ADDIE');
+no('red-teaming');
+no('SAM');
+no('defense');
+no('talent acquisition', /talent acquisition|Recruiting/);
+no('responsible AI', /governance|Responsible/);
+no('AI governance', /governance/);
+
+test('xAI / RLHF searches show Grok training evidence', () => {
+  for (const q of ['xAI', 'RLHF', 'human-in-the-loop', 'HITL', 'data annotation']) {
+    const r = one(q);
+    assert.equal(r.verdict, 'yes', q);
+    assert.ok(r.matchedSkills.includes('ai-evaluation'), q + ' -> ' + r.matchedSkills);
+    assert.ok(r.evidence.some((e) => /Grok/.test(e.text)), q + ' should quote Grok training');
+  }
+  const title = one('RLHF Specialist');
+  assert.equal(title.verdict, 'yes');
+  assert.ok(title.breakdown || title.matchedSkills.includes('ai-evaluation'));
+});
+
+test('aerospace matches HR experience via Airbus, and defense stays unmatched', () => {
+  const r = one('aerospace');
+  assert.equal(r.verdict, 'yes');
+  assert.ok(r.matchedSkills.includes('hr-experience'));
+  assert.ok(r.evidence.some((e) => /Airbus/.test(e.text)));
+  assert.equal(one('defense').verdict, 'no');
+  assert.equal(one('Defense').verdict, 'no');
+});
+
+test('engagement survey searches match the engagement skill with confirmed-by-Ben evidence, not just generic survey design', () => {
+  for (const q of ['Employee engagement', 'engagement survey', 'employee engagement survey', 'employee engagement survey analysis', 'biannual engagement survey', 'bi-annual engagement survey', 'bi annual engagement survey']) {
+    const r = one(q);
+    assert.equal(r.verdict, 'yes', q);
+    assert.ok(r.matchedSkills.includes('engagement-survey'), q + ' -> ' + r.matchedSkills);
+  }
+  const r = one('Employee engagement');
+  assert.ok(r.evidence.some((e) => e.source === 'confirmed' && e.text === 'Analyzed the bi-annual employee engagement survey at Bank of the West.'));
+  const skill = data.skills.skills.find((s) => s.id === 'engagement-survey');
+  assert.ok(skill);
+  assert.equal(skill.category, 'analytics');
+  assert.ok(skill.evidence.every((e) => e.source === 'confirmed'));
+  assert.ok(!skill.evidence.some((e) => e.source === 'resume'));
+});

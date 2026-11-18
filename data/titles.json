@@ -12,7 +12,7 @@
     {
       "id": "ld-specialist",
       "name": "L&D Specialist",
-      "aliases": ["ld specialist", "l and d specialist", "learning and development specialist", "training specialist", "learning specialist", "training coordinator", "learning program specialist", "learning program manager", "training and development specialist", "learning and development coordinator", "l and d coordinator", "learning coordinator", "employee development specialist", "learning consultant", "l and d consultant", "learning and development consultant"],
+      "aliases": ["ld specialist", "l and d specialist", "learning and development specialist", "training specialist", "learning specialist", "training coordinator", "learning program specialist", "learning program manager", "training and development specialist", "learning and development coordinator", "l and d coordinator", "learning coordinator", "employee development specialist", "learning consultant", "l and d consultant", "learning and development consultant", "workforce development specialist", "workforce development partner"],
       "core": ["ld", "instructional-design", "facilitation", "articulate", "virtual-delivery", "lms-platforms", "program-management", "needs-assessment", "learning-evaluation"],
       "gaps": []
     },
@@ -87,7 +87,7 @@
     {
       "id": "ai-trainer",
       "name": "AI Trainer or Evaluator",
-      "aliases": ["ai tutor", "ai trainer", "ai evaluator", "ai quality specialist", "llm trainer", "llm evaluator", "ai data specialist", "model evaluator", "ai quality evaluation specialist", "ai content reviewer", "ai quality reviewer", "prompt evaluator", "ai specialist"],
+      "aliases": ["ai tutor", "ai trainer", "ai evaluator", "ai quality specialist", "llm trainer", "llm evaluator", "ai data specialist", "model evaluator", "ai quality evaluation specialist", "ai content reviewer", "ai quality reviewer", "prompt evaluator", "ai specialist", "rlhf specialist"],
       "core": ["ai-evaluation", "gen-ai", "prompt-engineering", "quality-review", "guidelines-documentation"],
       "gaps": []
     },
