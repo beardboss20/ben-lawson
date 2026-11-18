@@ -281,6 +281,7 @@ test('/api/log-search: validation keeps only anonymous fields and caps the query
   assert.equal(ok.query.length, 200);
   assert.equal(ok.referrer, 'google.com');
   for (const bad of [null, {}, { box: 'x', query: 'a', result: 'YES' }, { box: 'matcher', query: '', result: 'YES' }, { box: 'matcher', query: 'a', result: 'MAYBE' }]) assert.equal(validate(bad), null);
+  assert.equal(validate({ box: 'matcher', query: 'L&D Manager', result: 'YES, BUT', matched: 1, total: 1 }).result, 'YES, BUT');
   assert.equal(validate({ box: 'matcher', query: 'a\u0000b\n\tc', result: 'NOT YET', unmet: ['u'.repeat(200)] }).unmet.length, 80);
 });
 
@@ -366,3 +367,18 @@ test('client logging: debounced, anonymous, never breaks the UI', () => {
   assert.match(appJs, /logSearch\('log'/); assert.match(appJs, /logSearch\('schedule'/);
   assert.ok(!/fetch\(/.test(appJs), 'app.js itself still does not fetch');
 });
+
+test('matcher lede explains YES, YES, BUT, and NOT YET', () => {
+  assert.match(html, /striped green/);
+  assert.match(html, /YES, BUT/);
+  assert.match(html, /NOT YET/);
+});
+
+test('YES, BUT uses diagonal green stripes on the badge and card, with readable contrast', () => {
+  const css = fs.readFileSync(path.join(root, 'styles.css'), 'utf8');
+  assert.match(css, /\.status\.partial \{[^}]*repeating-linear-gradient\(135deg/);
+  assert.match(css, /\.result\.partial[^{]*\{[^}]*repeating-linear-gradient\(135deg/);
+  assert.match(css, /--partial-stripe/);
+  assert.match(css, /\.status\.partial \{[^}]*color: var\(--yes-ink\)/);
+});
+

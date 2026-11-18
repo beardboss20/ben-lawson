@@ -55,7 +55,7 @@ function validate(input) {
   if (!input || typeof input !== 'object') return null;
   const box = input.box === 'matcher' || input.box === 'qualifications' ? input.box : null;
   const query = text(input.query, QUERY_MAX);
-  const result = input.result === 'YES' || input.result === 'NOT YET' ? input.result : null;
+  const result = input.result === 'YES' || input.result === 'YES, BUT' || input.result === 'NOT YET' ? input.result : null;
   if (!box || !query || !result) return null;
   const unmet = (Array.isArray(input.unmet) ? input.unmet : []).slice(0, 10).map((u) => text(u, 80)).filter(Boolean).join('; ').slice(0, 300);
   const referrer = /^[a-z0-9.-]{1,100}$/i.test(String(input.referrer || '')) ? String(input.referrer).toLowerCase() : '';

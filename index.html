@@ -61,7 +61,7 @@
     <section class="section" id="matcher" aria-labelledby="matcher-h">
       <div class="wrap">
         <h2 id="matcher-h">Does Ben match your role?</h2>
-        <p class="lede">Type job titles or requirements, separated by commas or new lines. Each one is checked against Ben&rsquo;s resume. You get a green <strong>YES</strong> with the proof, or a red <strong>NOT YET</strong> with an honest note.</p>
+        <p class="lede">Type job titles or requirements, separated by commas or new lines. Each one is checked against Ben&rsquo;s resume. You get a green <strong>YES</strong> when it is a full match, a striped green <strong>YES, BUT</strong> when a job title matches with a gap, or a red <strong>NOT YET</strong> with an honest note.</p>
         <form id="matcher-form" novalidate>
           <label for="req-input" class="label">Job titles or requirements</label>
           <textarea id="req-input" name="requirements" rows="5" maxlength="4000" placeholder="L&amp;D Manager, HRIS, change management, Power BI" autocomplete="off" spellcheck="true"></textarea>
@@ -74,10 +74,10 @@
         <div class="examples" aria-label="Example searches">
           <p class="examples-label" id="examples-label">Try an example:</p>
           <div class="example-chips" role="group" aria-labelledby="examples-label">
-            <button type="button" class="chip example" data-text="L&amp;D Manager, HRIS, change management, Power BI">L&amp;D Manager, HRIS, change management&hellip;</button>
-            <button type="button" class="chip example" data-text="AI enablement, workflow automation, generative AI, facilitation">AI enablement, workflow automation, generative AI&hellip;</button>
-            <button type="button" class="chip example" data-text="Exit surveys, people analytics, Power BI, change management">Exit surveys, people analytics, Power BI&hellip;</button>
-            <button type="button" class="chip example" data-text="Instructional designer, Articulate, needs assessment">Instructional designer, Articulate, needs assessment&hellip;</button>
+            <button type="button" class="chip example" data-text="L&amp;D Specialist, HRIS, change management, Power BI">L&amp;D Specialist, HRIS, change management&hellip;</button>
+            <button type="button" class="chip example" data-text="AI upskilling, workflow automation, generative AI, facilitation">AI upskilling, workflow automation, generative AI&hellip;</button>
+            <button type="button" class="chip example" data-text="Exit surveys, HR analytics, Power BI, change management">Exit surveys, HR analytics, Power BI&hellip;</button>
+            <button type="button" class="chip example" data-text="Instructional design, Articulate, needs assessment">Instructional design, Articulate, needs assessment&hellip;</button>
           </div>
         </div>
         <div id="results" class="results" aria-live="polite" aria-atomic="false"></div>

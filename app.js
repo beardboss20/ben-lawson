@@ -39,7 +39,13 @@
   function renderResult(item) {
     var li = el('li', 'result ' + item.verdict);
     var head = el('div', 'result-head');
-    var st = el('span', 'status ' + item.verdict, (item.verdict === 'yes' ? '\u2713 ' : '\u2717 ') + item.headline);
+    var st = el('span', 'status ' + item.verdict);
+    if (item.verdict === 'partial') {
+      st.setAttribute('aria-label', 'Yes, with gaps');
+      st.textContent = '\u2713 ' + item.headline;
+    } else {
+      st.textContent = (item.verdict === 'yes' ? '\u2713 ' : '\u2717 ') + item.headline;
+    }
     head.appendChild(st);
     head.appendChild(el('span', 'req', item.input));
     li.appendChild(head);
@@ -76,7 +82,7 @@
       out.appendChild(el('p', 'note', 'Type or paste at least one job title or requirement above.'));
       return;
     }
-    var bar = el('div', 'summary-bar');
+    var bar = el('div', 'summary-bar' + (res.overall && res.overall !== 'no' ? ' ' + res.overall : ''));
     bar.setAttribute('role', 'status');
     bar.appendChild(el('p', 'big', res.summary));
     bar.appendChild(el('p', null, res.tone));
@@ -88,8 +94,9 @@
     bar.scrollIntoView({ block: 'nearest' });
     logSearch('log', {
       box: 'matcher', query: text, source: source,
-      result: res.yes === res.total ? 'YES' : 'NOT YET', matched: res.yes, total: res.total,
-      unmet: res.items.filter(function (i) { return i.verdict !== 'yes'; }).map(function (i) { return i.input; })
+      result: res.overall === 'yes' ? 'YES' : (res.overall === 'partial' ? 'YES, BUT' : 'NOT YET'),
+      matched: res.yes + (res.partial || 0), total: res.total,
+      unmet: res.items.filter(function (i) { return i.verdict === 'no'; }).map(function (i) { return i.input; })
     });
   }
 

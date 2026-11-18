@@ -41,7 +41,9 @@ test('example searches have no years counts and each one is a full YES', () => {
   for (const q of examples) {
     assert.ok(!YEARS_IN_SUGGESTION.test(q), 'example should not suggest a years count: ' + q);
     const r = m.check(q);
+    assert.equal(r.partial, 0, q + ' should not be YES, BUT: ' + r.summary);
     assert.equal(r.yes, r.total, q + ' -> ' + r.summary);
+    assert.ok(r.items.every((i) => i.verdict === 'yes' && i.headline === 'YES'), q);
   }
 });
 
@@ -74,9 +76,9 @@ yes('OFAC sanctions');
 yes('exit survey');
 yes('5 years of L&D experience');  // 5 <= 7+
 yes('seven plus years');
-yes('L&D Manager');               // title -> skill set
-yes('AI enablement');             // title -> skill set
-yes('Instructional Designer');
+yes('L&D Specialist');            // fully covered title
+yes('AI workshops');              // skill, not the AI Enablement Lead title
+yes('instructional design');
 no('8+ years HR', /8\+ years.*7\+ years/);   // tricky: years above 7+
 no('10 years of L&D', /10\+ years/);
 yes('LMS admin');                 // confirmed by Ben
@@ -127,8 +129,10 @@ test('HRIS administration is a NOT YET even though HRIS matches', () => {
 test('summary line counts matches', () => {
   const r = m.check('HRIS, L&D, SQL, 8+ years HR, change management, LMS admin, Power BI, AI enablement');
   assert.equal(r.total, 8);
-  assert.equal(r.yes, 6);
-  assert.equal(r.summary, '6 of 8 matched');
+  assert.equal(r.yes, 5);
+  assert.equal(r.partial, 1);
+  assert.equal(r.summary, '6 of 8 matched, 1 with gap');
+  assert.equal(r.overall, 'no');
 });
 test('empty input gives no results; long input is capped', () => {
   assert.equal(m.check('   ').total, 0);
@@ -172,12 +176,13 @@ test('Airbus ops bullet: SCORM, needs assessment, learning operations (and frien
   }
 });
 
-test('Airbus ops bullet: titles. Specialist is YES; Manager is YES with the direct-reports note; Director stays NOT YET', () => {
+test('Airbus ops bullet: titles. Specialist is YES; Manager is YES, BUT with the direct-reports note; Director stays NOT YET', () => {
   assert.equal(one('Learning Operations Specialist').verdict, 'yes');
   const mgr = one('L&D Operations Manager');
-  assert.equal(mgr.verdict, 'yes');
-  assert.match(mgr.note, /Managing direct reports/);
-  assert.equal(one('Learning Operations Manager').verdict, 'yes');
+  assert.equal(mgr.verdict, 'partial');
+  assert.equal(mgr.headline, 'YES, BUT');
+  assert.match(mgr.note, /Yes, but not yet: Managing direct reports/);
+  assert.equal(one('Learning Operations Manager').verdict, 'partial');
   assert.equal(one('Director of Learning Operations').verdict, 'no');
 });
 
@@ -335,7 +340,10 @@ test('plain analytics is people analytics YES, with Power BI and survey evidence
     assert.equal(one(q).verdict, 'no', q + ' should stay NOT YET, got ' + one(q).note);
   }
   assert.equal(one('turnover').verdict, 'yes');
-  assert.equal(one('people analytics').verdict, 'yes');
+  assert.equal(one('HR analytics').verdict, 'yes');
+  const paTitle = one('people analytics');
+  assert.equal(paTitle.verdict, 'partial');
+  assert.equal(paTitle.headline, 'YES, BUT');
 });
 
 test('learning analytics and training analytics are YES on evaluating learning impact, not the domain-analytics gap', () => {
@@ -349,4 +357,58 @@ test('learning analytics and training analytics are YES on evaluating learning i
   assert.ok(gap);
   assert.ok(!gap.synonyms.includes('learning analytics'));
   assert.ok(!gap.synonyms.includes('training analytics'));
+});
+
+// --- Title-only YES, BUT (partial) status (Nov 2026) ---
+test('L&D Manager is YES, BUT: passes the threshold but is missing direct reports', () => {
+  const r = one('L&D Manager');
+  assert.equal(r.verdict, 'partial');
+  assert.equal(r.headline, 'YES, BUT');
+  assert.match(r.note, /^Yes, but not yet: Managing direct reports\./);
+  assert.match(r.note, /Ben covers 11 of 12 areas this role usually needs/);
+  assert.match(r.note, /specialist and product owner/);
+  assert.ok(r.evidence.length >= 1);
+});
+
+test('a fully covered title is solid YES, and a below-threshold title stays NOT YET', () => {
+  const yesTitle = one('L&D Specialist');
+  assert.equal(yesTitle.verdict, 'yes');
+  assert.equal(yesTitle.headline, 'YES');
+  assert.match(yesTitle.note, /Ben covers 9 of 9 areas this role usually needs/);
+  assert.ok(!/Yes, but not yet/.test(yesTitle.note));
+  const noTitle = one('HR Business Partner');
+  assert.equal(noTitle.verdict, 'no');
+  assert.equal(noTitle.headline, 'NOT YET');
+  assert.match(noTitle.note, /Ben covers 8 of 11 areas this role usually needs/);
+  assert.ok(!/^Yes, but not yet/.test(noTitle.note));
+});
+
+test('single skills stay binary YES or NOT YET, never YES, BUT', () => {
+  assert.equal(one('HRIS').verdict, 'yes');
+  assert.equal(one('AI workshops').verdict, 'yes');
+  assert.equal(one('SQL').verdict, 'no');
+  assert.equal(one('analytics').verdict, 'yes');
+  assert.notEqual(one('HRIS').verdict, 'partial');
+  assert.notEqual(one('SQL').verdict, 'partial');
+});
+
+test('a list of only YES, BUT titles gets a striped overall summary, and mixed lists stay honest', () => {
+  const allPartial = m.check('L&D Manager');
+  assert.equal(allPartial.yes, 0);
+  assert.equal(allPartial.partial, 1);
+  assert.equal(allPartial.overall, 'partial');
+  assert.equal(allPartial.summary, '1 of 1 matched, 1 with gap');
+  assert.match(allPartial.tone, /gap noted below/);
+  const mixed = m.check('L&D Specialist, L&D Manager');
+  assert.equal(mixed.yes, 1);
+  assert.equal(mixed.partial, 1);
+  assert.equal(mixed.overall, 'partial');
+  assert.equal(mixed.summary, '2 of 2 matched, 1 with gap');
+  const withNo = m.check('L&D Manager, SQL');
+  assert.equal(withNo.partial, 1);
+  assert.equal(withNo.overall, 'no');
+  assert.match(withNo.summary, /2 of 2 matched, 1 with gap|1 of 2 matched, 1 with gap/);
+  // SQL is no, L&D Manager is partial: matched = 1 of 2
+  assert.equal(withNo.summary, '1 of 2 matched, 1 with gap');
+  assert.equal(withNo.tone.startsWith('A strong start'), true);
 });

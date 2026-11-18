@@ -208,13 +208,22 @@
             return item;
           }
         }
-        item.verdict = allPass ? 'yes' : 'no';
-        item.headline = allPass ? 'YES' : 'NOT YET';
+        var allComplete = evals.every(function (e) { return e.pass && e.missing.length === 0; });
         var missNames = top.missing.map(function (g) { return g.name; });
-        if (allPass) {
-          item.note = 'Ben covers ' + top.have.length + ' of ' + top.total + ' areas this role usually needs.' + (missNames.length ? ' Not yet: ' + missNames.join('; ') + '.' : '') + (top.title.note ? ' ' + top.title.note : '');
+        var covers = 'Ben covers ' + top.have.length + ' of ' + top.total + ' areas this role usually needs.';
+        var titleNote = top.title.note ? ' ' + top.title.note : '';
+        if (allComplete) {
+          item.verdict = 'yes';
+          item.headline = 'YES';
+          item.note = covers + titleNote;
+        } else if (allPass) {
+          item.verdict = 'partial';
+          item.headline = 'YES, BUT';
+          item.note = 'Yes, but not yet: ' + missNames.join('; ') + '. ' + covers + titleNote;
         } else {
-          item.note = 'Ben covers ' + top.have.length + ' of ' + top.total + ' areas this role usually needs. Not yet: ' + missNames.join('; ') + '.' + (top.title.note ? ' ' + top.title.note : '');
+          item.verdict = 'no';
+          item.headline = 'NOT YET';
+          item.note = covers + ' Not yet: ' + missNames.join('; ') + '.' + titleNote;
         }
         item.evidence = [].concat.apply([], top.have.slice(0, 3).map(function (s) { return evidenceFor(s).slice(0, 1); }));
         return item;
@@ -260,15 +269,34 @@
       var reqs = splitRequirements(text);
       var items = reqs.map(checkOne);
       var yes = items.filter(function (i) { return i.verdict === 'yes'; }).length;
+      var partial = items.filter(function (i) { return i.verdict === 'partial'; }).length;
       var total = items.length;
-      var summary = total ? yes + ' of ' + total + ' matched' : '';
-      var tone = '';
+      var matched = yes + partial;
+      var summary = '';
       if (total) {
-        if (yes === total) tone = 'Everything you listed is on Ben\u2019s resume.';
-        else if (yes === 0) tone = 'None of these are on Ben\u2019s resume yet. Ben would still like to hear about the role.';
-        else tone = 'A strong start. The NOT YET items are explained below, and Ben is glad to talk through any of them.';
+        summary = matched + ' of ' + total + ' matched';
+        if (partial) summary += ', ' + partial + ' with gap' + (partial === 1 ? '' : 's');
       }
-      return { items: items, yes: yes, total: total, summary: summary, tone: tone };
+      var tone = '';
+      var overall = 'no';
+      if (total) {
+        if (yes === total) {
+          tone = 'Everything you listed is on Ben\u2019s resume.';
+          overall = 'yes';
+        } else if (matched === total && partial) {
+          tone = partial === 1
+            ? 'A strong match, with a gap noted below.'
+            : 'A strong match, with gaps noted below.';
+          overall = 'partial';
+        } else if (matched === 0) {
+          tone = 'None of these are on Ben\u2019s resume yet. Ben would still like to hear about the role.';
+          overall = 'no';
+        } else {
+          tone = 'A strong start. The NOT YET items are explained below, and Ben is glad to talk through any of them.';
+          overall = 'no';
+        }
+      }
+      return { items: items, yes: yes, partial: partial, total: total, summary: summary, tone: tone, overall: overall };
     }
 
     function searchSkills(query, categoryId) {

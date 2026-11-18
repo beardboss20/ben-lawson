@@ -97,7 +97,7 @@ function doPost(e) {
 function logSearch_(data) {
   var box = data.box === 'matcher' || data.box === 'qualifications' ? data.box : '';
   var query = clip_(data.query, QUERY_MAX);
-  var result = data.result === 'YES' || data.result === 'NOT YET' ? data.result : '';
+  var result = data.result === 'YES' || data.result === 'YES, BUT' || data.result === 'NOT YET' ? data.result : '';
   if (!box || !query || !result) return json_({ ok: false, error: 'invalid' });
   var unmet = clip_(data.unmet, 300);
   var source = data.source === 'example' ? 'example' : 'typed';
