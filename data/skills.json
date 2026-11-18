@@ -493,13 +493,14 @@
       "category": "ai",
       "years": 2,
       "yearsLabel": "about 2 years hands-on (since August 2024)",
-      "synonyms": ["ai enablement", "ai adoption", "ai upskilling", "ai training", "ai literacy", "ai workshops", "ai workshop", "ai in hr", "ai for hr", "hr ai", "ai change management", "ai transformation", "ai education", "ai fluency", "ai champion", "ai ambassador", "hr ai ambassador", "gemini ambassador", "ai program", "ai programs", "reskilling"],
+      "synonyms": ["ai enablement", "ai adoption", "ai upskilling", "ai training", "ai literacy", "ai workshops", "ai workshop", "ai in hr", "ai for hr", "hr ai", "ai change management", "ai transformation", "ai education", "ai fluency", "ai champion", "ai ambassador", "hr ai ambassador", "gemini ambassador", "ai program", "ai programs", "reskilling", "gemini enterprise", "gemini enterprise rollout"],
       "evidence": [
         {
           "text": "Designed and facilitated programs and workshops on AI enablement and upskilling, mentorship, and presentation skills, for groups of 3 to 60.",
           "source": "resume"
         },
         {"text": "Gemini Ambassador and HR AI Ambassador", "source": "resume"},
+        {"text": "Gemini Ambassador at Airbus, helping roll out Gemini Enterprise in his department and team, including a hands-on workshop.", "source": "confirmed"},
         {
           "text": "Developing a hands-on workshop to help HR leaders build their own AI workflows.",
           "source": "resume"

@@ -62,6 +62,12 @@
       "note": "Formal statistical modeling isn't on Ben's resume."
     },
     {
+      "id": "turnover-modeling",
+      "name": "Turnover modeling",
+      "synonyms": ["turnover modeling", "turnover modelling", "turnover model", "turnover models", "attrition modeling", "attrition modelling", "predictive attrition"],
+      "note": "Ben built retention reporting in Power BI and contributed to turnover reduction, but he hasn't built predictive turnover models."
+    },
+    {
       "id": "dei",
       "name": "DEI program ownership",
       "synonyms": ["dei", "deib", "diversity", "equity", "inclusion", "diversity and inclusion", "diversity equity and inclusion", "dei program", "dei strategy", "inclusion and belonging", "belonging"],

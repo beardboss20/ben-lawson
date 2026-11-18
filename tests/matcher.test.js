@@ -260,3 +260,47 @@ test('engagement survey searches match the engagement skill with confirmed-by-Be
   assert.ok(skill.evidence.every((e) => e.source === 'confirmed'));
   assert.ok(!skill.evidence.some((e) => e.source === 'resume'));
 });
+
+// --- Turnover modeling is a gap; Gemini Enterprise rollout is YES, department-scoped (Nov 2026) ---
+yes('turnover');
+yes('turnover reduction');
+yes('retention');
+yes('attrition');
+no('turnover modeling', /predictive turnover models/);
+no('turnover model', /predictive turnover models/);
+no('turnover modelling', /predictive turnover models/);
+no('attrition modeling', /predictive turnover models/);
+no('predictive attrition', /predictive turnover models/);
+yes('Gemini Enterprise');
+yes('Gemini Enterprise rollout');
+
+test('turnover and retention stay YES, but predictive modeling phrases are NOT YET with the honest note', () => {
+  for (const q of ['turnover', 'turnover reduction', 'retention', 'employee retention']) {
+    assert.equal(one(q).verdict, 'yes', q);
+    assert.ok(one(q).matchedSkills.includes('retention-turnover'), q);
+  }
+  for (const q of ['turnover modeling', 'turnover model', 'attrition modeling', 'predictive attrition']) {
+    const r = one(q);
+    assert.equal(r.verdict, 'no', q);
+    assert.equal(r.headline, 'NOT YET');
+    assert.match(r.note, /hasn't built predictive turnover models/);
+    assert.match(r.note, /contributed to turnover reduction/);
+  }
+  const gap = data.gaps.gaps.find((g) => g.id === 'turnover-modeling');
+  assert.ok(gap);
+  assert.ok(!/entire org|company-wide|org-wide/.test(gap.note));
+});
+
+test('Gemini Enterprise is YES with department-scoped confirmed evidence, not an org-wide claim', () => {
+  for (const q of ['Gemini Enterprise', 'Gemini Enterprise rollout']) {
+    const r = one(q);
+    assert.equal(r.verdict, 'yes', q);
+    assert.ok(r.matchedSkills.includes('ai-enablement'), q + ' -> ' + r.matchedSkills);
+    assert.ok(r.evidence.some((e) => e.source === 'confirmed' && e.text === 'Gemini Ambassador at Airbus, helping roll out Gemini Enterprise in his department and team, including a hands-on workshop.'), q);
+    assert.ok(!r.evidence.some((e) => /entire org|company-wide|org-wide|whole (company|organization|org)/i.test(e.text)), q);
+  }
+  const skill = data.skills.skills.find((s) => s.id === 'ai-enablement');
+  assert.ok(skill.synonyms.includes('gemini enterprise') && skill.synonyms.includes('gemini enterprise rollout'));
+  assert.ok(!skill.evidence.some((e) => /entire org|company-wide|org-wide|whole (company|organization|org)/i.test(e.text)));
+  assert.equal(one('Gemini').verdict, 'yes');
+});
