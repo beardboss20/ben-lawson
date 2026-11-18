@@ -60,8 +60,8 @@
         var d = el('details', 'breakdown');
         d.appendChild(el('summary', null, 'See the ' + b.haveCount + ' of ' + b.total + ' areas for ' + b.title));
         var ul = el('ul');
-        b.have.forEach(function (n) { ul.appendChild(el('li', null, '\u2713 ' + window.BenMatcher.formatHeading(n)); });
-        b.missing.forEach(function (m) { ul.appendChild(el('li', null, '\u2717 Not yet: ' + window.BenMatcher.formatHeading(m.name)); });
+        b.have.forEach(function (n) { ul.appendChild(el('li', null, '\u2713 ' + window.BenMatcher.formatHeading(n))); });
+        b.missing.forEach(function (m) { ul.appendChild(el('li', null, '\u2717 Not yet: ' + window.BenMatcher.formatHeading(m.name))); });
         d.appendChild(ul);
         li.appendChild(d);
       });
