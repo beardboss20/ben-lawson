@@ -69,9 +69,9 @@
     },
     {
       "id": "other-analytics",
-      "name": "Web or marketing analytics",
-      "synonyms": ["web analytics", "marketing analytics", "business analytics", "learning analytics", "product analytics"],
-      "note": "Ben's analytics work is in people analytics (Power BI retention reporting and survey analysis). Web, marketing, and other domain-specific analytics aren't on his resume."
+      "name": "Domain-specific analytics",
+      "synonyms": ["web analytics", "marketing analytics", "business analytics", "product analytics", "customer analytics", "digital analytics", "finance analytics", "financial analytics", "advanced analytics", "self-service analytics", "self service analytics", "sales analytics", "supply chain analytics", "operations analytics", "risk analytics", "healthcare analytics", "health care analytics", "social media analytics", "social analytics", "google analytics", "adobe analytics", "ecommerce analytics", "e-commerce analytics", "e commerce analytics", "retail analytics", "logistics analytics", "inventory analytics", "procurement analytics", "campaign analytics", "seo analytics", "advertising analytics", "media analytics", "content analytics", "traffic analytics", "clickstream analytics", "conversion analytics", "funnel analytics", "growth analytics", "revenue analytics", "cx analytics", "customer experience analytics", "clinical analytics", "it analytics", "security analytics", "market analytics", "ga4"],
+      "note": "Ben's analytics work is in people analytics (Power BI retention reporting and survey analysis) and evaluating learning impact. Web, marketing, and other domain-specific analytics aren't on his resume."
     },
     {
       "id": "dei",

@@ -313,11 +313,15 @@ yes('data analysis');
 yes('analytical skills');
 yes('reporting and analytics');
 no('predictive analytics', /predictive analytics|statistical modeling/);
-no('web analytics', /Web, marketing|people analytics/);
-no('marketing analytics', /Web, marketing|people analytics/);
+no('web analytics', /domain-specific analytics|people analytics/);
+no('marketing analytics', /domain-specific analytics|people analytics/);
+yes('learning analytics');
+yes('training analytics');
+yes('learning measurement');
+yes('survey analytics');
 
 test('plain analytics is people analytics YES, with Power BI and survey evidence, and domain analytics stay NOT YET', () => {
-  for (const q of ['analytics', 'Analytics', 'data analytics', 'analytical skills', 'reporting and analytics']) {
+  for (const q of ['analytics', 'Analytics', 'data analytics', 'analytical skills', 'reporting and analytics', 'survey analytics', 'hr analytics', 'workforce analytics', 'retention analytics']) {
     const r = one(q);
     assert.equal(r.verdict, 'yes', q);
     assert.ok(r.matchedSkills.includes('people-analytics'), q + ' -> ' + r.matchedSkills);
@@ -327,9 +331,22 @@ test('plain analytics is people analytics YES, with Power BI and survey evidence
   const da = one('data analysis');
   assert.equal(da.verdict, 'yes');
   assert.ok(da.matchedSkills.includes('people-analytics'), 'data analysis -> ' + da.matchedSkills);
-  for (const q of ['predictive analytics', 'turnover modeling', 'web analytics', 'marketing analytics', 'business analytics', 'learning analytics', 'product analytics']) {
+  for (const q of ['predictive analytics', 'turnover modeling', 'web analytics', 'marketing analytics', 'business analytics', 'product analytics', 'customer analytics', 'digital analytics', 'finance analytics', 'financial analytics', 'advanced analytics', 'self-service analytics', 'sales analytics', 'supply chain analytics', 'operations analytics', 'risk analytics', 'healthcare analytics', 'social media analytics', 'google analytics']) {
     assert.equal(one(q).verdict, 'no', q + ' should stay NOT YET, got ' + one(q).note);
   }
   assert.equal(one('turnover').verdict, 'yes');
   assert.equal(one('people analytics').verdict, 'yes');
+});
+
+test('learning analytics and training analytics are YES on evaluating learning impact, not the domain-analytics gap', () => {
+  for (const q of ['learning analytics', 'training analytics', 'learning measurement']) {
+    const r = one(q);
+    assert.equal(r.verdict, 'yes', q);
+    assert.ok(r.matchedSkills.includes('learning-evaluation'), q + ' -> ' + r.matchedSkills);
+    assert.ok(r.evidence.some((e) => /Evaluating Learning Impact/.test(e.text)), q);
+  }
+  const gap = data.gaps.gaps.find((g) => g.id === 'other-analytics');
+  assert.ok(gap);
+  assert.ok(!gap.synonyms.includes('learning analytics'));
+  assert.ok(!gap.synonyms.includes('training analytics'));
 });

@@ -465,7 +465,7 @@
       "name": "Evaluating learning impact",
       "category": "ld",
       "years": null,
-      "synonyms": ["evaluating learning impact", "learning impact", "training effectiveness", "training evaluation", "learning evaluation", "learning measurement", "training impact", "program evaluation", "measuring training"],
+      "synonyms": ["evaluating learning impact", "learning impact", "training effectiveness", "training evaluation", "learning evaluation", "learning measurement", "training impact", "program evaluation", "measuring training", "learning analytics", "training analytics"],
       "evidence": [
         {"text": "Evaluating Learning Impact for HR Professionals, ATD Certified", "source": "resume"}
       ]
@@ -603,7 +603,7 @@
       "name": "People analytics",
       "category": "analytics",
       "years": null,
-      "synonyms": ["people analytics", "hr analytics", "workforce analytics", "talent analytics", "people data", "hr data", "hr reporting", "people reporting", "retention analytics", "workforce data", "hr metrics", "people metrics", "data driven hr", "data-driven hr", "qualitative analysis", "quantitative analysis", "sentiment analysis", "analytics", "data analytics", "data analysis", "analytical skills", "reporting and analytics"],
+      "synonyms": ["people analytics", "hr analytics", "workforce analytics", "talent analytics", "people data", "hr data", "hr reporting", "people reporting", "retention analytics", "workforce data", "hr metrics", "people metrics", "data driven hr", "data-driven hr", "qualitative analysis", "quantitative analysis", "sentiment analysis", "analytics", "data analytics", "data analysis", "analytical skills", "reporting and analytics", "survey analytics"],
       "evidence": [
         {"text": "Core competencies: People Analytics & Retention Insights", "source": "resume"},
         {"text": "Owned the exit survey program for about 5,000 employees, from survey design and vendor platform to retention reporting for HR leadership", "source": "resume"},
